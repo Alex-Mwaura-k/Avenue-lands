@@ -9,6 +9,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import InstallBanner from "./components/InstallBanner";
 import BookingModal from "./components/BookingModal";
 import Loading from "./components/Loading";
+import ContactFab from "./components/ContactFab"; // <-- 1. NEW: Import the ContactFab
 
 // --- NEW IMPORTS (Mocking them for single file or standard structure) ---
 // Note: In your real project, these are imported from the files we created above.
@@ -68,7 +69,6 @@ function App() {
       <Navbar />
       <InstallBanner />
       <BookingModal />
-
       <main>
         <Suspense fallback={<Loading />}>
           <Routes>
@@ -90,7 +90,8 @@ function App() {
           </Routes>
         </Suspense>
       </main>
-
+      <ContactFab />{" "}
+      {/* <-- 2. NEW: Place it globally alongside your other floating items */}
       <ScrollToTop />
       <Footer />
     </>
