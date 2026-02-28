@@ -3,12 +3,12 @@ import Stats from "./Stats";
 const About = () => {
   return (
     <section id="about-us" className="about-section bg-primary-custom py-5">
-      <div className="container-md pt-4">
-        {/* Header - Centered for a modern look */}
+      <div className="container-md">
+        {/* Header */}
         <div className="row mb-5 justify-content-center text-center">
           <div className="col-lg-8">
             <span className="text-secondary-custom fw-bold text-uppercase small ls-2">
-              About Us
+              About us
             </span>
             <h2 className="text-light display-5 fw-bold mb-3 mt-2">
               Building Your <span className="text-stroke-light">Future</span>

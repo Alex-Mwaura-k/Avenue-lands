@@ -7,6 +7,7 @@
   font-style: normal;
   font-display: block;
 }
+
 :root {
   --primary-color: #0a2b8b;
   --secondary-color: #f3541b;
@@ -16,7 +17,8 @@
   --text-dark: #000000;
   --bg-dark: #000000;
   --bg-light: #ffffff;
-  --bg-dark-trans: #000000d7;
+  --bg-dark-trans: rgba(0, 0, 0, 0.85);
+  --bg-white-trans: rgba(255, 255, 255, 0.05);
   --bg-grey: #d3d3d3;
   --scroll-thumb: rgba(150, 150, 150, 0.6);
   --scroll-thumb-hover: #ffffff;
@@ -29,6 +31,72 @@
   --offcanvas-backdrop: rgba(34, 33, 37, 0.8);
   --border-radius: 8px;
 }
+
+/* =========================================
+   UTILITY CLASSES (REUSABLE)
+   ========================================= */
+.text-primary-custom {
+  color: var(--primary-color) !important;
+}
+.text-secondary-custom {
+  color: var(--secondary-color) !important;
+}
+.text-light {
+  color: var(--text-light) !important;
+}
+.text-dark {
+  color: var(--text-dark) !important;
+}
+
+.bg-primary-custom {
+  background-color: var(--primary-color) !important;
+}
+.bg-secondary-custom {
+  background-color: var(--secondary-color) !important;
+}
+.bg-dark-trans {
+  background-color: var(--bg-dark-trans) !important;
+}
+.bg-white-trans {
+  background-color: var(--bg-white-trans) !important;
+}
+
+.text-stroke-light {
+  color: transparent;
+  -webkit-text-stroke: 1.8px var(--text-light);
+  letter-spacing: 1px;
+  font-weight: 900;
+}
+
+.text-stroke-secondary {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--secondary-color);
+  font-weight: 900;
+}
+
+.border-bottom-light {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.ls-2 {
+  letter-spacing: 2px;
+}
+.w-50px {
+  width: 50px;
+}
+
+/* Reusable hover animation */
+.transition-hover {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.transition-hover:hover {
+  transform: translateY(-5px);
+}
+
+/* =========================================
+   GLOBAL & SCROLLBAR
+   ========================================= */
 #root {
   display: flex;
   flex-direction: column;
@@ -40,9 +108,7 @@ main {
   display: flex;
   flex-direction: column;
 }
-/* =========================================
-   GLOBAL & SCROLLBAR
-   ========================================= */
+
 ::selection {
   background: var(--primary-color);
   color: var(--text-light);
@@ -67,7 +133,41 @@ body {
 }
 
 /* =========================================
-   NAVBAR & OFFCANVAS
+   ABOUT US SECTION (Refactored)
+   ========================================= */
+.about-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.about-section .info-card {
+  border-top: 4px solid transparent;
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.about-section .info-card:hover {
+  border-top-color: var(--secondary-color);
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.about-section .process-step {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.about-section .process-step:hover h2 {
+  color: var(--secondary-color);
+  -webkit-text-stroke: 0;
+}
+
+.about-section .value-item:hover span {
+  color: var(--secondary-color);
+  -webkit-text-stroke: 0;
+}
+
+/* =========================================
+   NAVBAR & OFFCANVAS (Original)
    ========================================= */
 nav {
   background: var(--bg-light);
@@ -244,13 +344,9 @@ nav i:hover {
   }
 }
 
-/*
-=========================================
-INSTALL APP BANNER (Sharp & Compact)
-======================================== 
-*/
-
-/* 1. The Fixed Wrapper */
+/* =========================================
+   INSTALL APP BANNER
+   ========================================= */
 .install-banner-wrapper {
   position: fixed;
   top: 65px;
@@ -260,7 +356,6 @@ INSTALL APP BANNER (Sharp & Compact)
   pointer-events: none;
 }
 
-/* 2. The Card itself */
 .install-card {
   background: var(--text-light);
   padding: 3px 4px;
@@ -274,7 +369,7 @@ INSTALL APP BANNER (Sharp & Compact)
 
 .install-buttons {
   display: flex;
-  gap: 8px; /* Tighter gap */
+  gap: 8px;
   align-items: center;
 }
 
@@ -283,7 +378,7 @@ INSTALL APP BANNER (Sharp & Compact)
   color: var(--text-light);
   border: none;
   padding: 3px 10px;
-  font-size: 13px; /* Slightly smaller font for compactness */
+  font-size: 13px;
   cursor: pointer;
   border-radius: 0;
 }
@@ -309,7 +404,6 @@ INSTALL APP BANNER (Sharp & Compact)
   }
 }
 
-/* 3. Mobile Tweaks - Force to Edge */
 @media (max-width: 991px) {
   .install-banner-wrapper {
     top: 62px;
@@ -333,11 +427,10 @@ INSTALL APP BANNER (Sharp & Compact)
     font-size: 12px;
   }
 }
-/*
-  =========================================
+
+/* =========================================
    CAROUSEL & MODALS
-   =========================================
-*/
+   ========================================= */
 .css-item {
   display: flex;
   justify-content: center;
@@ -382,35 +475,35 @@ button {
     font-size: 12px !important;
   }
 }
-/* MODALS (Fixed Padding & Styling) */
+
+/* MODALS */
 .modal-content {
-  border-radius: 8px; /* Soft rounded corners */
-  border: none; /* Remove default ugly border */
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2); /* Float effect */
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
   overflow: hidden;
 }
 
 .modal-header {
   border-bottom: none;
-  padding: 2rem 2rem 0.5rem; /* Big padding for the title */
+  padding: 2rem 2rem 0.5rem;
 }
 
 .modal-title {
-  font-weight: 600; /* Bold title */
+  font-weight: 600;
   font-size: 1.5rem;
   color: #333;
 }
 
 .modal-body {
-  padding: 1.5rem 1rem; /* Breathing room for the form */
+  padding: 1.5rem 1rem;
 }
 
 .modal-footer {
   border-top: none;
-  padding: 0 1rem 1.5rem; /* Spacing for the buttons */
+  padding: 0 1rem 1.5rem;
 }
 
-/* Fix Input Field Focus color in Modal */
 #booking-Modal .form-control:focus,
 #booking-Modal .form-select:focus {
   box-shadow: 0 0 0 4px rgba(255, 0, 0, 0.1);
@@ -459,7 +552,6 @@ button {
   border-left: var(--hover-color) solid 6px;
   border-right: var(--hover-color) solid 6px;
   padding-left: 8px;
-  /* background-color: red; */
   display: flex;
   gap: 12px;
   align-items: center;
@@ -467,13 +559,6 @@ button {
   color: var(--primary-color) !important;
 }
 
-.text-stroke-light {
-  color: #ffffff00;
-  -webkit-text-stroke: 1.8px rgb(255, 255, 255);
-  letter-spacing: 1px;
-  paint-order: stroke fill;
-  font-weight: 900;
-}
 .text-stroke-dark {
   color: #ffffff;
   -webkit-text-stroke: 1.8px rgb(0, 0, 0);
@@ -544,11 +629,11 @@ button {
 
 .card-text {
   display: -webkit-box;
-  -webkit-line-clamp: 3 !important; /* Force 3 lines */
+  -webkit-line-clamp: 3 !important;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  min-height: 4.5em; /* Keeps cards consistent height even if text is short */
+  min-height: 4.5em;
   line-height: 1.5em;
 }
 
@@ -556,148 +641,6 @@ button {
   color: var(--primary-color) !important;
   border-bottom: 0.5px solid rgba(128, 128, 128, 0.23) !important;
   padding-bottom: 12px !important;
-}
-
-/* =========================================
-   ABOUT US SECTION
-   ========================================= */
-.About {
-  color: var(--text-light);
-}
-#about-us.about-section {
-  border-top: rgba(0, 0, 0, 0.1) 1px solid;
-  background-color: var(--primary-color) !important;
-  /* color: var(--text-light); */
-  position: relative;
-  overflow: hidden;
-  padding-top: 2rem !important;
-  padding-bottom: 2rem !important;
-  color: var(--text-dark);
-}
-#about-us i {
-  color: var(--text-light);
-}
-#about-us .ls-2 {
-  letter-spacing: 2px;
-}
-
-#about-us .mw-600 {
-  max-width: 600px;
-}
-
-#about-us .text-grey {
-  color: var(--text-light) !important;
-  line-height: 1.5;
-}
-
-#about-us .text-outline-red {
-  color: transparent;
-  -webkit-text-stroke: 1px white;
-  font-weight: 900;
-  font-family: sans-serif;
-  display: inline-block;
-  transition: all 0.3s ease;
-}
-
-#about-us .text-outline-red2 {
-  color: transparent;
-  -webkit-text-stroke: 1px var(--secondary-color);
-  font-weight: 900;
-  font-family: sans-serif;
-  display: inline-block;
-  transition: all 0.3s ease;
-}
-
-#about-us .section-header {
-  margin-bottom: 1.5rem !important;
-}
-
-#about-us .row {
-  margin-bottom: 1.5rem !important;
-}
-
-#about-us .info-block {
-  margin-bottom: 1rem !important;
-  position: relative;
-}
-
-#about-us .border-start-custom {
-  border-left: 2px solid var(--border-grey);
-  padding-left: 1rem;
-  transition: border-color 0.3s ease;
-}
-
-#about-us .info-block:hover .border-start-custom {
-  border-left: 2px solid var(--primary-color);
-}
-
-#about-us .values-container {
-  background: linear-gradient(180deg, rgba(226, 220, 216, 0.5), transparent);
-  border-radius: 4px;
-  padding: 1.5rem !important;
-}
-
-#about-us .value-item {
-  margin-bottom: 1rem !important;
-  transition: transform 0.3s ease;
-}
-
-#about-us .value-item:hover {
-  transform: translateX(5px);
-}
-
-#about-us .num {
-  font-size: 2rem;
-  opacity: 0.8;
-  width: 50px;
-  font-weight: bold;
-}
-
-#about-us .value-item:hover .num {
-  color: var(--secondary-color);
-  -webkit-text-stroke: 0;
-}
-
-#about-us .border-bottom-dark {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  margin-bottom: 2rem !important;
-  padding-bottom: 1rem !important;
-}
-
-#about-us .process-step {
-  padding: 5px;
-  margin-bottom: 1rem !important;
-}
-
-#about-us .process-step h2 {
-  font-size: 2.5rem;
-  margin-bottom: 0.2rem;
-  opacity: 0.5;
-  transition: all 0.3s ease;
-}
-
-#about-us .process-step:hover h2 {
-  opacity: 1;
-  transform: translateY(-3px);
-  color: var(--secondary-color);
-  -webkit-text-stroke: 0;
-}
-
-#about-us .stat-box {
-  background: rgba(255, 255, 255, 0.02);
-  padding: 15px;
-  border-left: 2px solid transparent;
-  transition: all 0.3s ease;
-}
-
-#about-us .stat-box:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-left: 2px solid var(--primary-color);
-}
-
-#about-us .g-5 {
-  --bs-gutter-x: 1.5rem !important;
-  --bs-gutter-y: 1.5rem !important;
 }
 
 /* =========================================
@@ -873,7 +816,6 @@ button {
 }
 
 .filter-btn {
-  /* background: transparent; */
   border: 1px solid #ffffff;
   color: #000000;
   padding: 8px 20px;
@@ -1315,8 +1257,6 @@ button {
   }
 }
 
-/* ... existing code ... */
-
 /* React Carousel Animation Fix */
 .carousel-item {
   transition: opacity 1s ease-in-out;
@@ -1337,390 +1277,4 @@ button {
 
 .carousel-inner {
   position: relative;
-}
-
-/* =========================================
-   LIGHTBOX STYLES (Forced Override)
-   ========================================= */
-.lightbox-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.95);
-  z-index: 99999 !important; /* Sit on top of everything */
-  display: flex !important; /* Force Flexbox */
-  justify-content: center !important; /* Center Horizontally */
-  align-items: center !important; /* Center Vertically */
-  backdrop-filter: blur(5px);
-}
-
-.lightbox-content {
-  position: relative;
-  max-width: 98vw;
-  max-height: 98vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-.lightbox-img {
-  max-width: 100%;
-  max-height: 90vh;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  border: 1px solid white;
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
-  border-radius: 4px;
-}
-
-.lightbox-caption {
-  color: white;
-  margin-top: 15px;
-  text-align: center;
-  font-size: 1.1rem;
-}
-
-/* BUTTONS: Reset Bootstrap Defaults */
-.lightbox-close,
-.lightbox-prev,
-.lightbox-next {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  outline: none !important;
-  cursor: pointer;
-  color: white !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  transition: transform 0.2s ease;
-}
-
-/* Close Button (Top Right) */
-.lightbox-close {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 3rem !important;
-  line-height: 1;
-  z-index: 100000;
-}
-
-.lightbox-close:hover {
-  color: var(--primary-color) !important;
-  transform: scale(1.1);
-}
-
-/* Navigation Arrows */
-.lightbox-prev,
-.lightbox-next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 2rem !important;
-  width: 50px;
-  height: 50px;
-  display: flex !important;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  background: rgba(
-    255,
-    255,
-    255,
-    0.1
-  ) !important; /* Slight background for visibility */
-  z-index: 100000;
-}
-
-.lightbox-prev:hover,
-.lightbox-next:hover {
-  background: var(--primary-color) !important;
-  color: white !important;
-}
-
-.lightbox-prev {
-  left: 30px;
-}
-.lightbox-next {
-  right: 30px;
-}
-
-/* Mobile Adjustments */
-@media (max-width: 768px) {
-  .lightbox-prev {
-    left: 10px;
-  }
-  .lightbox-next {
-    right: 10px;
-  }
-  .lightbox-close {
-    top: 15px;
-    right: 15px;
-    font-size: 2.5rem !important;
-  }
-}
-/* =========================================
-   BREADCRUMB RESTORATION (Force Red/Dark Theme)
-   ========================================= */
-nav[aria-label="breadcrumb"] {
-  padding: 0 !important;
-  margin-bottom: 1rem;
-  padding-left: 5px !important;
-}
-
-.breadcrumb {
-  background-color: transparent !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-/* The active page (current location) -> Dark Grey */
-.breadcrumb-item.active {
-  color: var(--secondary-color) !important;
-}
-
-/* The Divider (/) -> Red */
-.breadcrumb-item + .breadcrumb-item::before {
-  color: var(--primary-color) !important;
-  font-weight: bold;
-  content: "/";
-}
-
-/* The Links (Home, Properties) -> Red & Bold */
-.breadcrumb-item a {
-  color: var(--primary-color) !important;
-  text-decoration: none !important;
-  letter-spacing: 0.5px;
-}
-
-.breadcrumb-item a:hover {
-  color: #ff0000 !important; /* Darker red on hover */
-}
-/* PROPERTY DETAILS THUMBNAILS */
-.thumbnails-container::-webkit-scrollbar {
-  height: 6px;
-}
-
-.thumbnails-container::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 4px;
-}
-
-.thumbnail-img {
-  transition: all 0.2s ease;
-}
-
-.thumbnail-img:hover {
-  opacity: 1 !important;
-  transform: scale(1.05);
-}
-
-.about-page-container #about-us.about-section {
-  /* We use !important to override the existing styles */
-  padding-top: 1rem !important;
-}
-
-/* =========================================
-   TESTIMONIALS SECTION SPECIFIC STYLES
-   ========================================= */
-
-/* Scoped Fade In Animation */
-.testimonials-section .fade-in-animation {
-  animation: fadeInUpTestimonial 0.6s ease-out forwards;
-}
-
-@keyframes fadeInUpTestimonial {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Scoped Transition */
-.testimonials-section .transition-all {
-  transition: all 0.3s ease-in-out;
-}
-
-/* Strict Image Sizing for Testimonials ONLY */
-/* This targets images in the card AND the preview in the modal */
-.testimonials-section .testimonial-img,
-.testimonials-modal .testimonial-img {
-  width: 10px !important;
-  height: 50px !important;
-  min-width: 50px !important; /* Prevents shrinking */
-  object-fit: cover !important;
-  border: 2px solid white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  flex-shrink: 0; /* Prevents flexbox squishing */
-}
-
-/* Scoped Scrollbar for Testimonial Modal Textareas ONLY */
-.testimonials-modal textarea::-webkit-scrollbar {
-  width: 8px;
-}
-.testimonials-modal textarea::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-.testimonials-modal textarea::-webkit-scrollbar-thumb {
-  background: #dc3545;
-  border-radius: 4px;
-} /* =========================================
-   FAQ SECTION STYLES
-   ========================================= */
-
-/* Turn the default blue Bootstrap Accordion Icon to WHITE */
-#faq .accordion-button::after {
-  filter: invert(1) grayscale(100%) brightness(200%);
-}
-
-/* ... other styles ... */
-
-/* =========================================
-   FAQ SECTION STYLES
-   ========================================= */
-
-#faq .accordion-button::after {
-  filter: invert(1) grayscale(100%) brightness(200%);
-}
-
-/* IMPROVED STROKE TEXT */
-.text-stroke-white {
-  color: #000000;
-  -webkit-text-stroke: 1.8px white;
-  letter-spacing: 1px;
-  paint-order: stroke fill;
-  font-weight: 900;
-}
-.text-stroke-red {
-  color: #ffffff;
-  -webkit-text-stroke: 2px var(--primary-color);
-  letter-spacing: 1px;
-  paint-order: stroke fill;
-  /* font-weight: 900; */
-  font-family: sans-serif;
-}
-
-/* JOb details */
-.btn-primary-red {
-  background-color: var(--primary-color) !important; /* Uses your #ff0000 */
-  color: white !important;
-  border: 1px solid var(--primary-color) !important;
-  transition: all 0.3s ease;
-}
-
-.btn-primary-red:hover {
-  background-color: #cc0000 !important; /* Slightly darker on hover */
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
-}
-
-/* =========================================
-   PROPERTY IMAGE NAVIGATION BUTTONS
-   ========================================= */
-
-.img-nav-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.3); /* Black with 30% opacity (Faint) */
-  color: white;
-  border: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  z-index: 10;
-
-  /* Optional: Hide on mobile to keep it clean, show on hover/desktop */
-  /* opacity: 0; */
-}
-
-/* Hover over the image container makes buttons clearer */
-.main-image-container:hover .img-nav-btn {
-  background-color: rgba(0, 0, 0, 0.6); /* Darker on hover */
-  /* opacity: 1; */
-}
-
-/* Hover over the specific button makes it Red */
-.img-nav-btn:hover {
-  background-color: #dc3545 !important; /* Bootstrap Danger Red */
-  transform: translateY(-50%) scale(1.1); /* Slight zoom effect */
-}
-
-.img-nav-btn.prev {
-  left: 15px;
-}
-
-.img-nav-btn.next {
-  right: 15px;
-}
-
-/* NAVBAR FIXES */
-
-/* Parent for submenu positioning */
-.dropdown-submenu {
-  position: relative;
-}
-
-/* Desktop: Submenu opens to the right */
-@media (min-width: 992px) {
-  .dropdown-submenu .dropdown-menu {
-    top: 0;
-    left: 100%;
-    margin-top: -1px;
-  }
-}
-
-/* Mobile: Submenu stacks vertically with indentation */
-@media (max-width: 991px) {
-  .dropdown-submenu .dropdown-menu {
-    position: static;
-    float: none;
-    width: auto;
-    margin-top: 0;
-    background-color: transparent;
-    border: 0;
-    box-shadow: none;
-    padding-left: 1.5rem; /* Indent */
-  }
-
-  .dropdown-submenu .dropdown-menu .dropdown-item {
-    color: rgba(255, 255, 255, 0.7);
-  }
-}
-
-.dark-text {
-  color: var(--text-dark) !important;
-}
-.light-text {
-  color: var(--text-light) !important;
-}
-.secondary-text {
-  color: var(--secondary-color) !important;
-}
-.primary-text {
-  color: var(--primary-color) !important;
-}
-
-.blue-background {
-  background-color: var(--primary-color) !important;
-}
-.orange-background {
-  background-color: var(--secondary-color) !important;
-}
-.border-radius {
-  border-radius: var(--border-radius) !important;
 }

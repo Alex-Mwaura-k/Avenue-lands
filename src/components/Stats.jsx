@@ -5,6 +5,7 @@ const Stats = () => {
     locations: 0,
     investors: 0,
     assurance: 0,
+    projects: 0,
   });
 
   const [hasAnimated, setHasAnimated] = useState(false);
@@ -18,7 +19,7 @@ const Stats = () => {
           animateNumbers();
         }
       },
-      { threshold: 0.5 }, // Trigger when 50% of the section is visible
+      { threshold: 0.5 },
     );
 
     if (sectionRef.current) {
@@ -29,14 +30,14 @@ const Stats = () => {
   }, [hasAnimated]);
 
   const animateNumbers = () => {
-    const duration = 2000; // Animation takes 2 seconds
+    const duration = 2000;
     const steps = 50;
     const interval = duration / steps;
 
-    // Targets
     const targetLocations = 20;
     const targetInvestors = 500;
     const targetAssurance = 100;
+    const targetProjects = 50;
 
     let currentStep = 0;
 
@@ -56,6 +57,10 @@ const Stats = () => {
           targetAssurance,
           Math.ceil((targetAssurance / steps) * currentStep),
         ),
+        projects: Math.min(
+          targetProjects,
+          Math.ceil((targetProjects / steps) * currentStep),
+        ),
       });
 
       if (currentStep >= steps) clearInterval(timer);
@@ -63,38 +68,50 @@ const Stats = () => {
   };
 
   return (
-    <div className="row g-4" ref={sectionRef}>
-      <div className="col-md-4">
+    <div className="row justify-content-between g-4 w-100 m-0" ref={sectionRef}>
+      <div className="col-6 col-md-auto px-0">
         <div className="stat-box d-flex align-items-center">
-          <i className="bi bi-geo-alt text-danger fs-1 me-3 opacity-50"></i>
+          <i className="bi bi-geo-alt text-secondary-custom fs-1 me-3"></i>
           <div>
             <h3 className="text-white fw-bold mb-0">{counts.locations}+</h3>
-            <span className="light-text small text-uppercase ls-2">
+            <span className="text-white small text-uppercase ls-2">
               Prime Locations
             </span>
           </div>
         </div>
       </div>
 
-      <div className="col-md-4">
+      <div className="col-6 col-md-auto px-0">
         <div className="stat-box d-flex align-items-center">
-          <i className="bi bi-people text-danger fs-1 me-3 opacity-50"></i>
+          <i className="bi bi-people text-secondary-custom fs-1 me-3"></i>
           <div>
             <h3 className="text-white fw-bold mb-0">{counts.investors}+</h3>
-            <span className="light-text small text-uppercase ls-2">
+            <span className="text-white small text-uppercase ls-2">
               Happy Investors
             </span>
           </div>
         </div>
       </div>
 
-      <div className="col-md-4">
+      <div className="col-6 col-md-auto px-0">
         <div className="stat-box d-flex align-items-center">
-          <i className="bi bi-file-earmark-check text-danger fs-1 me-3 opacity-50"></i>
+          <i className="bi bi-file-earmark-check text-secondary-custom fs-1 me-3"></i>
           <div>
             <h3 className="text-white fw-bold mb-0">{counts.assurance}%</h3>
-            <span className="light-text small text-uppercase ls-2">
+            <span className="text-white small text-uppercase ls-2">
               Title Assurance
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div className="col-6 col-md-auto px-0">
+        <div className="stat-box d-flex align-items-center">
+          <i className="bi bi-house-check text-secondary-custom fs-1 me-3"></i>
+          <div>
+            <h3 className="text-white fw-bold mb-0">{counts.projects}+</h3>
+            <span className="text-white small text-uppercase ls-2">
+              Projects Done
             </span>
           </div>
         </div>
