@@ -111,11 +111,11 @@ export const properties = [
     price: "1.0M",
     status: "Available",
 
-    img: "/img/properties/amani-garden-malindi/main.png",
+    img: "/img/properties/Juja-plain/main.png",
 
     images: [
-      "/img/properties/amani-garden-malindi/main.png",
-      "/img/properties/amani-garden-malindi/1.png",
+      "/img/properties/Juja-plain/main.png",
+      "/img/properties/Juja-plain/1.png",
     ],
 
     description:
