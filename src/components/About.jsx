@@ -5,7 +5,7 @@ const About = () => {
     <section id="about-us" className="about-section bg-primary-custom py-5">
       <div className="container-md">
         {/* Header */}
-        <div className="row mb-5 justify-content-center text-center">
+        <div className="row mb-2 justify-content-center text-center">
           <div className="col-lg-8">
             <span className="text-secondary-custom fw-bold text-uppercase small ls-2">
               About us
@@ -25,7 +25,7 @@ const About = () => {
         </div>
 
         {/* Mission & Vision - Card Layout */}
-        <div className="row g-4 mb-5 pb-4 border-bottom-light">
+        <div className="row g-4 mb-2 pb-4 border-bottom-light">
           <div className="col-md-6">
             <div className="info-card p-4 h-100 rounded bg-white-trans shadow-sm transition-hover">
               <h4 className="text-secondary-custom d-flex align-items-center mb-3">
@@ -56,7 +56,7 @@ const About = () => {
         </div>
 
         {/* Core Values & Ownership Process - Split View */}
-        <div className="row g-5 mb-5 align-items-center">
+        <div className="row g-5 mb-3 align-items-center">
           {/* Left Column: Ownership Process */}
           <div className="col-lg-7">
             <h3 className="text-light h4 mb-4">
