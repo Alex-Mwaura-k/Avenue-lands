@@ -244,7 +244,7 @@ const Navbar = () => {
                   href="tel:+254408888775"
                   className="nav-link p-0 contact-link"
                 >
-                  +254 408 888 775
+                  +254 740 888 775
                 </a>
                 <a href="#" className="text-decoration-none social-icon">
                   <i className="bi bi-instagram"></i>

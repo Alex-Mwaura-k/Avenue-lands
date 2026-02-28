@@ -140,11 +140,11 @@ const PrivacyPolicy = () => {
                 <address className="text-muted border-start border-4 border-danger ps-3">
                   <strong>Avenue Ventures Ltd</strong>
                   <br />
-                  Exit star House, Suite 405, Ruiru Town
+                  Main Stage, Exit star House, Suite 405, Ruiru Town
                   <br />
                   Kiambu County, Kenya
                   <br />
-                  Phone: +254 408 888 775
+                  Phone: +254 740 888 775
                 </address>
               </section>
             </div>
