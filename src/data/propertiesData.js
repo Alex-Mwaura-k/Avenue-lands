@@ -98,7 +98,7 @@ export const properties = [
       "Our most affordable project yet. Located 10 minutes from Matuu CBD. Perfect for investors looking to secure prime land cheaply. The area is developing rapidly with new infrastructure projects underway. With ready title deeds, electricity, and community water, it's an excellent opportunity to own land in rapid growing Matuu town.",
     features: ["Ready Titles", "Electricity", "Community Water" , "Perimeter fence installed"],
     mapSrc:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d271600.1812526625!2d37.50506878016992!3d-0.9826549983425922!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1825d50050529db3%3A0x85f1e6c046bd2c91!2sRoyal%20Gardens%20Phase%204(Avenue%20Land%20Ventures)!5e1!3m2!1sen!2ske!4v1764789333226!5m2!1sen!2ske",
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15956.096630723694!2d37.537336948017675!3d-1.143202081533436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1825ec0179842605%3A0x3d9c24dc6f115706!2sMatuu!5e0!3m2!1sen!2ske!4v1772299035776!5m2!1sen!2ske" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>,
   },
   {
     id: 5,
