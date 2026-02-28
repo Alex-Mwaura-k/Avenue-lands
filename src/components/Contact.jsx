@@ -71,7 +71,7 @@ const Contact = ({ showBreadcrumb }) => {
             {/* 2. MAP AREA */}
             <div className="map-standalone flex-grow-1">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127649.24669159995!2d36.81621878964839!3d-1.1324982396298195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f474b80c7eeff%3A0xcc6b79a45ed5fc75!2sAvenue%20Land%20Ventures!5e0!3m2!1sen!2ske!4v1764347923584!5m2!1sen!2ske"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.019165236547!2d36.95670717496558!3d-1.146789898842228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f471c9420c73b%3A0x3bea7fcd1d54f284!2sAVENUE%20LANDS%20VENTURES%20LTD!5e0!3m2!1sen!2ske!4v1772280704674!5m2!1sen!2ske"
                 width="600"
                 height="450"
                 style={{ border: 0 }}
