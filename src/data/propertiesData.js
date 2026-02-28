@@ -108,7 +108,7 @@ export const properties = [
     slug: "juja-plains",
     location: "juja-farm",
     size: "100x100",
-    price: "1,000,000",
+    price: "1000000",
     status: "Available",
 
     img: "/img/properties/Juja-plain/main.png",
