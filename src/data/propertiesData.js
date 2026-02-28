@@ -19,7 +19,7 @@ export const properties = [
     ],
 
     description:
-      "Located just 9 minutes from the Thika-Garissa highway, Royal Garden Phase 5 offers a serene environment perfect for immediate settlement. The soil is red, suitable for farming, and the area is rapidly developing. Water on site, and electricity nearby, it's an ideal choice for both residential and investment purposes. The plots are beaconed, and the roads are graded for easy access. Don't miss out on this opportunity to own a piece of prime land in Kithyoko.",
+      "Located just 10 minutes off Thika-Garissa highway, Pazuri Garden Phase 7 offers a serene environment perfect for immediate settlement. The soil is red, suitable for farming, and the area is rapidly developing. Water on site, and electricity nearby, it's an ideal choice for both residential and investment purposes. The plots are beaconed, and the roads are graded for easy access. Don't miss out on this opportunity to own a piece of prime land in Kithyoko.",
     features: [
       "Freehold Title Deeds.",
       "Water borehole on Site.",
@@ -49,12 +49,12 @@ export const properties = [
     ],
 
     description:
-      "A massive 1-acre block ideal for holiday homes, speculation, or large scale farming. Located near Msumarini shopping center just 45 minutes from Malindi CBD, this project promises high returns on investment. The area boasts a cool climate, ocean breeze, and is in close proximity to the beach. With freehold title deeds, tarmacked roads nearby, and a secure environment, Kijani Garden is perfect for those looking to invest in Malindi's thriving property market.",
+      "It is ideal for holiday homes, speculation, or large scale farming. Located near Msumarini shopping center just short distance from Malindi town, this project promises high returns on investment. The area boasts a cool climate, ocean breeze, and is in close proximity to the beach. With freehold title deeds, tarmacked roads nearby, and a secure environment, Baharini Garden is perfect for those looking to invest in Malindi's thriving property market.",
     features: [
       "Freehold Title Deed.",
-      "Near Tarmac.",
-      "Ocean Breeze.",
-      "Fully beaconed.",
+      "Meters away from Tarmac.",
+      "5 minutes from Indian ocean.",
+      "Friendly neighborhood.",
     ],
     mapSrc:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955!2d40.1!3d-3.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMTInMDAuMCJTIDQwwrAwNiwwMC4wIkU!5e0!3m2!1sen!2ske!4v1620000000000!5m2!1sen!2ske",
@@ -62,7 +62,7 @@ export const properties = [
   {
     id: 3,
     title: "Breeze Gardens",
-    slug: "unity-gardens",
+    slug: "Breeze-gardens",
     location: "Makutano (Mwea)",
     size: "50x100",
     price: "500,000",
@@ -87,7 +87,7 @@ export const properties = [
   {
     id: 4,
     title: "Zawadi Gardens",
-    slug: "royal-garden-kithyoko",
+    slug: "Zawadi-garden-Matuu",
     location: "Matuu",
     size: "50x100",
     price: "200,000",
@@ -97,7 +97,7 @@ export const properties = [
     images: ["/img/properties/royal-garden-kithyoko/main.png"],
 
     description:
-      "Our most affordable project yet. Located 10 minutes from Kavaini shopping center. Perfect for first-time investors looking to secure land cheaply. The area is developing rapidly with new infrastructure projects underway. With ready title deeds, electricity, and community water, it's an excellent opportunity to own land in Kithyoko.",
+      "Our most affordable project yet. Located 10 minutes from Matuu CBD. Perfect for investors looking to secure prime land cheaply. The area is developing rapidly with new infrastructure projects underway. With ready title deeds, electricity, and community water, it's an excellent opportunity to own land in rapid growing Matuu town.",
     features: ["Ready Titles", "Electricity", "Community Water"],
     mapSrc:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d271600.1812526625!2d37.50506878016992!3d-0.9826549983425922!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1825d50050529db3%3A0x85f1e6c046bd2c91!2sRoyal%20Gardens%20Phase%204(Avenue%20Land%20Ventures)!5e1!3m2!1sen!2ske!4v1764789333226!5m2!1sen!2ske",
@@ -119,7 +119,7 @@ export const properties = [
     ],
 
     description:
-      "Sold out project. Located along the Sala Gate bypass. Keep watching for Phase 2 opening soon. Thank you for your interest!",
+      "Located 15 minutes off Thika Superhighway and a stone throw away from Juja farm town. It is perfect for investors looking for land to settle immediately.",
     features: ["available", "Holiday Destination"],
     mapSrc: "",
   },
@@ -140,7 +140,7 @@ export const properties = [
     ],
 
     description:
-      "Sold out project. Located along the Sala Gate bypass. Keep watching for Phase 2 opening soon. Thank you for your interest!",
+      "Sold out project. Located in Kithyoko. Keep watching for Phase 2 opening soon. Thank you for your interest!",
     features: ["Sold Out", "Holiday Destination"],
     mapSrc: "",
   },
@@ -157,7 +157,7 @@ export const properties = [
     images: ["/img/properties/fadhili-garden-makutano/main.png"],
 
     description:
-      "This gated community project is fully sold out. Thank you to all our valued customers. Stay tuned for future developments in the Makutano area. We appreciate your support!",
+      "This project is fully sold out. Thank you to all our valued customers. Stay tuned for future developments in the Kithyoko area. We appreciate your support!",
     features: ["Sold Out", "Gated Community"],
     mapSrc: "",
   },
@@ -173,7 +173,7 @@ export const properties = [
     img: "/img/properties/royal-garden-kithyoko/main.png",
     images: ["/img/properties/royal-garden-kithyoko/main.png"],
 
-    description: "The next phase of our popular Royal Garden series.",
+    description: "The next phase of our popular Pazuri Garden series.",
     features: ["Pre-booking", "Prime Location"],
     mapSrc: "",
   },
