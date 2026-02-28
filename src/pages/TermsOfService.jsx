@@ -171,7 +171,7 @@ const TermsOfService = () => {
                 <address className="text-muted border-start border-4 border-danger ps-3">
                   <strong>Avenue Ventures Ltd</strong>
                   <br />
-                  Exit star House, Suite 405, Ruiru Town
+                  Main Stage, Exit star House, Suite 405, Ruiru Town
                   <br />
                   Kiambu County, Kenya.
                   <br />

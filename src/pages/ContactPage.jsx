@@ -16,7 +16,7 @@ const ContactPage = () => {
         <title>Contact Us</title>
         <meta
           name="description"
-          content="Get in touch with Avenue Ventures. Visit our offices at Exit star House, Suite 405, Ruiru, call us, or send a message to book a free site visit for prime land in Kenya."
+          content="Get in touch with Avenue Ventures. Visit our offices at Main stage Exit, star House, Suite 405, Ruiru, call us, or send a message to book a free site visit for prime land in Kenya."
         />
         <meta
           name="keywords"
