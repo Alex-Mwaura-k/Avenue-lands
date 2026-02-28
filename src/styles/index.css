@@ -1550,6 +1550,11 @@ button {
 
 /* Make arrows responsive on mobile */
 @media (max-width: 768px) {
+  .lightbox-close {
+    font-size: 40px;
+    top: 4px;
+    right: 12px;
+  }
   .lightbox-prev {
     left: 10px;
   }
