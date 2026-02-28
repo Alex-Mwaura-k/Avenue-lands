@@ -8,14 +8,14 @@ export const properties = [
     price: "130,000",
     status: "Available",
 
-    img: "/img/properties/royal-garden-kithyoko/main.png",
+    img: "/img/properties/pazuri-gardens-phase-7/main.png",
 
     images: [
-      "/img/properties/royal-garden-kithyoko/main.png",
-      "/img/properties/royal-garden-kithyoko/1.png",
-      "/img/properties/royal-garden-kithyoko/2.png",
-      "/img/properties/royal-garden-kithyoko/3.png",
-      "/img/properties/royal-garden-kithyoko/4.png",
+      "/img/properties/pazuri-gardens-phase-7/main.png",
+      "/img/properties/pazuri-gardens-phase-7/1.png",
+      "/img/properties/pazuri-gardens-phase-7/2.png",
+      "/img/properties/pazuri-gardens-phase-7/3.png",
+      "/img/properties/pazuri-gardens-phase-7/4.png",
     ],
 
     description:
