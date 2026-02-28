@@ -40,22 +40,22 @@ const Gallery = ({ limit }) => {
 
   return (
     <>
-      {/* Restored the blue-background and added py-5 for nice top/bottom spacing */}
       <section id="gallery" className="bg-primary-custom gallery-section py-5">
         <div className="container-md">
           {/* Header */}
           <div className="row mb-4 align-items-center">
-            <div className="col-lg-4 mb-3 mb-lg-0">
+            {/* WIDENED TO col-lg-5 so "Experience Avenue" doesn't wrap */}
+            <div className="col-lg-5 mb-3 mb-lg-0">
               <span className="text-secondary-custom fw-bold text-uppercase small ls-2">
                 Our Gallery
               </span>
-              {/* Changed back to text-white for the dark background */}
-              <h3 className="text-white display-5 fw-bold mt-1">
+              <h2 className="text-white display-5 fw-bold mt-1">
                 Experience <span className="text-stroke-light">Avenue</span>
-              </h3>
+              </h2>
             </div>
 
-            <div className="col-lg-8">
+            {/* SHRUNK TO col-lg-7 to balance the row */}
+            <div className="col-lg-7">
               <div className="gallery-filters d-flex justify-content-lg-end justify-content-start gap-2 flex-wrap">
                 <button
                   className={`filter-btn ${filter === "all" ? "active" : ""}`}
@@ -92,7 +92,6 @@ const Gallery = ({ limit }) => {
                 key={item.id}
                 className="col-lg-4 col-md-6 gallery-item show"
               >
-                {/* Images will now naturally size themselves without stretching */}
                 <div
                   className="gallery-card overflow-hidden"
                   onClick={() => openLightbox(index)}
@@ -120,9 +119,10 @@ const Gallery = ({ limit }) => {
 
           {/* View All Button */}
           {limit && (
-            <div className="row mt-5">
+            <div className="row mt-3">
               <div className="col-12 text-center">
-                <Link to="/gallery" className="btn btn-custom-red px-4 py-2">
+                {/* Reverted exactly to your original button classes */}
+                <Link to="/gallery" className="btn btn-custom-red px-3 py-1">
                   View Full Gallery
                 </Link>
               </div>

@@ -144,7 +144,7 @@ const PrivacyPolicy = () => {
                   <br />
                   Kiambu County, Kenya
                   <br />
-                  Phone: +254 408 888 775
+                  Phone: +254 740 888 775
                 </address>
               </section>
             </div>

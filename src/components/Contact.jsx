@@ -56,7 +56,7 @@ const Contact = ({ showBreadcrumb }) => {
                 <div className="d-flex align-items-center mb-2 mb-md-0">
                   <i className="bi bi-telephone-fill text-danger fs-5 me-2"></i>
                   <span className="fw-bold text-dark small">
-                    +254 408 888 775
+                    +254 740 888 775
                   </span>
                 </div>
                 <div className="d-flex align-items-center">
