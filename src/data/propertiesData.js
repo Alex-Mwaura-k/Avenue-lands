@@ -39,13 +39,13 @@ export const properties = [
     price: "380,000",
     status: "Available",
 
-    img: "/img/properties/kijani-garden-malindi/main.png",
+    img: "/img/properties/Baharini-gardens/main.png",
 
     images: [
-      "/img/properties/kijani-garden-malindi/main.png",
-      "/img/properties/kijani-garden-malindi/1.png",
-      "/img/properties/kijani-garden-malindi/2.png",
-      "/img/properties/kijani-garden-malindi/3.png",
+      "/img/properties/Baharini-gardens/main.png",
+      "/img/properties/Baharini-gardens/1.png",
+      "/img/properties/Baharini-gardens/2.png",
+      "/img/properties/Baharini-gardens/3.png",
     ],
 
     description:
