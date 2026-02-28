@@ -86,11 +86,11 @@ export const properties = [
   },
   {
     id: 4,
-    title: "Zawadi Gardens",
-    slug: "Zawadi-garden-Matuu",
+    title: "Neema Gardens",
+    slug: "Neema-garden-Matuu",
     location: "Matuu",
     size: "50x100",
-    price: "200,000",
+    price: "150,000",
     status: "Available",
 
     img: "/img/properties/royal-garden-kithyoko/main.png",
@@ -108,7 +108,7 @@ export const properties = [
     slug: "juja-plains",
     location: "juja-farm",
     size: "100x100",
-    price: "1,000,000",
+    price: "1.0M",
     status: "Available",
 
     img: "/img/properties/amani-garden-malindi/main.png",
@@ -129,10 +129,10 @@ export const properties = [
     slug: "pazuri-gardens-phase-5",
     location: "kithyoko",
     size: "100x100",
-    price: "250,000",
+    price: "135,000",
     status: "Sold Out",
 
-    img: "/img/properties/amani-garden-malindi/main.png",
+    img: "/img/properties/",
 
     images: [
       "/img/properties/amani-garden-malindi/main.png",
@@ -147,10 +147,10 @@ export const properties = [
   {
     id: 7,
     title: "Pazuri Gardens - phase 4",
-    slug: "fadhili-garden-makutano",
+    slug: "pazuri-garden-Kithyoko",
     location: "Makutano",
     size: "50x100",
-    price: "480,000",
+    price: "150,000",
     status: "Sold Out",
 
     img: "/img/properties/fadhili-garden-makutano/main.png",
