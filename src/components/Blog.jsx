@@ -19,7 +19,7 @@ const Blog = ({ limit, customData }) => {
           <div className="row mb-4 align-items-end">
             {/* Left: Title */}
             <div className="col-lg-5 mb-4 mb-lg-0">
-              <span className="secondary-text fw-bold text-uppercase small ls-2">
+              <span className="text-secondary-custom fw-bold text-uppercase small ls-2">
                 Media Center
               </span>
               <h2 className="primary-text display-5 fw-bold mt-1">
@@ -40,7 +40,10 @@ const Blog = ({ limit, customData }) => {
                     placeholder="Email Subscribe..."
                     required
                   />
-                  <button type="submit" className="btn btn-dark rounded-0 px-3">
+                  <button
+                    type="submit"
+                    className="btn text-white blue-background rounded-0 px-3"
+                  >
                     <i className="bi bi-envelope-fill"></i>
                   </button>
                 </form>
@@ -48,7 +51,7 @@ const Blog = ({ limit, customData }) => {
                   href="https://www.youtube.com/@Avenuelandventures"
                   target="_blank"
                   rel="noreferrer"
-                  className="btn btn-outline-danger rounded-0 px-4 text-nowrap"
+                  className="btn border-secondary-custom text-secondary-custom rounded-0 px-4 text-nowrap hover-bg-secondary"
                 >
                   <i className="bi bi-youtube me-2"></i> Subscribe
                 </a>
@@ -70,7 +73,8 @@ const Blog = ({ limit, customData }) => {
               {displayItems.map((item) => (
                 <div key={item.id} className="col-md-6 col-lg-4">
                   {item.type === "video" ? (
-                    <div className="border-radius media-card video-card h-100 d-flex flex-column">
+                    // Added overflow-hidden here
+                    <div className="border-radius media-card video-card h-100 d-flex flex-column overflow-hidden shadow-sm">
                       <div className="ratio ratio-16x9">
                         <iframe
                           src={item.videoUrl}
@@ -79,7 +83,8 @@ const Blog = ({ limit, customData }) => {
                           loading="lazy"
                         ></iframe>
                       </div>
-                      <div className="media-body flex-grow-1 d-flex flex-column">
+                      {/* Added some padding (p-3) so text doesn't hit the rounded edges */}
+                      <div className="media-body flex-grow-1 d-flex flex-column p-3">
                         <div className="badge blue-background mb-2 align-self-start rounded-0">
                           {item.category}
                         </div>
@@ -91,16 +96,17 @@ const Blog = ({ limit, customData }) => {
                           href={item.link}
                           target="_blank"
                           rel="noreferrer"
-                          className="arrow-link mt-auto"
+                          className="text-secondary-custom fw-bold text-decoration-none mt-auto"
                         >
                           Watch Video <i className="bi bi-play-circle-fill"></i>
                         </a>
                       </div>
                     </div>
                   ) : (
-                    <article className="media-card article-card h-100 d-flex flex-column">
+                    // Added border-radius and overflow-hidden here
+                    <article className="border-radius media-card article-card h-100 d-flex flex-column overflow-hidden shadow-sm">
                       <Link to={`/article/${item.id}`}>
-                        <div className="ratio ratio-16x9 img-wrapper border-bottom-red">
+                        <div className="ratio ratio-16x9 img-wrapper border-bottom border-3 border-secondary-custom">
                           <img
                             src={item.img}
                             alt={item.title}
@@ -114,7 +120,8 @@ const Blog = ({ limit, customData }) => {
                           </div>
                         </div>
                       </Link>
-                      <div className="media-body flex-grow-1 d-flex flex-column">
+                      {/* Added padding (p-3) to ensure text looks clean inside the card container */}
+                      <div className="media-body flex-grow-1 d-flex flex-column p-3">
                         <span className="primary-text small fw-bold text-uppercase">
                           {item.category}
                         </span>
@@ -131,7 +138,7 @@ const Blog = ({ limit, customData }) => {
                         </p>
                         <Link
                           to={`/article/${item.id}`}
-                          className="arrow-link mt-auto"
+                          className="text-secondary-custom fw-bold text-decoration-none mt-auto"
                         >
                           Read More <i className="bi bi-arrow-right"></i>
                         </Link>
@@ -147,7 +154,7 @@ const Blog = ({ limit, customData }) => {
           <div className="col-lg-3">
             <div className="sidebar-sticky" style={{ top: "100px" }}>
               {/* RECOMMENDED LIST */}
-              <h5 className="fw-bold text-dark mb-3 border-start border-4 border-dark ps-2">
+              <h5 className="fw-bold text-dark mb-3 border-start border-4 border-secondary-custom ps-2">
                 Recommended
               </h5>
               <div className="list-group list-group-flush mb-4">
@@ -176,7 +183,7 @@ const Blog = ({ limit, customData }) => {
               </div>
 
               {/* BOOK SITE VISIT BANNER */}
-              <div className="mt-4 p-3 blue-background text-white text-center">
+              <div className="mt-4 p-3 blue-background text-white text-center border-radius">
                 <p className="small mb-2">Ready to visit?</p>
                 <button
                   className="border-radius btn btn-outline-light btn-sm w-100 rounded-0"
@@ -194,7 +201,10 @@ const Blog = ({ limit, customData }) => {
         {limit && !customData && (
           <div className="row mt-5">
             <div className="col-12 text-center">
-              <Link to="/blogs" className="btn btn-custom-red px-3 py-1">
+              <Link
+                to="/blogs"
+                className="btn bg-secondary-custom text-white px-3 py-1 border-radius"
+              >
                 View All Articles
               </Link>
             </div>

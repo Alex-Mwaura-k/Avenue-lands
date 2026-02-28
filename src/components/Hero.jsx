@@ -22,16 +22,6 @@ const Hero = () => {
             image: "/img/carousels/slide_1.webp", // Backend will send a full URL here
             alt: "Royal Garden",
           },
-          {
-            id: 1,
-            image: "/img/carousels/slide_2.webp",
-            alt: "Kijani Garden",
-          },
-          {
-            id: 2,
-            image: "/img/carousels/slide_3.webp",
-            alt: "Unity Garden",
-          },
         ];
         setSlides(staticData);
         setLoading(false);
