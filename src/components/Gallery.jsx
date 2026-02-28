@@ -40,21 +40,23 @@ const Gallery = ({ limit }) => {
 
   return (
     <>
-      <section id="gallery" className="blue-background gallery-section">
+      {/* Restored the blue-background and added py-5 for nice top/bottom spacing */}
+      <section id="gallery" className="bg-primary-custom gallery-section py-5">
         <div className="container-md">
           {/* Header */}
           <div className="row mb-4 align-items-center">
-            <div className="col-lg-4">
-              <span className="secondary-text fw-bold text-uppercase small ls-2">
+            <div className="col-lg-4 mb-3 mb-lg-0">
+              <span className="text-secondary-custom fw-bold text-uppercase small ls-2">
                 Our Gallery
               </span>
-              <h4 className="display-6 fw-bold text-white mt-1">
+              {/* Changed back to text-white for the dark background */}
+              <h3 className="text-white display-5 fw-bold mt-1">
                 Experience <span className="text-stroke-light">Avenue</span>
-              </h4>
+              </h3>
             </div>
 
             <div className="col-lg-8">
-              <div className="gallery-filters d-flex justify-content-lg-end justify-content-start gap-3 flex-wrap mt-3 mt-lg-0">
+              <div className="gallery-filters d-flex justify-content-lg-end justify-content-start gap-2 flex-wrap">
                 <button
                   className={`filter-btn ${filter === "all" ? "active" : ""}`}
                   onClick={() => setFilter("all")}
@@ -62,9 +64,7 @@ const Gallery = ({ limit }) => {
                   All
                 </button>
                 <button
-                  className={`filter-btn ${
-                    filter === "property" ? "active" : ""
-                  }`}
+                  className={`filter-btn ${filter === "property" ? "active" : ""}`}
                   onClick={() => setFilter("property")}
                 >
                   Properties
@@ -76,9 +76,7 @@ const Gallery = ({ limit }) => {
                   Team
                 </button>
                 <button
-                  className={`filter-btn ${
-                    filter === "poster" ? "active" : ""
-                  }`}
+                  className={`filter-btn ${filter === "poster" ? "active" : ""}`}
                   onClick={() => setFilter("poster")}
                 >
                   Events
@@ -94,12 +92,18 @@ const Gallery = ({ limit }) => {
                 key={item.id}
                 className="col-lg-4 col-md-6 gallery-item show"
               >
+                {/* Images will now naturally size themselves without stretching */}
                 <div
-                  className="gallery-card"
+                  className="gallery-card overflow-hidden"
                   onClick={() => openLightbox(index)}
-                  style={{ cursor: "pointer" }}
+                  style={{ cursor: "pointer", borderRadius: "8px" }}
                 >
-                  <img src={item.img} alt={item.title} loading="lazy" />
+                  <img
+                    src={item.img}
+                    alt={item.title}
+                    loading="lazy"
+                    className="img-fluid w-100"
+                  />
                   <div className="gallery-overlay">
                     <div className="overlay-content">
                       <h6 className="text-uppercase secondary-text fw-bold ls-2 mb-1">
@@ -114,11 +118,11 @@ const Gallery = ({ limit }) => {
             ))}
           </div>
 
-          {/* View All Button (Only show if limited) */}
+          {/* View All Button */}
           {limit && (
-            <div className="row mt-4">
+            <div className="row mt-5">
               <div className="col-12 text-center">
-                <Link to="/gallery" className="btn btn-custom-red px-3 py-1">
+                <Link to="/gallery" className="btn btn-custom-red px-4 py-2">
                   View Full Gallery
                 </Link>
               </div>

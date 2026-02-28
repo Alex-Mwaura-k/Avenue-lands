@@ -261,7 +261,7 @@ const Navbar = () => {
                   href="mailto:Avenuelandventures@gmail.com"
                   className="nav-link p-0 contact-link"
                 >
-                  info@avenuelandventures
+                  info@avenuelandventures.co.ke
                 </a>
               </div>
             </div>
