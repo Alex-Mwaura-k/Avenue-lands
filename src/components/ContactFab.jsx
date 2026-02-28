@@ -5,8 +5,9 @@ const ContactFab = () => {
   const fabRef = useRef(null);
 
   // Update these with your real details
-  const phoneNumber = "+1234567890";
-  const whatsappMessage = "Hello! I am interested in booking a safari.";
+  const phoneNumber = "+254740888775";
+  const whatsappMessage =
+    "Hello! I am interested in Investing with Avenue Lands. Can you provide more information?";
 
   const handleWhatsAppClick = () => {
     const cleanNumber = phoneNumber.replace("+", "");
