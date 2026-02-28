@@ -120,7 +120,7 @@ export const properties = [
 
     description:
       "Located 15 minutes off Thika Superhighway and a stone throw away from Juja farm town. It is perfect for investors looking for land to settle immediately.",
-    features: ["available", "Holiday Destination"],
+    features: ["Developed Location", "Ready Title Deed"],
     mapSrc: "",
   },
   {
