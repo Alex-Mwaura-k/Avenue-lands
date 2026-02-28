@@ -92,10 +92,8 @@ export const properties = [
     size: "50x100",
     price: "150,000",
     status: "Available",
-
-    img: "/img/properties/Zawadi-garden-Matuu/main.png",
-    images: ["/img/properties/Zawadi-garden-Matuu/1.png"],
-
+     img: "/img/properties/zawadi-gardens-matuu/main.png",
+    images: ["/img/properties/zawadi-gardens-matuu/main.png"],
     description:
       "Our most affordable project yet. Located 10 minutes from Matuu CBD. Perfect for investors looking to secure prime land cheaply. The area is developing rapidly with new infrastructure projects underway. With ready title deeds, electricity, and community water, it's an excellent opportunity to own land in rapid growing Matuu town.",
     features: ["Ready Titles", "Electricity", "Community Water"],
