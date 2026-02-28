@@ -1466,15 +1466,15 @@ button {
 
 .lightbox-content {
   position: relative;
-  max-width: 90%;
-  max-height: 80vh;
+  max-width: 98% !important;
+  max-height: 95vh !important;
   text-align: center;
   animation: fadeIn 0.3s ease-in-out;
 }
 
 .lightbox-img {
   max-width: 100%;
-  max-height: 70vh;
+  max-height: 80vh;
   object-fit: contain;
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
@@ -1500,7 +1500,7 @@ button {
 }
 
 .lightbox-close:hover {
-  color: #ff4d4d; /* Changes to your red on hover */
+  color: var(--hover-color) !important; /* Changes to your red on hover */
 }
 
 .lightbox-prev,
@@ -1508,13 +1508,13 @@ button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.299);
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: white;
   font-size: 24px;
   width: 50px;
   height: 50px;
-  border-radius: 50%;
+  border-radius: 50% !important;
   cursor: pointer;
   z-index: 10000;
   display: flex;
@@ -1525,7 +1525,7 @@ button {
 
 .lightbox-prev:hover,
 .lightbox-next:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: var(--secondary-color);
 }
 
 .lightbox-prev {

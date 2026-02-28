@@ -49,7 +49,7 @@ const Contact = ({ showBreadcrumb }) => {
                 Ready to own your piece of Kenya? Visit our offices at
                 <strong>
                   {" "}
-                  Main Stage, Exit star House, Suite 405, Ruiru
+                  Main Stage Exit, Star House, Suite 405, Ruiru
                 </strong>{" "}
                 or reach out directly.
               </p>

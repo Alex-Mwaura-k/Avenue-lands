@@ -17,7 +17,7 @@ const About = () => {
               className="text-light opacity-75 mx-auto"
               style={{ maxWidth: "600px" }}
             >
-              Located at Ruiru, Main Stage, Exit star house, Suite 405. We
+              Located at Ruiru, Main Stage Exit, star house, Suite 405. We
               bridge the gap between dream and reality with title-deed-inclusive
               pricing and transparent processes.
             </p>
