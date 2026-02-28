@@ -105,7 +105,7 @@ const Gallery = ({ limit }) => {
                   />
                   <div className="gallery-overlay">
                     <div className="overlay-content">
-                      <h6 className="text-uppercase secondary-text fw-bold ls-2 mb-1">
+                      <h6 className="text-uppercase text-secondary-custom fw-bold ls-2 mb-1">
                         {item.type}
                       </h6>
                       <h4 className="text-white fw-bold">{item.title}</h4>
