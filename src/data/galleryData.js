@@ -1,0 +1,65 @@
+export const galleryData = [
+  {
+    id: 1,
+    type: "property",
+    img: "/img/properties/fadhili-garden-makutano/main.png",
+    title: "Fadhili Gardens",
+    desc: "Phase II - Makutano. Gated community with graded roads.",
+  },
+  {
+    id: 2,
+    type: "team",
+    img: "https://picsum.photos/id/1005/800/800", // Using larger images for lightbox
+    title: "John Kamau",
+    desc: "Senior Sales Manager guiding a client.",
+  },
+  {
+    id: 3,
+    type: "property",
+    img: "/img/properties/amani-garden-malindi/main.png",
+    title: "Amani Gardens",
+    desc: "Malindi. Beautiful scenery near the ocean.",
+  },
+  {
+    id: 4,
+    type: "poster",
+    img: "/img/Gallery/Company events/1.png",
+    title: "Makutano Title Deeds issuance",
+    desc: "August 2025. Congratulations to the newest investors.",
+  },
+  {
+    id: 5,
+    type: "property",
+    img: "/img/properties/royal-garden-kithyoko/main.png",
+    title: "Royal Garden Phase I",
+    desc: "Masinga. Lush greenery and ready title deeds.",
+  },
+  {
+    id: 6,
+    type: "team",
+    img: "https://picsum.photos/id/1011/800/800",
+    title: "Customer Care Team",
+    desc: "Our Ruiru Office staff ready to serve you.",
+  },
+  {
+    id: 7,
+    type: "property",
+    img: "/img/properties/unity-gardens/main.png",
+    title: "Unity Garden",
+    desc: "Malindi. Perfect for holiday homes.",
+  },
+  {
+    id: 8,
+    type: "poster",
+    img: "https://picsum.photos/id/1050/800/800",
+    title: "Free Site Visits",
+    desc: "Every Wednesday & Saturday. Transport is on us!",
+  },
+  {
+    id: 9,
+    type: "team",
+    img: "https://picsum.photos/id/1025/800/800",
+    title: "Site Engineer",
+    desc: "Grading the roads at Royal Garden Phase 5.",
+  },
+];
