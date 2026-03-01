@@ -1348,6 +1348,7 @@ button {
 
 .fab-menu.closed {
   opacity: 0;
+  display: none;
   transform: translateY(10px);
   pointer-events: none;
 }
