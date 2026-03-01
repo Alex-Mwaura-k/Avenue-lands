@@ -1,3 +1,6 @@
+// src/components/ScrollingBanner.jsx
+import React from "react";
+
 const ScrollingBanner = () => {
   return (
     <section>
@@ -5,15 +8,17 @@ const ScrollingBanner = () => {
         <div className="scroll-text">
           <span>
             Discover Your Dream Property with Avenue Ventures • Prime 50x100
-            plots at Unity Garden Makutano(ya Mwea) • Royal Garden Kithyoko -
-            beautiful peace and scenic views • 1 acre Limited offer at Kijani
-            Garden Malindi • Your Future, Our Mission •
+            plots at Breeze Gardens Makutano (Mwea) • Pazuri Gardens Kithyoko -
+            beautiful peace and scenic views • 1 Acre Limited offer at Baharini
+            Gardens Malindi • Affordable plots at Zawadi Gardens Matuu • Your
+            Future, Our Mission •
           </span>
           <span>
             Discover Your Dream Property with Avenue Ventures • Prime 50x100
-            plots at Unity Garden Makutano(ya Mwea) • Royal Garden Kithyoko -
-            beautiful peace and scenic views • 1 acre Limited offer at Kijani
-            Garden Malindi • Your Future, Our Mission •
+            plots at Breeze Gardens Makutano (Mwea) • Pazuri Gardens Kithyoko -
+            beautiful peace and scenic views • 1 Acre Limited offer at Baharini
+            Gardens Malindi • Affordable plots at Zawadi Gardens Matuu • Your
+            Future, Our Mission •
           </span>
         </div>
       </div>
