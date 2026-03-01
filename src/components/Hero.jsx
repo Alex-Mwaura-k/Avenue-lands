@@ -67,7 +67,12 @@ const Hero = () => {
 
   // Render a placeholder or nothing while loading
   if (loading) {
-    return <div className="bg-dark" style={{ height: "500px" }}></div>;
+    return (
+      <div
+        className="bg-dark"
+        style={{ height: "calc(100dvh - 76px)", minHeight: "400px" }}
+      ></div>
+    );
   }
 
   // If no slides exist (e.g. backend has 0 images), don't break the app

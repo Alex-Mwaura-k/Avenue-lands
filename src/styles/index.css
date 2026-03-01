@@ -431,18 +431,38 @@ nav i:hover {
 /* =========================================
    CAROUSEL & MODALS
    ========================================= */
+#heroCarousel,
+#heroCarousel .carousel-inner,
+.css-item {
+  height: calc(
+    100dvh - 75px
+  ); /* 100% dynamic viewport height minus navbar height */
+  min-height: 400px; /* Safe fallback for extremely short screens/landscape mobile */
+  background: var(--bg-dark) !important;
+}
+
 .css-item {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--bg-dark) !important;
 }
 
+/* Ensure the image stretches to fill the new height without distorting */
 .css-img {
+  width: 100%;
+  height: 100%; /* Add this so the image fills the container */
   object-fit: cover;
   filter: brightness(90%);
 }
-
+/* --- MOBILE OVERRIDE --- */
+@media (max-width: 768px) {
+  #heroCarousel,
+  #heroCarousel .carousel-inner,
+  .css-item {
+    height: 50dvh; /* Occupy half the screen height on mobile */
+    min-height: 300px; /* Lowered so it doesn't force itself to be too tall on small phones */
+  }
+}
 #booking-Modal .form-control:focus,
 #booking-Modal .form-select:focus {
   box-shadow: none;
@@ -1585,4 +1605,49 @@ select:focus,
 .site-navbar .nav-link:active,
 .site-navbar .nav-link:focus {
   color: #ea580c !important; /* Replace this hex code with your exact Avenue orange */
+}
+
+/* --- AVENUE LAND VENTURES THEME CLASSES --- */
+
+/* Brand Orange Text (Replaces text-danger) */
+.brand-text-orange {
+  color: #ea580c !important;
+}
+
+/* Brand Orange Border (Replaces border-danger) */
+.border-brand {
+  border-color: #ea580c !important;
+}
+
+/* Brand Solid Button (Replaces btn-danger) */
+.btn-brand {
+  background-color: #ea580c;
+  border-color: #ea580c;
+  color: white;
+  transition: all 0.3s ease;
+}
+.btn-brand:hover,
+.btn-brand:focus,
+.btn-brand:disabled {
+  background-color: #c2410c; /* Slightly darker orange for hover */
+  border-color: #c2410c;
+  color: white;
+}
+
+/* Brand Outline Button (Replaces btn-outline-danger) */
+.btn-outline-brand {
+  color: #ea580c;
+  border-color: #ea580c;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+.btn-outline-brand:hover {
+  background-color: #ea580c;
+  color: white;
+}
+
+/* Stroke effect for headings */
+.text-stroke-brand {
+  -webkit-text-stroke: 1px #ea580c;
+  color: transparent;
 }

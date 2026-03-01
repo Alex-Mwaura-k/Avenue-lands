@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
-import { soldTitlesDB, initialReviews } from "../data/testimonialsData";
+import { validIdsDB, initialReviews } from "../data/testimonialsData";
 
 const Testimonials = () => {
   const [reviews, setReviews] = useState(initialReviews);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
     const handleResize = () => setIsMobile(window.innerWidth < 768);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -43,13 +44,14 @@ const Testimonials = () => {
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
-    titleNumber: "",
+    idNumber: "",
     role: "",
     location: "",
     message: "",
     rating: 5,
     image: null,
   });
+
   const [imagePreview, setImagePreview] = useState(null);
   const [status, setStatus] = useState("idle");
 
@@ -78,23 +80,9 @@ const Testimonials = () => {
 
     setStatus("checking");
     setTimeout(() => {
-      const isValid = soldTitlesDB.includes(
-        formData.titleNumber.trim().toUpperCase(),
-      );
+      const isValid = validIdsDB.includes(formData.idNumber.trim());
+
       if (isValid) {
-        const newReview = {
-          id: Date.now(),
-          name: formData.name,
-          role: formData.role || "Verified Client",
-          location: formData.location,
-          text: formData.message,
-          rating: parseInt(formData.rating),
-          img:
-            imagePreview ||
-            `https://ui-avatars.com/api/?name=${formData.name}&background=random`,
-          date: new Date(),
-        };
-        setReviews([newReview, ...reviews]);
         setStatus("success");
       } else {
         setStatus("error");
@@ -107,7 +95,7 @@ const Testimonials = () => {
     setStatus("idle");
     setFormData({
       name: "",
-      titleNumber: "",
+      idNumber: "",
       role: "",
       location: "",
       message: "",
@@ -125,11 +113,11 @@ const Testimonials = () => {
       <div className="container-md">
         <div className="row align-items-end mb-3">
           <div className="col-lg-8">
-            <span className="secondary-text fw-bold text-uppercase small ls-2">
+            <span className="secondary-text fw-bold text-uppercase small ls-2 brand-text-orange">
               Testimonials
             </span>
             <h2 className="display-6 fw-bold text-dark mt-2">
-              What the society <span className="text-stroke-red">Says</span>
+              What the society <span className="text-stroke-brand">Says</span>
             </h2>
           </div>
           <div className="col-lg-4 text-lg-end mt-3 mt-lg-0">
@@ -150,8 +138,8 @@ const Testimonials = () => {
                   key={review.id}
                   className="d-flex col-md-4 fade-in-animation"
                 >
-                  <div className="card border-0 shadow-sm p-4 bg-light position-relative h-100">
-                    <div className="position-absolute top-0 end-0 p-3 opacity-25 text-danger">
+                  <div className="card border-0 shadow-sm p-4 bg-light position-relative h-100 w-100">
+                    <div className="position-absolute top-0 end-0 p-3 opacity-25 brand-text-orange">
                       <i className="bi bi-quote fs-1"></i>
                     </div>
                     <div className="d-flex align-items-center mb-4">
@@ -159,14 +147,18 @@ const Testimonials = () => {
                         src={review.img}
                         alt={review.name}
                         className="rounded-circle me-3 testimonial-img"
-                        // Style moved to CSS class 'testimonial-img'
+                        style={{
+                          width: "50px",
+                          height: "50px",
+                          objectFit: "cover",
+                        }}
                       />
                       <div>
                         <h6 className="fw-bold mb-0 text-dark">
                           {review.name}
                         </h6>
                         <small
-                          className="text-danger fw-bold text-uppercase"
+                          className="brand-text-orange fw-bold text-uppercase"
                           style={{ fontSize: "0.7rem" }}
                         >
                           {review.role}
@@ -216,17 +208,18 @@ const Testimonials = () => {
           </div>
         </div>
       </div>
+
       {isCarouselMode && (
         <div className="d-flex justify-content-center gap-3 mt-4">
           <button
-            className="btn btn-outline-danger"
+            className="btn btn-outline-brand"
             onClick={prevSlide}
             title="Previous"
           >
             <i className="bi bi-chevron-left"></i>
           </button>
           <button
-            className={`btn ${isPaused ? "btn-danger" : "btn-outline-danger"}`}
+            className={`btn ${isPaused ? "btn-brand" : "btn-outline-brand"}`}
             onClick={togglePause}
             title={isPaused ? "Resume" : "Pause"}
           >
@@ -237,7 +230,7 @@ const Testimonials = () => {
             )}
           </button>
           <button
-            className="btn btn-outline-danger"
+            className="btn btn-outline-brand"
             onClick={nextSlide}
             title="Next"
           >
@@ -245,8 +238,8 @@ const Testimonials = () => {
           </button>
         </div>
       )}
+
       {showModal && (
-        // Added 'testimonials-modal' class for scoping CSS
         <div
           className="modal show d-block testimonials-modal"
           style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
@@ -254,7 +247,10 @@ const Testimonials = () => {
         >
           <div className="modal-dialog modal-dialog-centered modal-lg">
             <div className="modal-content border-0 shadow-lg">
-              <div className="modal-header bg-black text-white">
+              <div
+                className="modal-header text-white"
+                style={{ backgroundColor: "#021a40" }}
+              >
                 <h5 className="modal-title fw-bold text-white">
                   Share Your Experience
                 </h5>
@@ -273,15 +269,16 @@ const Testimonials = () => {
                     <h4 className="fw-bold text-success">
                       Verification Successful!
                     </h4>
-                    <p className="text-muted">
+                    <p className="text-muted mt-3">
                       Thank you, <strong>{formData.name}</strong>. Your review
-                      has been submitted.
+                      has been submitted to the admin for approval. It will
+                      appear on the site within 24 hours.
                     </p>
                     <button
                       className="btn btn-dark mt-3 px-4"
                       onClick={closeModal}
                     >
-                      Close & View
+                      Close
                     </button>
                   </div>
                 ) : (
@@ -291,7 +288,7 @@ const Testimonials = () => {
                         className="alert alert-danger mb-4 shadow-sm"
                         role="alert"
                       >
-                        <strong>Verification Failed:</strong> Title Number not
+                        <strong>Verification Failed:</strong> ID Number not
                         found.
                       </div>
                     )}
@@ -299,11 +296,12 @@ const Testimonials = () => {
                       <div className="col-md-6">
                         <div className="mb-3">
                           <label className="form-label fw-bold small">
-                            Full Name <span className="secondary-text">*</span>
+                            Full Name{" "}
+                            <span className="brand-text-orange">*</span>
                           </label>
                           <input
                             type="text"
-                            className="form-control"
+                            className="form-control border-brand"
                             name="name"
                             value={formData.name}
                             required
@@ -311,16 +309,16 @@ const Testimonials = () => {
                           />
                         </div>
                         <div className="mb-3">
-                          <label className="form-label fw-bold small text-danger">
-                            Title Deed / Plot No.{" "}
-                            <span className="text-danger">*</span>
+                          <label className="form-label fw-bold small brand-text-orange">
+                            ID Number{" "}
+                            <span className="brand-text-orange">*</span>
                           </label>
                           <input
                             type="text"
-                            className="form-control border-danger"
-                            name="titleNumber"
-                            value={formData.titleNumber}
-                            placeholder="e.g. Avenue-001"
+                            className="form-control border-brand"
+                            name="idNumber"
+                            value={formData.idNumber}
+                            placeholder="e.g. 12345678"
                             required
                             onChange={handleInputChange}
                           />
@@ -334,12 +332,11 @@ const Testimonials = () => {
                               Your Role
                             </label>
                             <select
-                              className="form-select"
+                              className="form-select border-brand"
                               name="role"
                               value={formData.role}
                               required
                               onChange={handleInputChange}
-                              defaultValue=""
                             >
                               <option value="" disabled>
                                 Select...
@@ -361,7 +358,7 @@ const Testimonials = () => {
                             </label>
                             <input
                               type="text"
-                              className="form-control"
+                              className="form-control border-brand"
                               name="location"
                               value={formData.location}
                               placeholder="e.g. Malindi"
@@ -370,35 +367,48 @@ const Testimonials = () => {
                           </div>
                         </div>
                       </div>
+
                       <div className="col-md-6">
                         <div className="mb-3">
                           <label className="form-label fw-bold small">
                             Upload Photo (Max 2MB)
                           </label>
                           <div className="d-flex align-items-center gap-3">
-                            <input
-                              type="file"
-                              className="form-control form-control-sm"
-                              accept="image/*"
-                              onChange={handleImageChange}
-                            />
-                            {imagePreview && (
-                              <img
-                                src={imagePreview}
-                                alt="Preview"
-                                className="rounded-circle testimonial-img"
+                            <div className="flex-grow-1">
+                              <input
+                                type="file"
+                                className="form-control form-control-sm border-brand"
+                                accept="image/*"
+                                onChange={handleImageChange}
                               />
+                            </div>
+                            {imagePreview && (
+                              <div className="flex-shrink-0">
+                                <img
+                                  src={imagePreview}
+                                  alt="Preview"
+                                  className="rounded-circle shadow-sm"
+                                  style={{
+                                    width: "50px",
+                                    height: "50px",
+                                    objectFit: "cover",
+                                    border: "2px solid #ea580c",
+                                  }}
+                                />
+                              </div>
                             )}
                           </div>
                         </div>
+
                         <div className="mb-3">
                           <label className="form-label fw-bold small">
-                            Your Message <span className="text-danger">*</span>
+                            Your Message{" "}
+                            <span className="brand-text-orange">*</span>
                           </label>
                           <textarea
-                            className={`form-control ${
+                            className={`form-control border-brand ${
                               !isMessageValid && formData.message.length > 0
-                                ? "is-invalid"
+                                ? "is-invalid border-danger"
                                 : ""
                             }`}
                             rows="4"
@@ -414,7 +424,7 @@ const Testimonials = () => {
                             <span
                               className={
                                 formData.message.length < 85
-                                  ? "text-danger"
+                                  ? "brand-text-orange"
                                   : "text-success"
                               }
                             >
@@ -423,7 +433,7 @@ const Testimonials = () => {
                             <span
                               className={
                                 formData.message.length > 150
-                                  ? "text-danger"
+                                  ? "brand-text-orange"
                                   : ""
                               }
                             >
@@ -431,6 +441,7 @@ const Testimonials = () => {
                             </span>
                           </div>
                         </div>
+
                         <div className="mb-3">
                           <label className="form-label fw-bold small">
                             Rating
@@ -448,11 +459,13 @@ const Testimonials = () => {
                                   id={`star${star}`}
                                   value={star}
                                   onChange={handleInputChange}
-                                  checked={parseInt(formData.rating) === star}
+                                  checked={
+                                    parseInt(formData.rating, 10) === star
+                                  }
                                 />
                                 <label
                                   className={`form-check-label fs-4 ${
-                                    parseInt(formData.rating) >= star
+                                    parseInt(formData.rating, 10) >= star
                                       ? "text-warning"
                                       : "text-muted"
                                   }`}
@@ -467,15 +480,16 @@ const Testimonials = () => {
                         </div>
                       </div>
                     </div>
+
                     <div className="d-flex justify-content-center mt-4">
                       <button
                         type="submit"
-                        className="btn btn-danger py-2 px-5 fw-bold shadow-sm rounded-pill"
+                        className="btn btn-brand py-2 px-5 fw-bold shadow-sm rounded-pill"
                         disabled={status === "checking" || !isMessageValid}
                       >
                         {status === "checking" ? (
                           <span>
-                            <span className="spinner-border spinner-border-sm me-2"></span>{" "}
+                            <span className="spinner-border spinner-border-sm me-2"></span>
                             Verifying...
                           </span>
                         ) : (
