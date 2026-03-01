@@ -1580,3 +1580,9 @@ select:focus,
   box-shadow: none !important;
   border-color: #ced4da; /* Keeps the border the default light grey when clicked */
 }
+/* Keep Navbar links orange when active, clicked, or focused */
+.site-navbar .nav-link.active,
+.site-navbar .nav-link:active,
+.site-navbar .nav-link:focus {
+  color: #ea580c !important; /* Replace this hex code with your exact Avenue orange */
+}
