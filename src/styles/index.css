@@ -9,7 +9,7 @@
 }
 
 :root {
-  --primary-color: #0a2b8b;
+  --primary-color: #011e72;
   --secondary-color: #f3541b;
   --hover-color: #f3541b;
   --text-light: #ffffff;
@@ -661,7 +661,7 @@ button {
 .newsletter-form input {
   border: 1px solid #333;
   width: 250px;
-  color: #000;
+  color: #ff0000;
 }
 .newsletter-form input:focus {
   border-color: none !important;
@@ -1161,24 +1161,29 @@ button {
 
 .social-btn:hover {
   background: var(--hover-color);
-  border-color: #dc3545;
+  border-color: var(--hover-color);
   color: #fff;
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(220, 53, 69, 0.3);
 }
 
 .footer-form input::placeholder {
-  color: #555;
+  color: #f7f7f7;
 }
-
 .footer-form input:focus {
-  background-color: #000;
-  border-color: #dc3545;
+  background-color: #787878;
+  border-color: #e95b1e;
   color: #fff;
   box-shadow: none;
   outline: none;
 }
-
+.footer-form input {
+  background-color: #6165a7 !important;
+  border-radius: 8px 0 0 8px !important;
+  border: 1px solid #555;
+  color: #fff;
+  transition: all 0.3s ease;
+}
 .footer-divider {
   height: 1px;
   background: linear-gradient(to right, transparent, #222, transparent);
@@ -1187,11 +1192,13 @@ button {
 .subscribe-btn {
   background-color: var(--secondary-color);
   color: white;
+  border-radius: 0 8px 8px 0 !important;
 }
 .subscribe-btn:hover {
   background-color: var(--bg-light);
   color: var(--text-dark);
   border-color: transparent;
+  transition: all 0.3s ease;
 }
 .push-notification-btn:hover {
   background-color: var(--bg-light);
@@ -1561,4 +1568,15 @@ button {
   .lightbox-next {
     right: 10px;
   }
+}
+
+/* Remove default browser outlines and Bootstrap focus shadows globally */
+input:focus,
+textarea:focus,
+select:focus,
+.form-control:focus,
+.form-select:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: #ced4da; /* Keeps the border the default light grey when clicked */
 }

@@ -1,42 +1,36 @@
 import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { properties } from "../data/propertiesData"; // Make sure this path matches your folder structure
 
 const Navbar = () => {
   // STATE MANAGEMENT
   const [isPropertiesOpen, setIsPropertiesOpen] = useState(false);
-  const [activeSubmenu, setActiveSubmenu] = useState(null);
 
   // REFS
-  const closeButtonRef = useRef(null); // To close mobile menu
-  const dropdownRef = useRef(null); // To detect clicks outside properties dropdown
+  const closeButtonRef = useRef(null);
+  const dropdownRef = useRef(null);
 
   const location = useLocation();
 
-  // 1. CLOSE MENUS ON ROUTE CHANGE
+  // CLOSE MENUS ON ROUTE CHANGE
   useEffect(() => {
     setIsPropertiesOpen(false);
-    setActiveSubmenu(null);
     if (closeButtonRef.current) closeButtonRef.current.click();
   }, [location]);
 
-  // 2. CLOSE DROPDOWN WHEN CLICKING OUTSIDE
+  // CLOSE DROPDOWN WHEN CLICKING OUTSIDE
   useEffect(() => {
     const handleClickOutside = (event) => {
-      // If dropdown is open AND click is NOT inside the dropdownRef element
       if (
         isPropertiesOpen &&
         dropdownRef.current &&
         !dropdownRef.current.contains(event.target)
       ) {
         setIsPropertiesOpen(false);
-        setActiveSubmenu(null);
       }
     };
 
-    // Bind the event listener
     document.addEventListener("mousedown", handleClickOutside);
-
-    // Unbind on cleanup
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
@@ -49,15 +43,25 @@ const Navbar = () => {
     setIsPropertiesOpen(!isPropertiesOpen);
   };
 
-  const toggleSubmenu = (e, name) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setActiveSubmenu(activeSubmenu === name ? null : name);
-  };
+  // --- NEW LOGIC: FILTER & FORMAT PROPERTIES ---
+  // 1. Get the first 2 "Available" properties
+  const availableProps = properties
+    .filter((prop) => prop.status === "Available")
+    .slice(0, 2);
 
-  const closeMenu = () => {
-    if (closeButtonRef.current) closeButtonRef.current.click();
+  // 2. Get the first 2 "Sold Out" properties
+  const soldOutProps = properties
+    .filter((prop) => prop.status === "Sold Out")
+    .slice(0, 2);
+
+  // 3. Combine them into exactly 4 items
+  const displayProperties = [...availableProps, ...soldOutProps];
+
+  // 4. Helper to limit property names to exactly 2 words
+  const formatTitle = (title) => {
+    return title.split(" ").slice(0, 2).join(" ");
   };
+  // ---------------------------------------------
 
   return (
     <nav
@@ -110,7 +114,6 @@ const Navbar = () => {
               </li>
 
               {/* === PROPERTIES DROPDOWN === */}
-              {/* Added ref={dropdownRef} to the parent LI so we know where the boundary is */}
               <li className="nav-item dropdown" ref={dropdownRef}>
                 <a
                   className={`nav-link dropdown-toggle ${
@@ -142,75 +145,18 @@ const Navbar = () => {
                     <hr className="dropdown-divider my-1" />
                   </li>
 
-                  {/* SUBMENU: ROYAL GARDEN */}
-                  <li className="dropdown-submenu">
-                    <a
-                      className={`dropdown-item dropdown-toggle ${
-                        activeSubmenu === "royal" ? "show" : ""
-                      }`}
-                      href="#"
-                      onClick={(e) => toggleSubmenu(e, "royal")}
-                    >
-                      Royal Gardens
-                    </a>
-                    <ul
-                      className={`dropdown-menu ${
-                        activeSubmenu === "royal" ? "show" : ""
-                      }`}
-                    >
-                      <li>
-                        <Link className="dropdown-item" to="/property/1">
-                          Phase V
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="dropdown-item" to="/property/4">
-                          Phase IV
-                        </Link>
-                      </li>
-                    </ul>
-                  </li>
-
-                  {/* DIRECT LINKS */}
-                  <li>
-                    <Link className="dropdown-item" to="/property/2">
-                      Kijani Gardens
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="dropdown-item" to="/property/3">
-                      Unity Garden
-                    </Link>
-                  </li>
-
-                  {/* SUBMENU: KITENGELA */}
-                  <li className="dropdown-submenu">
-                    <a
-                      className={`dropdown-item dropdown-toggle ${
-                        activeSubmenu === "kitengela" ? "show" : ""
-                      }`}
-                      href="#"
-                      onClick={(e) => toggleSubmenu(e, "kitengela")}
-                    >
-                      Kitengela
-                    </a>
-                    <ul
-                      className={`dropdown-menu ${
-                        activeSubmenu === "kitengela" ? "show" : ""
-                      }`}
-                    >
-                      <li>
-                        <Link className="dropdown-item" to="/property/1">
-                          Phase I
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="dropdown-item" to="/property/1">
-                          Phase II
-                        </Link>
-                      </li>
-                    </ul>
-                  </li>
+                  {/* DYNAMIC MAPPING: Exactly 4 Items (2 Available, 2 Sold Out) */}
+                  {displayProperties.map((property) => (
+                    <li key={property.id}>
+                      <Link
+                        className="dropdown-item text-capitalize"
+                        to={`/property/${property.slug}`}
+                      >
+                        {/* Use our helper to limit the text to 2 words */}
+                        {formatTitle(property.title)}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </li>
               {/* === END PROPERTIES === */}
