@@ -98,7 +98,7 @@ const Contact = ({ showBreadcrumb }) => {
               style={{ minHeight: "250px" }}
             >
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.51733276685!2d36.9536!3d-1.1485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f470000000000%3A0x0!2zRGFuam8gQ2VudHJlLCBSdWlydQ!5e0!3m2!1sen!2ske!4v1700000000000!5m2!1sen!2ske" // Replaced placeholder with an actual embed link structure
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.0191652365374!2d36.95670717480313!3d-1.1467898988422258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f471c9420c73b%3A0x3bea7fcd1d54f284!2sAVENUE%20LANDS%20VENTURES%20LTD!5e0!3m2!1sen!2ske!4v1772392817803!5m2!1sen!2ske" // Replaced placeholder with an actual embed link structure
                 width="100%"
                 height="100%"
                 style={{ border: 0, position: "absolute", top: 0, left: 0 }}

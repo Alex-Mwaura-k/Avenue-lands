@@ -128,18 +128,18 @@ export const properties = [
   },
   {
     id: 6,
-    title: "pazuri gardens - phase 5",
-    slug: "pazuri-gardens-phase-5",
-    location: "kithyoko",
+    title: "Neema Gardens",
+    slug: "neema-gardens",
+    location: "Kithyoko",
     size: "100x100",
     price: "135,000",
     status: "Sold Out",
 
-    img: "/img/properties/",
+    img: "/img/properties/Juja-plain/1.png",
 
     images: [
-      "/img/properties/amani-garden-malindi/main.png",
-      "/img/properties/amani-garden-malindi/1.png",
+      "/img/properties/Juja-plain/1.png",
+      "/img/properties/Juja-plain/1.png",
     ],
 
     description:

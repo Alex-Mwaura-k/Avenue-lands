@@ -3,8 +3,8 @@ export const galleryData = [
     id: 1,
     type: "property",
     img: "/img/properties/fadhili-garden-makutano/main.png",
-    title: "Fadhili Gardens",
-    desc: "Phase II - Makutano. Gated community with graded roads.",
+    title: "Breeze Gardens",
+    desc: "Mwea Makutano. Gated community with graded roads.",
   },
   {
     id: 2,
@@ -16,13 +16,13 @@ export const galleryData = [
   {
     id: 3,
     type: "property",
-    img: "/img/properties/amani-garden-malindi/main.png",
-    title: "Amani Gardens",
-    desc: "Malindi. Beautiful scenery near the ocean.",
+    img: "/img/properties/zawadi-gardens-matuu/main.png",
+    title: "Zawadi Gardens",
+    desc: "Invest Within Matuu, Fastest Growing Town.",
   },
   {
     id: 4,
-    type: "poster",
+    type: "Event",
     img: "/img/Gallery/Company events/1.png",
     title: "Makutano Title Deeds issuance",
     desc: "August 2025. Congratulations to the newest investors.",
@@ -30,9 +30,9 @@ export const galleryData = [
   {
     id: 5,
     type: "property",
-    img: "/img/properties/royal-garden-kithyoko/main.png",
-    title: "Royal Garden Phase I",
-    desc: "Masinga. Lush greenery and ready title deeds.",
+    img: "/img/properties/Juja-plain/main.png",
+    title: "Juja Plains",
+    desc: "Just around the Corner from Juja Farm. Perfect for settling immediately.",
   },
   {
     id: 6,
