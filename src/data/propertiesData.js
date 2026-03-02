@@ -170,7 +170,7 @@ export const properties = [
     slug: "pazuri-gardens",
     location: "Kithyoko",
     size: "50x100",
-    price: "180,000",
+    price: "150,000",
     status: "Coming Soon",
 
     img: "/img/properties/royal-garden-kithyoko/main.png",
