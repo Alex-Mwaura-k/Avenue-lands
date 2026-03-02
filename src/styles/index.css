@@ -825,6 +825,49 @@ button {
 /* =========================================
    GALLERY SECTION
    ========================================= */
+/* Gallery Navigation Arrangement */
+.main-image-container {
+  position: relative;
+}
+
+.img-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%); /* Perfectly centers vertically */
+  background: var(--bg-dark-trans); /* Uses your existing 0.85 black */
+  color: var(--text-light);
+  border: 1px solid var(--bg-white-trans);
+  width: 45px;
+  height: 45px;
+  border-radius: 50% !important; /* Forces circular shape */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.img-nav-btn:hover {
+  background: var(
+    --secondary-color
+  ); /* Changes to your brand orange on hover */
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Position them on opposite sides */
+.img-nav-btn.prev {
+  left: 15px;
+}
+
+.img-nav-btn.next {
+  right: 15px;
+}
+
+/* Thumbnail Active State */
+.active-thumb {
+  border: 2px solid var(--secondary-color) !important;
+  opacity: 1 !important;
+}
 #gallery.gallery-section {
   padding-top: 1rem !important;
   padding-bottom: 1.5rem !important;

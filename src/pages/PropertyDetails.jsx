@@ -59,7 +59,10 @@ const PropertyDetails = () => {
     return (
       <div className="text-center py-5 mt-5">
         <h2>Property Not Found</h2>
-        <Link to="/properties" className="btn btn-dark mt-3">
+        <Link
+          to="/properties"
+          className="btn bg-primary-custom text-white mt-3"
+        >
           Back to Listings
         </Link>
       </div>
@@ -89,21 +92,23 @@ const PropertyDetails = () => {
     .slice(0, 4);
 
   return (
-    // FIX: Removed 'style={{ paddingTop: "80px" }}' to remove the large gap
     <div className="property-details-page bg-light pb-5">
       {/* HEADER */}
       <div className="container-md mb-4 pt-3">
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
             <li className="breadcrumb-item">
-              <Link to="/" className="text-danger text-decoration-none">
+              <Link
+                to="/"
+                className="text-secondary-custom text-decoration-none"
+              >
                 Home
               </Link>
             </li>
             <li className="breadcrumb-item">
               <Link
                 to="/properties"
-                className="text-danger text-decoration-none"
+                className="text-secondary-custom text-decoration-none"
               >
                 Properties
               </Link>
@@ -116,16 +121,15 @@ const PropertyDetails = () => {
         <h1 className="fw-bold text-dark">{property.title}</h1>
         <div className="d-flex align-items-center gap-3 text-muted">
           <span>
-            <i className="bi bi-geo-alt-fill text-danger"></i>{" "}
+            <i className="bi bi-geo-alt-fill text-secondary-custom"></i>{" "}
             {property.location}
           </span>
           <span>
-            <i className="bi bi-aspect-ratio text-danger"></i> {property.size}
+            <i className="bi bi-aspect-ratio text-secondary-custom"></i>{" "}
+            {property.size}
           </span>
           <span
-            className={`badge ${
-              property.status === "Available" ? "bg-success" : "bg-danger"
-            }`}
+            className={`badge ${property.status === "Available" ? "bg-success" : "bg-secondary-custom"}`}
           >
             {property.status}
           </span>
@@ -142,17 +146,13 @@ const PropertyDetails = () => {
               onMouseEnter={() => setIsPaused(true)}
               onMouseLeave={() => setIsPaused(false)}
             >
-              {/* Main Image Container */}
               <div
                 className="main-image-container position-relative overflow-hidden rounded"
                 style={{ cursor: "pointer" }}
-                onClick={() =>
-                  openLightbox(
-                    propertyImages.indexOf(mainImage) !== -1
-                      ? propertyImages.indexOf(mainImage)
-                      : 0,
-                  )
-                }
+                onClick={() => {
+                  const idx = propertyImages.indexOf(mainImage);
+                  openLightbox(idx !== -1 ? idx : 0);
+                }}
               >
                 <img
                   src={mainImage}
@@ -161,11 +161,10 @@ const PropertyDetails = () => {
                   style={{
                     maxHeight: "500px",
                     minHeight: "300px",
-                    transition: "opacity 0.5s ease-in-out",
+                    transition: "opacity 0.5s ease",
                   }}
                 />
 
-                {/* FAINT NAVIGATION BUTTONS */}
                 {propertyImages.length > 1 && (
                   <>
                     <button
@@ -197,9 +196,7 @@ const PropertyDetails = () => {
                     key={index}
                     src={img}
                     alt={`View ${index + 1}`}
-                    className={`thumbnail-img rounded ${
-                      mainImage === img ? "active-thumb" : ""
-                    }`}
+                    className={`thumbnail-img rounded ${mainImage === img ? "active-thumb" : ""}`}
                     onClick={() => {
                       setMainImage(img);
                       setIsPaused(true);
@@ -209,10 +206,6 @@ const PropertyDetails = () => {
                       height: "80px",
                       objectFit: "cover",
                       cursor: "pointer",
-                      border:
-                        mainImage === img
-                          ? "2px solid red"
-                          : "2px solid transparent",
                       opacity: mainImage === img ? 1 : 0.6,
                       transition: "all 0.3s ease",
                     }}
@@ -261,8 +254,8 @@ const PropertyDetails = () => {
           {/* RIGHT COLUMN */}
           <div className="col-lg-4 d-flex flex-column">
             {/* PRICE CARD */}
-            <div className="bg-white p-4 rounded shadow-lg">
-              <h3 className="text-danger fw-bold mb-1">
+            <div className="bg-white p-4 rounded shadow-sm mb-4">
+              <h3 className="text-secondary-custom fw-bold mb-1">
                 Ksh {property.price}/=
               </h3>
               <p className="text-muted small">
@@ -271,14 +264,14 @@ const PropertyDetails = () => {
               <hr />
               <div className="d-grid gap-3">
                 <button
-                  className="btn btn-dark py-3 fw-bold"
+                  className="btn bg-primary-custom text-white py-3 fw-bold rounded"
                   data-bs-toggle="modal"
                   data-bs-target="#booking-Modal"
                 >
                   Book Site Visit
                 </button>
                 <a
-                  href={`https://wa.me/254?text=Hi, I am interested in ${property.title}`}
+                  href={`https://wa.me/254740888775?text=Hi, I am interested in ${property.title}`}
                   target="_blank"
                   rel="noreferrer"
                   className="btn btn-outline-success py-2 fw-bold"
@@ -286,7 +279,7 @@ const PropertyDetails = () => {
                   <i className="bi bi-whatsapp me-2"></i> WhatsApp Us
                 </a>
                 <a
-                  href="tel:+254408888775"
+                  href="tel:+254740888775"
                   className="btn btn-outline-secondary py-2 fw-bold"
                 >
                   <i className="bi bi-telephone me-2"></i> Call Now
@@ -296,7 +289,9 @@ const PropertyDetails = () => {
 
             {/* RELATED PROPERTIES */}
             <div className="mt-4 mt-auto">
-              <h5 className="fw-bold mb-3 text-dark">More Properties</h5>
+              <h5 className="fw-bold mb-3 bg-primary-custom text-light p-2 rounded text-center">
+                More Properties
+              </h5>
               <div className="d-flex flex-column gap-3">
                 {relatedProperties.map((rel) => (
                   <div
@@ -310,7 +305,7 @@ const PropertyDetails = () => {
                         alt={rel.title}
                         style={{ height: "180px", objectFit: "cover" }}
                       />
-                      <span className="badge bg-danger position-absolute top-0 start-0 m-2">
+                      <span className="badge bg-secondary-custom position-absolute top-0 start-0 m-2">
                         Ksh {rel.price}
                       </span>
                     </div>
@@ -318,7 +313,7 @@ const PropertyDetails = () => {
                       <h6 className="card-title fw-bold">{rel.title}</h6>
                       <Link
                         to={`/property/${rel.id}`}
-                        className="btn btn-sm btn-outline-danger mt-2 stretched-link w-100"
+                        className="btn btn-sm btn-outline-brand mt-2 stretched-link w-100"
                       >
                         View Details
                       </Link>
