@@ -1,34 +1,27 @@
 export const properties = [
   {
-    id: 1,
-    title: "Pazuri Gardens - Phase 7",
-    slug: "pazuri-gardens-phase-7",
-    location: "Kithyoko, Machakos",
+    id: 8,
+    title: "Pazuri Gardens Phase 8",
+    slug: "pazuri-gardens",
+    location: "Kithyoko",
     size: "50x100",
-    price: "130,000",
+    price: "150,000",
     status: "Available",
 
-    img: "/img/properties/pazuri-gardens-phase-7/main.png",
-
-    images: [
-      "/img/properties/pazuri-gardens-phase-7/main.png",
-      "/img/properties/pazuri-gardens-phase-7/1.png",
-      "/img/properties/pazuri-gardens-phase-7/2.png",
-      "/img/properties/pazuri-gardens-phase-7/3.png",
-      "/img/properties/pazuri-gardens-phase-7/4.png",
-    ],
+    img: "/img/properties/pazuri-gardens-phase-8/main.jpg",
+    images: ["/img/properties/pazuri-gardens-phase-8/main.jpg"],
 
     description:
-      "Located just 10 minutes off Thika-Garissa highway, Pazuri Garden Phase 7 offers a serene environment perfect for immediate settlement. The soil is red, suitable for farming, and the area is rapidly developing. Water on site, and electricity nearby, it's an ideal choice for both residential and investment purposes. The plots are beaconed, and the roads are graded for easy access. Don't miss out on this opportunity to own a piece of prime land in Kithyoko.",
+      "This is your opportunity to secure a plot in the upcoming phase 8 of our popular Pazuri Garden series in Mbakini. Just1 Km from the main road, this phase offers the same great features as our previous phases, including water on site, prime location, proximity to schools, electricity, and graded roads. Don't miss out on this chance to invest in a rapidly developing area with high potential for appreciation. Contact us today to learn more about how you can be part of this exciting new development!",
     features: [
-      "Freehold Title Deeds.",
-      "Water borehole on Site.",
-      "Electricity Nearby.",
-      "Graded access Roads.",
-      "Fully Beaconed.",
+      "Water on Site",
+      "Prime Location",
+      "School Nearby",
+      "Electricit",
+      "Graded Roads",
     ],
     mapSrc:
-      "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d4243.630808147012!2d37.89191877496538!3d-1.0744204989152528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMcKwMDQnMjcuOSJTIDM3wrA1Myc0MC4yIkU!5e1!3m2!1sen!2ske!4v1764786497521!5m2!1sen!2ske",
+      "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3853.5292248017877!2d37.91994177496518!3d-0.9991372989912344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMMKwNTknNTYuOSJTIDM3wrA1NScyMS4xIkU!5e1!3m2!1sen!2ske!4v1772443781371!5m2!1sen!2ske",
   },
   {
     id: 2,
@@ -58,6 +51,37 @@ export const properties = [
     ],
     mapSrc:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955!2d40.1!3d-3.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMTInMDAuMCJTIDQwwrAwNiwwMC4wIkU!5e0!3m2!1sen!2ske!4v1620000000000!5m2!1sen!2ske",
+  },
+  {
+    id: 1,
+    title: "Pazuri Gardens - Phase 7",
+    slug: "pazuri-gardens-phase-7",
+    location: "Kithyoko, Machakos",
+    size: "50x100",
+    price: "130,000",
+    status: "Available",
+
+    img: "/img/properties/pazuri-gardens-phase-7/main.png",
+
+    images: [
+      "/img/properties/pazuri-gardens-phase-7/main.png",
+      "/img/properties/pazuri-gardens-phase-7/1.png",
+      "/img/properties/pazuri-gardens-phase-7/2.png",
+      "/img/properties/pazuri-gardens-phase-7/3.png",
+      "/img/properties/pazuri-gardens-phase-7/4.png",
+    ],
+
+    description:
+      "Located just 10 minutes off Thika-Garissa highway, Pazuri Garden Phase 7 offers a serene environment perfect for immediate settlement. The soil is red, suitable for farming, and the area is rapidly developing. Water on site, and electricity nearby, it's an ideal choice for both residential and investment purposes. The plots are beaconed, and the roads are graded for easy access. Don't miss out on this opportunity to own a piece of prime land in Kithyoko.",
+    features: [
+      "Freehold Title Deeds.",
+      "Water borehole on Site.",
+      "Electricity Nearby.",
+      "Graded access Roads.",
+      "Fully Beaconed.",
+    ],
+    mapSrc:
+      "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d4243.630808147012!2d37.89191877496538!3d-1.0744204989152528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMcKwMDQnMjcuOSJTIDM3wrA1Myc0MC4yIkU!5e1!3m2!1sen!2ske!4v1764786497521!5m2!1sen!2ske",
   },
   {
     id: 3,
@@ -163,29 +187,5 @@ export const properties = [
       "This project is fully sold out. Thank you to all our valued customers. Stay tuned for future developments in the Kithyoko area. We appreciate your support!",
     features: ["Sold Out", "Gated Community"],
     mapSrc: "",
-  },
-  {
-    id: 8,
-    title: "Pazuri Gardens Phase 8",
-    slug: "pazuri-gardens",
-    location: "Kithyoko",
-    size: "50x100",
-    price: "150,000",
-    status: "Available",
-
-    img: "/img/properties/pazuri-gardens-phase-8/main.jpg",
-    images: ["/img/properties/pazuri-gardens-phase-8/main.jpg"],
-
-    description:
-      "This is your opportunity to secure a plot in the upcoming phase 8 of our popular Pazuri Garden series. Just1 Km from the main road, this phase offers the same great features as our previous phases, including water on site, prime location, proximity to schools, electricity, and graded roads. Don't miss out on this chance to invest in a rapidly developing area with high potential for appreciation. Contact us today to learn more about how you can be part of this exciting new development!",
-    features: [
-      "Water on Site",
-      "Prime Location",
-      "School Nearby",
-      "Electricit",
-      "Graded Roads",
-    ],
-    mapSrc:
-      "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3853.5292248017877!2d37.91994177496518!3d-0.9991372989912344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMMKwNTknNTYuOSJTIDM3wrA1NScyMS4xIkU!5e1!3m2!1sen!2ske!4v1772443781371!5m2!1sen!2ske",
   },
 ];
