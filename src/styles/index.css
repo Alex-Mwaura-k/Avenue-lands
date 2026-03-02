@@ -459,7 +459,7 @@ nav i:hover {
   #heroCarousel,
   #heroCarousel .carousel-inner,
   .css-item {
-    height: 50dvh; /* Occupy half the screen height on mobile */
+    height: 45dvh; /* Occupy half the screen height on mobile */
     min-height: 300px; /* Lowered so it doesn't force itself to be too tall on small phones */
   }
 }
