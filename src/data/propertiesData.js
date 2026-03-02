@@ -166,18 +166,26 @@ export const properties = [
   },
   {
     id: 8,
-    title: "Pazuri Gardens Phase 8 (Coming Soon)",
+    title: "Pazuri Gardens Phase 8",
     slug: "pazuri-gardens",
     location: "Kithyoko",
     size: "50x100",
     price: "150,000",
-    status: "Coming Soon",
+    status: "Available",
 
-    img: "/img/properties/royal-garden-kithyoko/main.png",
-    images: ["/img/properties/royal-garden-kithyoko/main.png"],
+    img: "/img/properties/pazuri-gardens-phase-8/main.jpg",
+    images: ["/img/properties/pazuri-gardens-phase-8/main.jpg"],
 
-    description: "The next phase of our popular Pazuri Garden series.",
-    features: ["Pre-booking", "Prime Location"],
-    mapSrc: "",
+    description:
+      "This is your opportunity to secure a plot in the upcoming phase 8 of our popular Pazuri Garden series. Just1 Km from the main road, this phase offers the same great features as our previous phases, including water on site, prime location, proximity to schools, electricity, and graded roads. Don't miss out on this chance to invest in a rapidly developing area with high potential for appreciation. Contact us today to learn more about how you can be part of this exciting new development!",
+    features: [
+      "Water on Site",
+      "Prime Location",
+      "School Nearby",
+      "Electricit",
+      "Graded Roads",
+    ],
+    mapSrc:
+      "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3853.5292248017877!2d37.91994177496518!3d-0.9991372989912344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMMKwNTknNTYuOSJTIDM3wrA1NScyMS4xIkU!5e1!3m2!1sen!2ske!4v1772443781371!5m2!1sen!2ske",
   },
 ];
