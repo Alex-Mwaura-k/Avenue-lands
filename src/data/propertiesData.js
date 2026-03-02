@@ -12,7 +12,7 @@ export const properties = [
     images: ["/img/properties/pazuri-gardens-phase-8/main.jpg"],
 
     description:
-      "This is your opportunity to secure a plot in the upcoming phase 8 of our popular Pazuri Garden series in Mbakini. Just1 Km from the main road, this phase offers the same great features as our previous phases, including water on site, prime location, proximity to schools, electricity, and graded roads. Don't miss out on this chance to invest in a rapidly developing area with high potential for appreciation. Contact us today to learn more about how you can be part of this exciting new development!",
+      "This is your opportunity to secure a plot in the upcoming phase 8 of our popular Pazuri Garden series in Mbakini. Just 1Km from the main road, this phase offers the same great features as our previous phases, including water on site, prime location, proximity to schools, electricity, and graded roads. Don't miss out on this chance to invest in a rapidly developing area with high potential for appreciation. Contact us today to learn more about how you can be part of this exciting new development!",
     features: [
       "Water on Site",
       "Prime Location",
