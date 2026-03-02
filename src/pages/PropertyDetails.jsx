@@ -278,7 +278,7 @@ const PropertyDetails = () => {
                   Book Site Visit
                 </button>
                 <a
-                  href={`https://wa.me/254715113103?text=Hi, I am interested in ${property.title}`}
+                  href={`https://wa.me/254?text=Hi, I am interested in ${property.title}`}
                   target="_blank"
                   rel="noreferrer"
                   className="btn btn-outline-success py-2 fw-bold"

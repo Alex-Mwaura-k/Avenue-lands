@@ -98,7 +98,7 @@ const Footer = () => {
                 <i className="bi bi-youtube"></i>
               </a>
               <a
-                href="https://wa.me/254715113103"
+                href="https://wa.me/2547740888775?text=Hi, I am interested in learning more about your land deals."
                 target="_blank"
                 rel="noreferrer"
                 className="social-btn"
