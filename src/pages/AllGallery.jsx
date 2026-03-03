@@ -40,21 +40,23 @@ const Gallery = ({ limit }) => {
 
   return (
     <>
-      <section id="gallery" className="gallery-section">
+      <section id="gallery" className="gallery-section bg-primary-custom py-5">
         <div className="container-md">
           {/* --- BREADCRUMB --- */}
-          {/* Only visible on the full Gallery Page (when limit is undefined) */}
           {!limit && (
-            <nav aria-label="breadcrumb" className="mb-4 pt-2">
+            <nav aria-label="breadcrumb" className="mb-4">
               <ol className="breadcrumb">
                 <li className="breadcrumb-item">
-                  <Link to="/" className="text-danger text-decoration-none">
+                  <Link
+                    to="/"
+                    className="text-secondary-custom text-decoration-none"
+                  >
                     Home
                   </Link>
                 </li>
-                {/* text-white makes it visible on the black background */}
+                {/* Changed to text-dark so it is visible on your white background bar */}
                 <li
-                  className="breadcrumb-item active text-white"
+                  className="breadcrumb-item active text-dark"
                   aria-current="page"
                 >
                   Gallery
@@ -66,7 +68,7 @@ const Gallery = ({ limit }) => {
           {/* Header */}
           <div className="row mb-4 align-items-center">
             <div className="col-lg-4">
-              <span className="text-danger fw-bold text-uppercase small ls-2">
+              <span className="text-secondary-custom fw-bold text-uppercase small ls-2">
                 Our Gallery
               </span>
               <h2 className="display-5 fw-bold text-white mt-1">
@@ -123,7 +125,7 @@ const Gallery = ({ limit }) => {
                   <img src={item.img} alt={item.title} loading="lazy" />
                   <div className="gallery-overlay">
                     <div className="overlay-content">
-                      <h6 className="text-uppercase text-danger fw-bold ls-2 mb-1">
+                      <h6 className="text-uppercase text-secondary-custom fw-bold ls-2 mb-1">
                         {item.type}
                       </h6>
                       <h4 className="text-white fw-bold">{item.title}</h4>
@@ -135,11 +137,14 @@ const Gallery = ({ limit }) => {
             ))}
           </div>
 
-          {/* View All Button (Only show if limited) */}
+          {/* View All Button */}
           {limit && (
             <div className="row mt-4">
               <div className="col-12 text-center">
-                <Link to="/gallery" className="btn btn-custom-red px-3 py-1">
+                <Link
+                  to="/gallery"
+                  className="btn bg-secondary-custom text-white px-3 py-1"
+                >
                   View Full Gallery
                 </Link>
               </div>
@@ -169,7 +174,7 @@ const Gallery = ({ limit }) => {
               className="lightbox-img"
             />
             <div className="lightbox-caption">
-              <h4 className="fw-bold mb-1">
+              <h4 className="fw-bold mb-1 text-secondary-custom">
                 {displayItems[lightboxIndex].title}
               </h4>
               <p className="text-white-50 small mb-0">
