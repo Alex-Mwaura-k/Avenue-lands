@@ -3,14 +3,14 @@ export const blogData = [
   {
     id: 1,
     type: "video",
-    title: "Fadhili Gardens Phase II - Virtual Tour",
+    title: "Zawadi Garden - Matuu",
     category: "Virtual Tour",
-    desc: "Explore the beacons, access roads, and the serene environment of our Makutano project.",
-    // Link for the Iframe (Embed)
-    videoUrl: "https://www.youtube.com/embed/4MR3tvUfbuY?rel=0",
+    desc: "50x100 Prime Plots in Matuu with All social Amenities. Explore the beacons, access roads, and the serene environment of our project.",
+    videoUrl:
+      "https://www.youtube.com/embed/RO8qlxlVVrM?si=nS3oL-SuTJT2_JpP?rel=0",
     // Link for the Button (Watch on YouTube)
-    link: "https://youtu.be/4MR3tvUfbuY",
-    date: "Oct 12, 2025",
+    link: "https://youtu.be/RO8qlxlVVrM?si=nS3oL-SuTJT2_JpP",
+    date: "Mar 02, 2026",
   },
   // --- ARTICLE 1 ---
   {
@@ -50,12 +50,13 @@ export const blogData = [
   {
     id: 3,
     type: "video",
-    title: "Client Success Story",
-    category: "Testimonial",
-    desc: '"I received my Title Deed in just 30 days." Hear from our happy investors.',
-    videoUrl: "https://www.youtube.com/embed/7nbOFYnpG3o?rel=0",
-    link: "https://youtu.be/7nbOFYnpG3o",
-    date: "Sept 28, 2025",
+    title: "Pazuri Gardens - Phase 7",
+    category: "Site Visit",
+    desc: "Affordable land in Kithyoko, Machakos. It is high in demand and offers excellent value returns. Karibuni to our site visit of this rapidly developing project.",
+    videoUrl:
+      "https://www.youtube.com/embed/ayl_O6CWSnA?si=ZFNuzkBCcLXiUfeB?rel=0",
+    link: "https://youtu.be/ayl_O6CWSnA?si=ZFNuzkBCcLXiUfeB",
+    date: "Mar 02, 2026",
   },
   // --- ARTICLE 2 ---
   {
@@ -72,11 +73,12 @@ export const blogData = [
   {
     id: 5,
     type: "video",
-    title: "Ufanisi Haven Launch Event",
-    category: "Event",
-    desc: "Highlights from our grand opening event in Kitengela. See the turnout!",
-    videoUrl: "https://www.youtube.com/embed/m9aMmy6gaMk?si=CuSdK8_tXfKMJHD2",
-    link: "https://youtu.be/m9aMmy6gaMk",
+    title: "Pazuri Gardens Prime Project",
+    category: "Project",
+    desc: "Highlights from the grand opening of Pazuri Gardens, showcasing the vibrant community and state-of-the-art amenities that set this development apart.",
+    videoUrl:
+      "https://www.youtube.com/embed/OzSXiHY8Cgo?si=ALUcuFWcfOhiJ4qr?rel=0",
+    link: "https://youtu.be/OzSXiHY8Cgo?si=kAjhvhiN_JVXmw9k",
     date: "Aug 15, 2025",
   },
   // --- ARTICLE 3 ---

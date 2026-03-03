@@ -50,16 +50,16 @@ const Careers = () => {
   return (
     <div className="careers-page bg-light pb-5">
       {/* HERO SECTION */}
-      <div className="bg-black text-white py-5 mb-5 text-center">
+      <div className="bg-primary-custom text-white py-4 mb-5 text-center">
         <div className="container">
-          <span className="text-danger fw-bold text-uppercase small ls-2">
+          <span className="text-secondary-custom fw-bold text-uppercase small ls-2">
             Join Our Team
           </span>
           <h1 className="display-4 fw-bold mt-2">
             Build Your <span className="text-stroke-white">Career</span> With Us
           </h1>
-          <p className="text-secondary mx-auto" style={{ maxWidth: "600px" }}>
-            At Avenue Ventures, we don't just sell land we build futures. If you
+          <p className="text-white-50 mx-auto" style={{ maxWidth: "600px" }}>
+            At Avenue Ventures, we don't just sell land—we build futures. If you
             are passionate, driven, and ready to make an impact, we want to hear
             from you.
           </p>
@@ -70,7 +70,7 @@ const Careers = () => {
       <div className="container-md">
         <div className="row mb-4 align-items-center">
           <div className="col-md-6 mb-3 mb-md-0">
-            <h3 className="fw-bold text-dark border-start border-4 border-danger ps-3 mb-0">
+            <h3 className="fw-bold text-secondary-custom border-start border-4 border-secondary-custom ps-3 mb-0">
               Open Positions
             </h3>
           </div>
@@ -102,61 +102,73 @@ const Careers = () => {
 
             return (
               <div key={job.id} className="col-md-6 col-lg-4">
-                <div
-                  className={`card h-100 border-0 shadow-sm hover-shadow transition-all ${
-                    expired ? "opacity-75 bg-light" : ""
-                  }`}
+                {/* Entire Card is now a Link */}
+                <Link
+                  to={expired ? "#" : `/careers/${job.id}`}
+                  className="text-decoration-none h-100 d-block"
+                  style={{ cursor: expired ? "default" : "pointer" }}
                 >
-                  <div className="card-body p-4 d-flex flex-column">
-                    <div className="d-flex justify-content-between align-items-start mb-3">
-                      <span className="badge bg-danger-subtle text-danger">
-                        {job.department}
-                      </span>
-                      {expired && (
-                        <span className="badge bg-secondary">Closed</span>
-                      )}
-                    </div>
+                  <div
+                    className={`card h-100 border-0 shadow-sm hover-shadow transition-all ${
+                      expired ? "opacity-75 bg-light" : ""
+                    }`}
+                  >
+                    <div className="card-body p-4 d-flex flex-column">
+                      <div className="d-flex justify-content-between align-items-start mb-3">
+                        <span
+                          className="badge fw-bold"
+                          style={{
+                            backgroundColor: "rgba(228, 129, 90, 0.15)",
+                            color: "var(--secondary-custom)",
+                          }}
+                        >
+                          {job.department}
+                        </span>
+                        {expired && (
+                          <span className="badge bg-secondary">Closed</span>
+                        )}
+                      </div>
 
-                    <h5 className="card-title fw-bold text-dark">
-                      {job.title}
-                    </h5>
+                      <h5 className="card-title fw-bold text-dark">
+                        {job.title}
+                      </h5>
 
-                    <div className="text-muted small mb-4 mt-2">
-                      <p className="mb-1">
-                        <i className="bi bi-geo-alt-fill text-secondary me-2"></i>
-                        {job.location}
+                      <div className="text-muted small mb-4 mt-2">
+                        <p className="mb-1">
+                          <i className="bi bi-geo-alt-fill text-secondary me-2"></i>
+                          {job.location}
+                        </p>
+                        <p className="mb-1">
+                          <i className="bi bi-clock-fill text-secondary me-2"></i>
+                          {job.type}
+                        </p>
+                        <p
+                          className={`mb-0 fw-bold ${
+                            expired ? "text-danger" : "text-success"
+                          }`}
+                        >
+                          <i className="bi bi-calendar-event me-2"></i>
+                          Deadline: {job.deadline}
+                        </p>
+                      </div>
+
+                      <p className="card-text text-secondary small mb-4 flex-grow-1">
+                        {job.description.substring(0, 100)}...
                       </p>
-                      <p className="mb-1">
-                        <i className="bi bi-clock-fill text-secondary me-2"></i>
-                        {job.type}
-                      </p>
-                      <p
-                        className={`mb-0 fw-bold ${
-                          expired ? "text-danger" : "text-success"
+
+                      {/* Button changed to a div styled as a button since parent is a Link */}
+                      <div
+                        className={`btn w-100 fw-bold mt-auto ${
+                          expired ? "btn-secondary disabled" : "btn-success" // Green for active jobs as requested
                         }`}
                       >
-                        <i className="bi bi-calendar-event me-2"></i>
-                        Deadline: {job.deadline}
-                      </p>
+                        {expired
+                          ? "Applications Closed"
+                          : "View Details & Apply"}
+                      </div>
                     </div>
-
-                    <p className="card-text text-secondary small mb-4 flex-grow-1">
-                      {job.description.substring(0, 100)}...
-                    </p>
-
-                    <Link
-                      to={`/careers/${job.id}`}
-                      className={`btn w-100 fw-bold mt-auto ${
-                        expired
-                          ? "btn-secondary disabled"
-                          : "btn-outline-danger"
-                      }`}
-                      style={{ pointerEvents: expired ? "none" : "auto" }} // Prevent click if disabled
-                    >
-                      {expired ? "Applications Closed" : "View Details & Apply"}
-                    </Link>
                   </div>
-                </div>
+                </Link>
               </div>
             );
           })}

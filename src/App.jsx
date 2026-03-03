@@ -9,12 +9,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import InstallBanner from "./components/InstallBanner";
 import BookingModal from "./components/BookingModal";
 import Loading from "./components/Loading";
-import ContactFab from "./components/ContactFab"; // <-- 1. NEW: Import the ContactFab
-
-// --- NEW IMPORTS (Mocking them for single file or standard structure) ---
-// Note: In your real project, these are imported from the files we created above.
-// import Testimonials from "./components/Testimonials";
-// import FAQ from "./components/FAQ";
+import ContactFab from "./components/ContactFab";
 
 // --- LAZY IMPORTS ---
 const Hero = lazy(() => import("./components/Hero"));
@@ -53,11 +48,8 @@ const Home = () => (
     <About />
     <Blog limit={6} />
     <Gallery limit={6} />
-
-    {/* NEW SECTIONS ADDED HERE */}
     <Testimonials />
     <FAQ />
-
     <Contact />
   </>
 );
@@ -73,8 +65,6 @@ function App() {
         <Suspense fallback={<Loading />}>
           <Routes>
             <Route path="/" element={<Home />} />
-
-            {/* ... Keep all existing routes ... */}
             <Route path="/properties" element={<AllProperties />} />
             <Route path="/property/:id" element={<PropertyDetails />} />
             <Route path="/blogs" element={<AllBlogs />} />
@@ -90,9 +80,7 @@ function App() {
           </Routes>
         </Suspense>
       </main>
-      <ContactFab />{" "}
-      {/* <-- 2. NEW: Place it globally alongside your other floating items */}
-      <ScrollToTop />
+      <ContactFab /> <ScrollToTop />
       <Footer />
     </>
   );
