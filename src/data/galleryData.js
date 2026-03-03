@@ -9,9 +9,9 @@ export const galleryData = [
   {
     id: 2,
     type: "team",
-    img: "https://picsum.photos/id/1005/800/800", // Using larger images for lightbox
-    title: "John Kamau",
-    desc: "Senior Sales Manager guiding a client.",
+    img: "/img/Gallery/Team/office.webp", // Using larger images for lightbox
+    title: "Office Team",
+    desc: "Our Dedicated Office Staff Ready to Serve You.",
   },
   {
     id: 3,
@@ -37,29 +37,29 @@ export const galleryData = [
   {
     id: 6,
     type: "team",
-    img: "https://picsum.photos/id/1011/800/800",
-    title: "Customer Care Team",
-    desc: "Our Ruiru Office staff ready to serve you.",
+    img: "/img/Gallery/Team/on_site.webp",
+    title: "Site Visit Team",
+    desc: "Our team on site ensuring quality and progress for our investors.",
   },
   {
     id: 7,
-    type: "property",
-    img: "/img/properties/unity-gardens/main.png",
-    title: "Unity Garden",
-    desc: "Malindi. Perfect for holiday homes.",
+    type: "Event",
+    img: "/img/Gallery/Team/Site_Beacon.webp",
+    title: "Pazuri Gardens Project Launch",
+    desc: "The launch of our newest project in Kithyoko.",
   },
   {
     id: 8,
-    type: "poster",
-    img: "https://picsum.photos/id/1050/800/800",
-    title: "Free Site Visits",
-    desc: "Every Wednesday & Saturday. Transport is on us!",
+    type: "Event",
+    img: "/img/Gallery/Company events/Title deed 2.jpeg",
+    title: "Pazuri Gardens Title Deed Issuance",
+    desc: "September 2025. Congratulations to our valued investors.",
   },
   {
     id: 9,
     type: "team",
-    img: "https://picsum.photos/id/1025/800/800",
-    title: "Site Engineer",
-    desc: "Grading the roads at Royal Garden Phase 5.",
+    img: "/img/Gallery/Team/Site_visiting.webp",
+    title: "Site Visit Team",
+    desc: "Our dedicated team visiting sites to ensure quality and progress.",
   },
 ];

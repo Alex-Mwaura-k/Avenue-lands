@@ -17,7 +17,7 @@ export const properties = [
       "Water on Site",
       "Prime Location",
       "School Nearby",
-      "Electricit",
+      "Electricity Access",
       "Graded Roads",
     ],
     mapSrc:

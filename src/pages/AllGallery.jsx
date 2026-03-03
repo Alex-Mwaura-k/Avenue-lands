@@ -102,7 +102,7 @@ const Gallery = ({ limit }) => {
                   className={`filter-btn ${
                     filter === "poster" ? "active" : ""
                   }`}
-                  onClick={() => setFilter("poster")}
+                  onClick={() => setFilter("Event")}
                 >
                   Events
                 </button>
