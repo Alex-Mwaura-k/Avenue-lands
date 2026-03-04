@@ -117,7 +117,7 @@ export const properties = [
     slug: "Zawadi-garden-Matuu",
     location: "Matuu",
     size: "50x100",
-    price: "150,000",
+    price: "200,000",
     status: "Available",
     img: "/img/properties/zawadi-gardens-matuu/main.png",
     images: ["/img/properties/zawadi-gardens-matuu/1.png"],

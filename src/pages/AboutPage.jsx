@@ -1,6 +1,5 @@
-// src/pages/AboutPage.jsx
 import React from "react";
-import { Link } from "react-router-dom"; // 1. Import Link
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import About from "../components/About";
 
@@ -11,18 +10,29 @@ const AboutPage = () => {
       style={{
         backgroundColor: "#0a2b8b",
         minHeight: "100vh",
-        paddingTop: "20px", // Added padding for fixed navbar
+        paddingTop: "20px",
       }}
     >
       <Helmet>
         <title>About Us</title>
         <meta
           name="description"
-          content="Learn about Avenue Ventures, our mission, vision, and our commitment to providing affordable land with ready title deeds in Kenya."
+          content="Learn about Avenue Lands Ventures, our mission, vision, and our commitment to providing affordable land and 50x100 plots with ready title deeds in Kenya."
         />
+        <meta 
+          name="keywords" 
+          content="about Avenue Lands Ventures, real estate company Kenya, affordable land Nairobi, property investment Kenya, land selling company" 
+        />
+        <meta property="og:title" content="About Us | Avenue Lands Ventures" />
+        <meta 
+          property="og:description" 
+          content="Learn about Avenue Lands Ventures, our mission, vision, and our commitment to providing affordable land with ready title deeds in Kenya." 
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.avenuelandsventures.co.ke/about" />
+        <link rel="canonical" href="https://www.avenuelandsventures.co.ke/about" />
       </Helmet>
 
-      {/* --- ADDED BREADCRUMB --- */}
       <div className="container-md mb-3">
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
@@ -31,7 +41,6 @@ const AboutPage = () => {
                 Home
               </Link>
             </li>
-            {/* Added 'text-white' so it is visible on the black background */}
             <li
               className="breadcrumb-item active text-white"
               aria-current="page"

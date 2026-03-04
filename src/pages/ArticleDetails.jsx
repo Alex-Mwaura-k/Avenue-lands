@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { blogData } from "../data/blogData";
 
 const ArticleDetails = () => {
   const { id } = useParams();
   const article = blogData.find((item) => item.id === parseInt(id));
 
-  // Scroll to top when opening
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [id]);
@@ -19,13 +19,29 @@ const ArticleDetails = () => {
     );
   }
 
+  const plainTextContent = article.content ? article.content.replace(/<[^>]+>/g, '') : '';
+  const seoDescription = plainTextContent.length > 150 
+    ? `${plainTextContent.substring(0, 150)}...` 
+    : plainTextContent || `Read ${article.title} on Avenue Lands Ventures.`;
+
   return (
     <div
       className="article-details-page bg-light pb-4"
       style={{ paddingTop: "20px" }}
     >
+      <Helmet>
+        <title>{article.title}</title>
+        <meta name="description" content={seoDescription} />
+        <meta name="keywords" content={`${article.category}, ${article.title}, real estate news Kenya, Avenue Lands Ventures blog`} />
+        <meta property="og:title" content={`${article.title} | Avenue Lands Ventures`} />
+        <meta property="og:description" content={seoDescription} />
+        <meta property="og:image" content={article.img} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://www.avenuelandsventures.co.ke/article/${article.id}`} />
+        <link rel="canonical" href={`https://www.avenuelandsventures.co.ke/article/${article.id}`} />
+      </Helmet>
+
       <div className="container-md">
-        {/* Breadcrumb */}
         <nav aria-label="breadcrumb" className="mb-4">
           <ol className="breadcrumb">
             <li className="breadcrumb-item">
@@ -54,13 +70,10 @@ const ArticleDetails = () => {
               Posted on {article.date} by Admin
             </p>
 
-            {/* --- IMAGE ADJUSTMENT START --- */}
-            {/* Added 'text-center' to parent to align the image */}
             <div className="text-center mb-2">
               <img
                 src={article.img}
                 alt={article.title}
-                // Removed 'w-100' behavior by handling width in style
                 className="img-fluid rounded shadow-sm"
                 style={{
                   maxHeight: "500px",
@@ -70,9 +83,7 @@ const ArticleDetails = () => {
                 }}
               />
             </div>
-            {/* --- IMAGE ADJUSTMENT END --- */}
 
-            {/* Injects the HTML content from data file */}
             <div
               className="article-content bg-white p-3 p-md-5 rounded shadow-sm"
               dangerouslySetInnerHTML={{ __html: article.content }}

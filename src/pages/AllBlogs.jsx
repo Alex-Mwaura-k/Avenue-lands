@@ -5,15 +5,12 @@ import Blog from "../components/Blog";
 import { blogData } from "../data/blogData";
 
 const AllBlogs = () => {
-  // STATE
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [filteredBlogs, setFilteredBlogs] = useState(blogData);
 
-  // Categories
   const categories = ["All", ...new Set(blogData.map((item) => item.category))];
 
-  // FILTER LOGIC
   useEffect(() => {
     let results = blogData;
 
@@ -34,9 +31,23 @@ const AllBlogs = () => {
   return (
     <div style={{ paddingTop: "20px", paddingBottom: "30px" }}>
       <Helmet>
-        <title>Blogs Center</title>
-        <meta name="description" content="Latest real estate news." />
-        <link rel="canonical" href="https://Avenue.netlify.app/blogs" />
+        <title>Blog Center</title>
+        <meta 
+          name="description" 
+          content="Stay updated with the latest real estate news, property investment guides, and land buying tips in Kenya from Avenue Lands Ventures." 
+        />
+        <meta 
+          name="keywords" 
+          content="real estate blog Kenya, property investment tips, land buying guide, Avenue Lands Ventures news" 
+        />
+        <meta property="og:title" content="Blog Center | Avenue Lands Ventures" />
+        <meta 
+          property="og:description" 
+          content="Stay updated with the latest real estate news, property investment guides, and land buying tips in Kenya." 
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.avenuelandsventures.co.ke/blogs" />
+        <link rel="canonical" href="https://www.avenuelandsventures.co.ke/blogs" />
       </Helmet>
 
       <div className="container-md mb-4">
@@ -53,7 +64,6 @@ const AllBlogs = () => {
           </ol>
         </nav>
 
-        {/* HEADER & FILTERS */}
         <div className="d-flex flex-column flex-md-row justify-content-between align-items-md-end gap-3">
           <div>
             <h1 className="fw-bold text-dark mb-1">Blogs Center</h1>
@@ -88,7 +98,6 @@ const AllBlogs = () => {
         </div>
       </div>
 
-      {/* IMPORTANT: Pass the filtered data to the component */}
       <Blog customData={filteredBlogs} />
     </div>
   );

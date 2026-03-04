@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { properties } from "../data/propertiesData";
 
 const PropertyDetails = () => {
@@ -85,8 +86,26 @@ const PropertyDetails = () => {
     .filter((p) => p.slug !== property.slug)
     .slice(0, 4);
 
+  // Safely grab a snippet of the description for Google
+  const seoDescription = property.description 
+    ? `${property.description.substring(0, 150)}...` 
+    : `Check out ${property.title} in ${property.location}. Prime land for sale in Kenya.`;
+
   return (
     <div className="property-details-page bg-light pb-5">
+      <Helmet>
+        <title>{property.title}</title>
+        <meta name="description" content={seoDescription} />
+        <meta name="keywords" content={`${property.title}, ${property.location}, land for sale in ${property.location}, Avenue Lands Ventures, ${property.size} plot`} />
+        <meta property="og:title" content={`${property.title} | Avenue Lands Ventures`} />
+        <meta property="og:description" content={seoDescription} />
+        {/* Grabbing the specific property image so WhatsApp shows the plot! */}
+        <meta property="og:image" content={property.img} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://www.avenuelandsventures.co.ke/property/${property.slug}`} />
+        <link rel="canonical" href={`https://www.avenuelandsventures.co.ke/property/${property.slug}`} />
+      </Helmet>
+
       <div className="container-md mb-4 pt-3">
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
