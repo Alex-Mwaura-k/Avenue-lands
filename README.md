@@ -1,6 +1,6 @@
-# Avenue Land Ventures
+# Avenue Lands Ventures
 
-A modern, high-performance **Progressive Web App (PWA)** built for Avenue Land Ventures to showcase prime real estate listings in Kenya. This application allows users to browse plots, view galleries, read real estate blogs, and book site visits seamlessly, even with poor internet connectivity.
+A modern, high-performance **Progressive Web App (PWA)** built for Avenue Lands Ventures to showcase prime real estate listings in Kenya. This application allows users to browse plots, view galleries, read real estate blogs, and book site visits seamlessly, even with poor internet connectivity.
 
 ## 🚀 Features
 

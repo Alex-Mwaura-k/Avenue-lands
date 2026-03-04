@@ -42,8 +42,8 @@ const Home = () => (
   <>
     {/* 2. Google reads this specific block for your Home Page SEO */}
     <Helmet>
-      <title>Avenue Land Ventures</title>
-      <meta name="description" content="Discover prime, affordable land and plots for sale in Kenya with Avenue Land Ventures. Start your real estate investment journey with the best Land Sellers in Kenya." />
+      <title>Avenue Lands Ventures</title>
+      <meta name="description" content="Discover prime, affordable land and plots for sale in Kenya with Avenue Lands Ventures. Start your real estate investment journey with the best Land Sellers in Kenya." />
     </Helmet>
 
     <Hero />

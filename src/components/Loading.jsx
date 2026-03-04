@@ -16,7 +16,7 @@ const Loading = () => {
       <div className="mb-4 text-center">
         <img
           src="/icons/logo.png"
-          alt="Avenue Land Ventures"
+          alt="Avenue Lands Ventures"
           style={{ width: "150px", height: "auto", objectFit: "contain" }}
         />
       </div>
