@@ -192,19 +192,31 @@ const Navbar = () => {
                 >
                   +254 740 888 775
                 </a>
-                <a href="#" className="text-decoration-none social-icon">
+                <a
+                  href="https://www.instagram.com/avenue_lands/"
+                  target="_blank"
+                  className="text-decoration-none social-icon"
+                >
                   <i className="bi bi-instagram"></i>
                 </a>
-                <a href="#" className="text-decoration-none social-icon">
+                <a
+                  href="https://web.facebook.com/profile.php?id=61550923770792"
+                  target="_blank"
+                  className="text-decoration-none social-icon"
+                >
                   <i className="bi bi-facebook"></i>
                 </a>
-                <a href="#" className="text-decoration-none social-icon">
+                <a
+                  href="https://www.tiktok.com/@avenue.lands.ventures"
+                  target="_blank"
+                  className="text-decoration-none social-icon"
+                >
                   <i className="bi bi-tiktok"></i>
                 </a>
               </div>
               <div className="email small">
                 <a
-                  href="mailto:Avenuelandventures@gmail.com"
+                  href="mailto:avenuelandventures@gmail.com"
                   className="nav-link p-0 contact-link"
                 >
                   info@avenuelandventures.co.ke

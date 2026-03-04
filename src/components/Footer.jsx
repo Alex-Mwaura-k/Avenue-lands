@@ -66,7 +66,7 @@ const Footer = () => {
 
             <div className="d-flex gap-2 justify-content-center justify-content-md-start">
               <a
-                href="https://web.facebook.com/Avenuelandventures"
+                href="https://web.facebook.com/profile.php?id=61550923770792"
                 target="_blank"
                 rel="noreferrer"
                 className="social-btn"
@@ -74,7 +74,7 @@ const Footer = () => {
                 <i className="bi bi-facebook"></i>
               </a>
               <a
-                href="https://www.instagram.com/Avenuelandventures/"
+                href="https://www.instagram.com/avenue_lands/"
                 target="_blank"
                 rel="noreferrer"
                 className="social-btn"
@@ -82,7 +82,7 @@ const Footer = () => {
                 <i className="bi bi-instagram"></i>
               </a>
               <a
-                href="https://www.tiktok.com/@Avenuelandventures"
+                href="https://www.tiktok.com/@avenue.lands.ventures"
                 target="_blank"
                 rel="noreferrer"
                 className="social-btn"
@@ -90,7 +90,7 @@ const Footer = () => {
                 <i className="bi bi-tiktok"></i>
               </a>
               <a
-                href="https://www.youtube.com/@Avenuelandventures"
+                href="https://www.youtube.com/channel/UCUIJgOh0ydkFmiP04-1vhzA"
                 target="_blank"
                 rel="noreferrer"
                 className="social-btn"

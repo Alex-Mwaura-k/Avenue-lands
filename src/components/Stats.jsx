@@ -16,55 +16,43 @@ const Stats = () => {
       (entries) => {
         if (entries[0].isIntersecting && !hasAnimated) {
           setHasAnimated(true);
-          animateNumbers();
+          startAnimation();
         }
       },
-      { threshold: 0.5 },
+      { threshold: 0.3 },
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, [hasAnimated]);
 
-  const animateNumbers = () => {
+  const startAnimation = () => {
     const duration = 2000;
-    const steps = 50;
-    const interval = duration / steps;
+    const startTime = performance.now();
+    const targets = {
+      locations: 20,
+      investors: 500,
+      assurance: 100,
+      projects: 20,
+    };
 
-    const targetLocations = 20;
-    const targetInvestors = 500;
-    const targetAssurance = 100;
-    const targetProjects = 50;
-
-    let currentStep = 0;
-
-    const timer = setInterval(() => {
-      currentStep++;
+    const animate = (currentTime) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
 
       setCounts({
-        locations: Math.min(
-          targetLocations,
-          Math.ceil((targetLocations / steps) * currentStep),
-        ),
-        investors: Math.min(
-          targetInvestors,
-          Math.ceil((targetInvestors / steps) * currentStep),
-        ),
-        assurance: Math.min(
-          targetAssurance,
-          Math.ceil((targetAssurance / steps) * currentStep),
-        ),
-        projects: Math.min(
-          targetProjects,
-          Math.ceil((targetProjects / steps) * currentStep),
-        ),
+        locations: Math.floor(progress * targets.locations),
+        investors: Math.floor(progress * targets.investors),
+        assurance: Math.floor(progress * targets.assurance),
+        projects: Math.floor(progress * targets.projects),
       });
 
-      if (currentStep >= steps) clearInterval(timer);
-    }, interval);
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    requestAnimationFrame(animate);
   };
 
   return (
