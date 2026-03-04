@@ -59,7 +59,7 @@ export const blogData = [
     date: "Mar 02, 2026",
   },
   // --- ARTICLE 2 ---
-  {
+{
     id: 4,
     type: "article",
     title: "How to Verify a Title Deed Search Online",
@@ -67,7 +67,27 @@ export const blogData = [
     img: "/img/Blogs/Title Deed.png",
     desc: "A step-by-step guide to using the e-Citizen portal for land searches.",
     date: "Oct 20, 2025",
-    content: `...`,
+    content: `
+  <p class="lead">Verifying a title deed is the single most critical step in the land-buying process. With the digitization of Ministry of Lands records, conducting an official land search is now faster, cheaper, and more transparent. Here is a step-by-step guide to verifying property ownership online.</p>
+
+  <h4 class="fw-bold mt-4 text-secondary">1. Access the Digital Land Portal - Ardhisasa</h4>
+  <p>The government has been integrating land services into the digital Ardhisasa platform, which is closely tied to the e-Citizen ecosystem. Start by visiting the official portal and logging into your account. If you are a first-time user, you will need your National ID, KRA PIN, and a passport-sized photo to register.</p>
+
+  <h4 class="fw-bold mt-4 text-secondary">2. Navigate to the Search Services</h4>
+  <p>Once logged into your dashboard, locate the 'Services' tab and select 'Search' under the Land Registration section. You will be prompted to initiate a new search application by providing details about the specific parcel of land.</p>
+
+  <h4 class="fw-bold mt-4 text-secondary">3. Enter the Title Deed Details</h4>
+  <p>You will need the exact details exactly as they appear on the copy of the title deed provided by the seller or real estate company. Enter the Parcel Number (also known as the Title Number). Ensure there are no typos, as even a single wrong digit will return a failed search or someone else's property.</p>
+
+  <h4 class="fw-bold mt-4 text-secondary">4. Pay the Statutory Search Fee</h4>
+  <p>An official online land search attracts a standard statutory fee (typically Ksh 500). The portal will generate a payment prompt. You can conveniently pay this via M-Pesa using the provided government Paybill number and the unique account reference generated for your transaction. Once payment is successful, click 'Confirm' to submit the request.</p>
+
+  <h4 class="fw-bold mt-4 text-secondary">5. Download the Search Results</h4>
+  <p>Unlike the old manual days that took weeks, digital searches are usually processed within a few hours to a couple of days. Once the registry approves the request, you will receive an SMS notification. You can then log back in and download the Official Certificate of Search directly from your portal.</p>
+
+  <h4 class="fw-bold mt-4 text-secondary">6. Interpret the Findings</h4>
+  <p>The downloaded document will reveal the absolute truth about the property. First, verify that the registered owner's name matches the seller's National ID perfectly. Secondly, and most importantly, look at the "Encumbrances" section. This will show if the land has an unpaid bank mortgage, a court caveat, or any active disputes. If this section is clear, the property is safe to purchase!</p>
+`
   },
   // --- VIDEO 3 ---
   {
@@ -82,7 +102,7 @@ export const blogData = [
     date: "Aug 15, 2025",
   },
   // --- ARTICLE 3 ---
-  {
+{
     id: 6,
     type: "article",
     title: "Fencing Materials Guide: Concrete vs Timber",
@@ -90,9 +110,28 @@ export const blogData = [
     img: "https://picsum.photos/id/60/800/600",
     desc: "Choosing between concrete poles and treated timber for longevity and cost.",
     date: "Sept 10, 2025",
-    content: `...`,
+    content: `
+  <p class="lead">Securing your newly acquired plot is the critical first step in land ownership. When it comes to chain-link or barbed-wire fencing, the most common debate among investors is whether to use concrete poles or treated timber. Here is a breakdown to help you make the most cost-effective and durable choice.</p>
+
+  <h4 class="fw-bold mt-4 text-secondary">1. Durability and Lifespan</h4>
+  <p>Concrete poles are the undisputed champions of longevity. They do not rot, rust, or degrade significantly over time, often lasting decades with zero issues. Treated timber, while improved by chemical preservatives, will eventually succumb to the elements and usually needs replacing every 7 to 10 years, depending on soil moisture.</p>
+
+  <h4 class="fw-bold mt-4 text-secondary">2. The Threat of Pests and Termites</h4>
+  <p>In many parts of Kenya, termites are a major threat to wooden structures. Even highly treated timber can eventually lose its chemical barrier, leaving it vulnerable to termite attacks. Concrete completely eliminates this risk, making it the superior choice for areas known for aggressive pest populations.</p>
+
+  <h4 class="fw-bold mt-4 text-secondary">3. Initial Costs vs. Long-Term Value</h4>
+  <p>Treated timber is undeniably cheaper upfront, making it an attractive option if you are fencing a large acreage on a tight budget. However, when you factor in the cost of replacing rotting or broken posts over a 15-year period, concrete poles actually offer better long-term ROI due to their "install and forget" nature.</p>
+
+  <h4 class="fw-bold mt-4 text-secondary">4. Security and Structural Integrity</h4>
+  <p>If security is your primary concern, concrete provides a much firmer foundation. It is incredibly difficult for intruders to break or uproot a properly installed concrete pole. Timber can be sawed through, burnt, or broken with enough blunt force, making it slightly more vulnerable to vandalism.</p>
+
+  <h4 class="fw-bold mt-4 text-secondary">5. Environmental Impact and Aesthetics</h4>
+  <p>Timber blends beautifully into natural and agricultural landscapes, giving a warm, rustic feel that many farm owners prefer. Concrete has a more industrial, stark appearance. However, concrete doesn't leach treating chemicals into the soil, making it safer for organic farming zones directly adjacent to the fence line.</p>
+
+  <h4 class="fw-bold mt-4 text-secondary">6. Fire Resistance</h4>
+  <p>For plots located in arid or semi-arid regions where dry brush fires are a seasonal risk, concrete is the safest bet. A passing bushfire can easily consume a timber fence, leaving your property exposed and forcing you to reinvest in fencing materials.</p>
+`
   },
-  // --- EXTRA ITEM ---
   {
     id: 7,
     type: "article",
@@ -101,6 +140,26 @@ export const blogData = [
     img: "https://picsum.photos/id/20/800/600",
     desc: "Why Masinga and Kithyoko are the next big frontiers for affordable land investment.",
     date: "July 05, 2025",
-    content: "<p>Machakos county has seen unprecedented growth...</p>",
-  },
+    content: `
+  <p class="lead">While areas like Athi River and Syokimau have dominated the Machakos real estate narrative for the last decade, high prices have pushed savvy investors to look further inland. Today, sub-counties like Masinga and Kithyoko are emerging as the ultimate frontiers for high-yield, affordable land investment.</p>
+
+  <h4 class="fw-bold mt-4 text-secondary">1. Unbeatable Affordability</h4>
+  <p>The primary draw to Masinga and Kithyoko is the low barrier to entry. Investors can acquire expansive plots here for a fraction of what a similar size would cost closer to the Nairobi metropolis. This affordability allows everyday Kenyans to secure assets without taking on crippling debt.</p>
+
+  <h4 class="fw-bold mt-4 text-secondary">2. Massive Infrastructure Expansion</h4>
+  <p>The "hidden" value of these areas is being unlocked by aggressive infrastructure projects. With the grading of access roads and the steady expansion of the national grid and rural electrification projects, these previously remote areas are rapidly opening up for commercial and residential settlement.</p>
+
+  <h4 class="fw-bold mt-4 text-secondary">3. High Capital Appreciation Potential</h4>
+  <p>Because the initial cost of land in Kithyoko and Masinga is currently low, the room for capital appreciation is massive. As the tarmac reaches deeper and amenities like schools and hospitals are established, early investors stand to see their plot values double or triple in a relatively short timeframe.</p>
+
+  <h4 class="fw-bold mt-4 text-secondary">4. Agricultural and Agribusiness Value</h4>
+  <p>Beyond simple speculation, this region boasts fertile soils suitable for various agribusiness ventures. Proximity to water sources, including the Masinga Dam catchments, provides opportunities for irrigation-led farming, allowing investors to generate income from the land while waiting for it to appreciate.</p>
+
+  <h4 class="fw-bold mt-4 text-secondary">5. The Decentralization Shift</h4>
+  <p>As Nairobi continues to experience congestion, both the government and private citizens are pushing outwards. The devolution of county services has sparked localized economic hubs. Kithyoko is transitioning from a sleepy stopover into a bustling local economy, driving demand for commercial plots and rental housing.</p>
+
+  <h4 class="fw-bold mt-4 text-secondary">6. A Peaceful Retreat</h4>
+  <p>For those looking to build holiday homes or retirement residences, the wider Machakos interior offers a serene, unpolluted environment. The scenic landscapes and quiet atmosphere make it highly attractive for buyers wanting to escape the chaos of the city without moving too far from major highway networks.</p>
+`
+  }
 ];
