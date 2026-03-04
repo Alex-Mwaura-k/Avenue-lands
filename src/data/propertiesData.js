@@ -9,10 +9,12 @@ export const properties = [
     status: "Available",
 
     img: "/img/properties/pazuri-gardens-phase-8/main.jpg",
-         "/img/properties/pazuri-gardens-phase-8/2.png",
-         "/img/properties/pazuri-gardens-phase-8/3.png",
-         "/img/properties/pazuri-gardens-phase-8/4.png",
-    images: ["/img/properties/pazuri-gardens-phase-8/main.jpg"],
+           
+    images: ["/img/properties/pazuri-gardens-phase-8/main.jpg",
+      "/img/properties/pazuri-gardens-phase-8/2.png",
+      "/img/properties/pazuri-gardens-phase-8/3.png",
+      "/img/properties/pazuri-gardens-phase-8/4.png",
+    ],
 
     description:
       "This is your opportunity to secure a plot in the upcoming phase 8 of our popular Pazuri Garden series in Mbakini. Just 1Km from the main road, this phase offers the same great features as our previous phases, including water on site, prime location, proximity to schools, electricity, and graded roads. Don't miss out on this chance to invest in a rapidly developing area with high potential for appreciation. Contact us today to learn more about how you can be part of this exciting new development!",
@@ -117,7 +119,7 @@ export const properties = [
     slug: "Zawadi-garden-Matuu",
     location: "Matuu",
     size: "50x100",
-    price: "200,000",
+    price: "150,000",
     status: "Available",
     img: "/img/properties/zawadi-gardens-matuu/main.png",
     images: ["/img/properties/zawadi-gardens-matuu/1.png"],
