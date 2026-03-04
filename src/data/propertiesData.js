@@ -102,7 +102,7 @@ export const properties = [
     images: ["/img/properties/breeze-gardens/main.png"],
 
     description:
-      "Prime commercial and residential plots in the heart of Makutano(ya Mwea). Extremely high value appreciation rate. Ideal for building rental flats or commercial centers. The area is a bustling hub with a vibrant New Makutano market, schools, and easy access to the Kenol-Marua dual carriage highway. With ready title deeds, water, electricity, and a secure perimeter fence, Unity Garden offers everything you need for a successful investment.",
+      "Prime commercial and residential plots in the heart of Makutano(ya Mwea). Extremely high value appreciation rate. Ideal for building rental flats or commercial centers. The area is a bustling hub with a vibrant New Makutano market, schools, and easy access to the Kenol-Marua dual carriage highway.10 minutes drive from Kamweli Shopping Center. With ready title deeds, water, electricity, and a secure perimeter fence, Unity Garden offers everything you need for a successful investment.",
     features: [
       "Ready for Immediate settlement.",
       "Water & Electricity.",
@@ -111,7 +111,7 @@ export const properties = [
       "Ready Title Deed.",
     ],
     mapSrc:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4243.971739633278!2d37.29781994516046!3d-0.7918142332090111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1828a10f5e953979%3A0x6fa09031ab8a583c!2sFadhili%20Gardens%2C%20Phase%202%20(AvenueLand%20Ventures)!5e1!3m2!1sen!2ske!4v1764789996852!5m2!1sen!2ske",
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5182.466032023739!2d37.294646538940874!3d-0.7824509960107313!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18261f00499b8b9b%3A0xd468b7cfdbda9265!2sKamweli%20Shopping%20center!5e1!3m2!1sen!2ske!4v1772659416537!5m2!1sen!2ske",
   },
   {
     id: 4,
