@@ -64,7 +64,7 @@ export const blogData = [
     type: "article",
     title: "How to Verify a Title Deed Search Online",
     category: "Legal",
-    img: "/img/Blogs/Title Deeds.png",
+    img: "/img/Blogs/Title Deed.png",
     desc: "A step-by-step guide to using the e-Citizen portal for land searches.",
     date: "Oct 20, 2025",
     content: `...`,
