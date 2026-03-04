@@ -22,7 +22,7 @@ export const initialReviews = [
     name: "Faith Wambui",
     role: "Home Owner",
     location: "Malindi",
-    text: "Bought a 1-acre block in Kijani Gardens. The fencing was done exactly as promised. Highly recommend them for diaspora investors looking for genuine land.",
+    text: "Bought a 1-acre block in Baharini Gardens. The fencing was done exactly as promised. Highly recommend them for diaspora investors looking for genuine land.",
     rating: 5,
     img: "https://ui-avatars.com/api/?name=Faith+Wambui&background=DC3545&color=fff",
     date: new Date("2025-01-05"),
