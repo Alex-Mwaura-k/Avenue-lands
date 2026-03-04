@@ -95,7 +95,7 @@ const Navbar = () => {
           tabIndex="-1"
           id="offcanvasNavbar"
         >
-          <div className="offcanvas-header">
+          <div className="offcanvas-header bg-primary-custom text-white">
             <h5 className="offcanvas-title">Menu</h5>
             <button
               type="button"

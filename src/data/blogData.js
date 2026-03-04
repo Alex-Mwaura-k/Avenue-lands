@@ -8,7 +8,6 @@ export const blogData = [
     desc: "50x100 Prime Plots in Matuu with All social Amenities. Explore the beacons, access roads, and the serene environment of our project.",
     videoUrl:
       "https://www.youtube.com/embed/RO8qlxlVVrM?si=nS3oL-SuTJT2_JpP?rel=0",
-    // Link for the Button (Watch on YouTube)
     link: "https://youtu.be/RO8qlxlVVrM?si=nS3oL-SuTJT2_JpP",
     date: "Mar 02, 2026",
   },
