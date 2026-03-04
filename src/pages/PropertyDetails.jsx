@@ -3,25 +3,21 @@ import { useParams, Link } from "react-router-dom";
 import { properties } from "../data/propertiesData";
 
 const PropertyDetails = () => {
-  const { id } = useParams();
-  const property = properties.find((p) => p.id === parseInt(id));
-
-  // Determine images (Fallback to cover image if no array)
+  const { slug } = useParams();
+  const property = properties.find((p) => p.slug === slug);
   const propertyImages = property ? property.images || [property.img] : [];
 
   const [mainImage, setMainImage] = useState("");
   const [lightboxIndex, setLightboxIndex] = useState(null);
   const [isPaused, setIsPaused] = useState(false);
 
-  // Initialize
   useEffect(() => {
     window.scrollTo(0, 0);
     if (property) {
       setMainImage(property.img);
     }
-  }, [id, property]);
+  }, [slug, property]);
 
-  // --- AUTO-CAROUSEL LOGIC ---
   useEffect(() => {
     if (propertyImages.length <= 1 || lightboxIndex !== null || isPaused)
       return;
@@ -37,7 +33,6 @@ const PropertyDetails = () => {
     return () => clearInterval(interval);
   }, [propertyImages, lightboxIndex, isPaused]);
 
-  // --- MANUAL NAVIGATION HANDLERS ---
   const handlePrevMain = (e) => {
     e.stopPropagation();
     setIsPaused(true);
@@ -69,7 +64,6 @@ const PropertyDetails = () => {
     );
   }
 
-  // Lightbox Handlers
   const openLightbox = (index) => setLightboxIndex(index);
   const closeLightbox = () => setLightboxIndex(null);
 
@@ -88,12 +82,11 @@ const PropertyDetails = () => {
   };
 
   const relatedProperties = properties
-    .filter((p) => p.id !== property.id)
+    .filter((p) => p.slug !== property.slug)
     .slice(0, 4);
 
   return (
     <div className="property-details-page bg-light pb-5">
-      {/* HEADER */}
       <div className="container-md mb-4 pt-3">
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
@@ -138,9 +131,7 @@ const PropertyDetails = () => {
 
       <div className="container-md">
         <div className="row g-4 align-items-stretch">
-          {/* LEFT COLUMN */}
           <div className="col-lg-8 d-flex flex-column">
-            {/* GALLERY SECTION */}
             <div
               className="property-gallery-wrapper bg-white p-1 rounded shadow-sm"
               onMouseEnter={() => setIsPaused(true)}
@@ -189,7 +180,6 @@ const PropertyDetails = () => {
                 </div>
               </div>
 
-              {/* Thumbnails */}
               <div className="thumbnails-container d-flex gap-2 mt-2 overflow-auto py-2">
                 {propertyImages.map((img, index) => (
                   <img
@@ -214,7 +204,6 @@ const PropertyDetails = () => {
               </div>
             </div>
 
-            {/* DESCRIPTION */}
             <div className="bg-white p-4 mt-4 rounded shadow-sm">
               <h4 className="fw-bold mb-3 border-bottom pb-2">Description</h4>
               <p className="text-secondary" style={{ lineHeight: "1.8" }}>
@@ -233,7 +222,6 @@ const PropertyDetails = () => {
               </div>
             </div>
 
-            {/* MAP */}
             {property.mapSrc && (
               <div className="bg-white p-4 mt-4 rounded shadow-sm mt-auto">
                 <h4 className="fw-bold mb-3 border-bottom pb-2">
@@ -251,9 +239,7 @@ const PropertyDetails = () => {
             )}
           </div>
 
-          {/* RIGHT COLUMN */}
           <div className="col-lg-4 d-flex flex-column">
-            {/* PRICE CARD */}
             <div className="bg-white p-4 rounded shadow-sm mb-4">
               <h3 className="text-secondary-custom fw-bold mb-1">
                 Ksh {property.price}/=
@@ -287,7 +273,6 @@ const PropertyDetails = () => {
               </div>
             </div>
 
-            {/* RELATED PROPERTIES */}
             <div className="mt-4 mt-auto">
               <h5 className="fw-bold mb-3 bg-primary-custom text-light p-2 rounded text-center">
                 More Properties
@@ -295,7 +280,7 @@ const PropertyDetails = () => {
               <div className="d-flex flex-column gap-3">
                 {relatedProperties.map((rel) => (
                   <div
-                    key={rel.id}
+                    key={rel.slug}
                     className="card property-card h-100 border-0 shadow-sm"
                   >
                     <div className="position-relative">
@@ -312,7 +297,7 @@ const PropertyDetails = () => {
                     <div className="card-body">
                       <h6 className="card-title fw-bold">{rel.title}</h6>
                       <Link
-                        to={`/property/${rel.id}`}
+                        to={`/property/${rel.slug}`}
                         className="btn btn-sm btn-outline-brand mt-2 stretched-link w-100"
                       >
                         View Details
@@ -326,7 +311,6 @@ const PropertyDetails = () => {
         </div>
       </div>
 
-      {/* LIGHTBOX OVERLAY */}
       {lightboxIndex !== null && (
         <div className="lightbox-overlay" onClick={closeLightbox}>
           <button className="lightbox-close" onClick={closeLightbox}>
