@@ -5,7 +5,7 @@ export const properties = [
     slug: "pazuri-gardens",
     location: "Kithyoko",
     size: "50x100",
-    price: "150,000",
+    price: "200,000",
     status: "Available",
 
     img: "/img/properties/pazuri-gardens-phase-8/main.jpg",
