@@ -2,6 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { blogData } from "../data/blogData";
 
+// --- NEW: Helper function to turn "Blog Title" into "blog-title" ---
+const generateSlug = (title) => {
+  return title
+    .toLowerCase()
+    .replace(/[^\w ]+/g, "") // Remove special characters
+    .replace(/ +/g, "-");    // Replace spaces with hyphens
+};
+
 const Blog = ({ limit, customData }) => {
   let displayItems = customData || blogData;
 
@@ -30,6 +38,7 @@ const Blog = ({ limit, customData }) => {
                   onSubmit={(e) => e.preventDefault()}
                 >
                   <input
+                    id="subscriber_email"
                     type="email"
                     className="form-control rounded-0"
                     placeholder="Email Subscribe..."
@@ -68,82 +77,92 @@ const Blog = ({ limit, customData }) => {
                 </div>
               )}
 
-              {displayItems.map((item) => (
-                <div key={item.id} className="col-md-6 col-lg-4">
-                  {item.type === "video" ? (
-                    <div className="media-card video-card h-100 d-flex flex-column rounded-4 overflow-hidden shadow-sm">
-                      <div className="ratio ratio-16x9">
-                        <iframe
-                          src={item.videoUrl}
-                          title={item.title}
-                          allowFullScreen
-                          loading="lazy"
-                        ></iframe>
-                      </div>
-                      <div className="media-body flex-grow-1 d-flex flex-column p-3">
-                        <div className="badge bg-primary-custom mb-2 align-self-start rounded-0">
-                          {item.category}
-                        </div>
-                        <h6 className="fw-bold text-dark mb-2">{item.title}</h6>
-                        <p className="text-muted small mb-3 flex-grow-1 text-truncate-3">
-                          {item.desc}
-                        </p>
-                        <a
-                          href={item.link}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="text-secondary-custom hover-deep-green fw-bold text-decoration-none mt-auto"
-                        >
-                          Watch Video <i className="bi bi-play-circle-fill"></i>
-                        </a>
-                      </div>
-                    </div>
-                  ) : (
-                    <article className="media-card article-card h-100 d-flex flex-column rounded-4 overflow-hidden shadow-sm">
-                      <Link to={`/article/${item.id}`}>
-                        <div
-                          className="ratio ratio-16x9 img-wrapper border-bottom border-3"
-                          style={{ borderColor: "var(--secondary-color)" }}
-                        >
-                          <img
-                            src={item.img}
-                            alt={item.title}
-                            className="object-fit-cover"
+              {displayItems.map((item) => {
+                // --- GENERATE SLUG FOR THIS ITEM ---
+                const slug = generateSlug(item.title);
+
+                return (
+                  <div key={item.id} className="col-md-6 col-lg-4">
+                    {item.type === "video" ? (
+                      <div className="media-card video-card h-100 d-flex flex-column rounded-4 overflow-hidden shadow-sm">
+                        <div className="ratio ratio-16x9">
+                          <iframe
+                            src={item.videoUrl}
+                            title={item.title}
+                            allowFullScreen
                             loading="lazy"
-                          />
-                          <div className="hover-overlay">
-                            <span className="border-radius read-btn">
-                              Read Article
-                            </span>
-                          </div>
+                          ></iframe>
                         </div>
-                      </Link>
-                      <div className="media-body flex-grow-1 d-flex flex-column p-3">
-                        <span className="text-primary-custom small fw-bold text-uppercase">
-                          {item.category}
-                        </span>
-                        <h5 className="fw-bold text-dark mt-2 text-truncate-2">
-                          <Link
-                            to={`/article/${item.id}`}
-                            className="text-dark text-decoration-none"
+                        <div className="media-body flex-grow-1 d-flex flex-column p-3">
+                          <div className="badge bg-primary-custom mb-2 align-self-start rounded-0">
+                            {item.category}
+                          </div>
+                          <h6 className="fw-bold text-dark mb-2">{item.title}</h6>
+                          <p className="text-muted small mb-3 flex-grow-1 text-truncate-3">
+                            {item.desc}
+                          </p>
+                          <a
+                            href={item.link}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="text-secondary-custom hover-deep-green fw-bold text-decoration-none mt-auto"
+                            aria-label={`Watch video: ${item.title}`}
                           >
-                            {item.title}
-                          </Link>
-                        </h5>
-                        <p className="text-muted small mt-2 mb-3 flex-grow-1 text-truncate-3">
-                          {item.desc}
-                        </p>
-                        <Link
-                          to={`/article/${item.id}`}
-                          className="text-secondary-custom hover-deep-green fw-bold text-decoration-none mt-auto"
-                        >
-                          Read More <i className="bi bi-arrow-right"></i>
-                        </Link>
+                            Watch Video <i className="bi bi-play-circle-fill"></i>
+                          </a>
+                        </div>
                       </div>
-                    </article>
-                  )}
-                </div>
-              ))}
+                    ) : (
+                      <article className="media-card article-card h-100 d-flex flex-column rounded-4 overflow-hidden shadow-sm">
+                        {/* --- CHANGED: URL NOW USES SLUG --- */}
+                        <Link to={`/article/${slug}`} aria-label={`Read article: ${item.title}`}>
+                          <div
+                            className="ratio ratio-16x9 img-wrapper border-bottom border-3"
+                            style={{ borderColor: "var(--secondary-color)" }}
+                          >
+                            <img
+                              src={item.img}
+                              alt={item.title}
+                              className="object-fit-cover"
+                              loading="lazy"
+                            />
+                            <div className="hover-overlay">
+                              <span className="border-radius read-btn">
+                                Read Article
+                              </span>
+                            </div>
+                          </div>
+                        </Link>
+                        <div className="media-body flex-grow-1 d-flex flex-column p-3">
+                          <span className="text-primary-custom small fw-bold text-uppercase">
+                            {item.category}
+                          </span>
+                          <h5 className="fw-bold text-dark mt-2 text-truncate-2">
+                            {/* --- CHANGED: URL NOW USES SLUG --- */}
+                            <Link
+                              to={`/article/${slug}`}
+                              className="text-dark text-decoration-none"
+                            >
+                              {item.title}
+                            </Link>
+                          </h5>
+                          <p className="text-muted small mt-2 mb-3 flex-grow-1 text-truncate-3">
+                            {item.desc}
+                          </p>
+                          {/* --- CHANGED: URL NOW USES SLUG --- */}
+                          <Link
+                            to={`/article/${slug}`}
+                            className="text-secondary-custom hover-deep-green fw-bold text-decoration-none mt-auto"
+                            aria-label={`Read more about: ${item.title}`}
+                          >
+                            Read More <i className="bi bi-arrow-right"></i>
+                          </Link>
+                        </div>
+                      </article>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
 
@@ -159,25 +178,29 @@ const Blog = ({ limit, customData }) => {
                 {blogData
                   .filter((i) => i.type === "article")
                   .slice(0, 4)
-                  .map((item, index) => (
-                    <Link
-                      to={`/article/${item.id}`}
-                      key={item.id}
-                      className="list-group-item bg-transparent border-0 px-0 py-3 border-bottom"
-                    >
-                      <div className="d-flex align-items-center">
-                        <span className="text-primary-custom fw-bold fs-4 me-3">
-                          0{index + 1}
-                        </span>
-                        <div>
-                          <h6 className="mb-1 text-dark fw-bold small text-truncate-2">
-                            {item.title}
-                          </h6>
-                          <small className="text-muted">Read Article</small>
+                  .map((item, index) => {
+                    const slug = generateSlug(item.title);
+                    return (
+                      <Link
+                        to={`/article/${slug}`}
+                        key={item.id}
+                        className="list-group-item bg-transparent border-0 px-0 py-3 border-bottom"
+                        aria-label={`Read recommended article: ${item.title}`}
+                      >
+                        <div className="d-flex align-items-center">
+                          <span className="text-primary-custom fw-bold fs-4 me-3">
+                            0{index + 1}
+                          </span>
+                          <div>
+                            <h6 className="mb-1 text-dark fw-bold small text-truncate-2">
+                              {item.title}
+                            </h6>
+                            <small className="text-muted">Read Article</small>
+                          </div>
                         </div>
-                      </div>
-                    </Link>
-                  ))}
+                      </Link>
+                    );
+                  })}
               </div>
 
               <div className="mt-4 p-3 bg-primary-custom text-white text-center rounded-4 shadow-sm">

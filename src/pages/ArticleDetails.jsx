@@ -3,9 +3,19 @@ import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { blogData } from "../data/blogData";
 
+// --- NEW: Helper function to match the URL slug back to the actual Blog Title ---
+const generateSlug = (title) => {
+  return title
+    .toLowerCase()
+    .replace(/[^\w ]+/g, "")
+    .replace(/ +/g, "-");
+};
+
 const ArticleDetails = () => {
   const { id } = useParams();
-  const article = blogData.find((item) => item.id === parseInt(id));
+
+  // --- CHANGED: Now finding the article by comparing its generated slug to the URL ---
+  const article = blogData.find((item) => generateSlug(item.title) === id);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -14,7 +24,10 @@ const ArticleDetails = () => {
   if (!article) {
     return (
       <div className="text-center py-5 mt-5">
-        <h2>Article Not Found</h2>
+        <h2 className="text-danger">Article Not Found</h2>
+        <Link to="/blogs" className="btn btn-dark mt-3">
+          Back to Blogs Center
+        </Link>
       </div>
     );
   }
@@ -24,21 +37,25 @@ const ArticleDetails = () => {
     ? `${plainTextContent.substring(0, 150)}...` 
     : plainTextContent || `Read ${article.title} on Avenue Lands Ventures.`;
 
+  // Define slug for SEO tags
+  const currentSlug = generateSlug(article.title);
+
   return (
     <div
       className="article-details-page bg-light pb-4"
       style={{ paddingTop: "20px" }}
     >
       <Helmet>
-        <title>{article.title}</title>
+        <title>{article.title} | Avenue Lands Ventures</title>
         <meta name="description" content={seoDescription} />
         <meta name="keywords" content={`${article.category}, ${article.title}, real estate news Kenya, Avenue Lands Ventures blog`} />
         <meta property="og:title" content={`${article.title} | Avenue Lands Ventures`} />
         <meta property="og:description" content={seoDescription} />
         <meta property="og:image" content={article.img} />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content={`https://www.avenuelandsventures.co.ke/article/${article.id}`} />
-        <link rel="canonical" href={`https://www.avenuelandsventures.co.ke/article/${article.id}`} />
+        {/* --- CHANGED: SEO URLs now use the slug --- */}
+        <meta property="og:url" content={`https://www.avenuelandsventures.co.ke/article/${currentSlug}`} />
+        <link rel="canonical" href={`https://www.avenuelandsventures.co.ke/article/${currentSlug}`} />
       </Helmet>
 
       <div className="container-md">
@@ -86,6 +103,7 @@ const ArticleDetails = () => {
 
             <div
               className="article-content bg-white p-3 p-md-5 rounded shadow-sm"
+              style={{ lineHeight: "1.8" }}
               dangerouslySetInnerHTML={{ __html: article.content }}
             />
 

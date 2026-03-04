@@ -183,6 +183,7 @@ const Footer = () => {
             <form className="footer-form mb-3" onSubmit={handleSubscribe}>
               <div className="input-group">
                 <input
+                id="subscriber_email"
                   type="email"
                   className="form-control rounded-0 bg-dark border-secondary text-white"
                   placeholder="Email Address"

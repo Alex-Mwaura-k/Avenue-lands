@@ -15,8 +15,7 @@ const Contact = ({ showBreadcrumb }) => {
         minHeight: "90dvh", // Forces the section to be at least 90% of screen height
         display: "flex",
         alignItems: "center", // Vertically centers the content inside the 90dvh space
-        paddingTop: "3rem",
-        paddingBottom: "3rem",
+        paddingBottom: "1rem",
         backgroundColor: "#f8f9fa", // A very soft, clean off-white background
       }}
     >
@@ -141,6 +140,7 @@ const Contact = ({ showBreadcrumb }) => {
                         <i className="bi bi-person text-muted"></i>
                       </span>
                       <input
+                      id="user_name"
                         type="text"
                         className="form-control bg-light border-start-0 ps-0 py-2"
                         placeholder="Name"
@@ -155,6 +155,7 @@ const Contact = ({ showBreadcrumb }) => {
                         <i className="bi bi-phone text-muted"></i>
                       </span>
                       <input
+                      id="user_phone_number"
                         type="tel"
                         className="form-control bg-light border-start-0 ps-0 py-2"
                         placeholder="Phone"
@@ -168,6 +169,7 @@ const Contact = ({ showBreadcrumb }) => {
                         <i className="bi bi-envelope text-muted"></i>
                       </span>
                       <input
+                      id="user_email"
                         type="email"
                         className="form-control bg-light border-start-0 ps-0 py-2"
                         placeholder="Email"
@@ -179,6 +181,7 @@ const Contact = ({ showBreadcrumb }) => {
                   <div className="col-12">
                     <div className="input-group">
                       <select
+                      id="user_interest"
                         className="form-select bg-light py-2 text-muted"
                         required
                         defaultValue=""
@@ -199,6 +202,7 @@ const Contact = ({ showBreadcrumb }) => {
                         <i className="bi bi-chat-dots text-muted"></i>
                       </span>
                       <textarea
+                      id="user_message"
                         rows="3"
                         className="form-control bg-light border-start-0 ps-0 py-2"
                         placeholder="Message..."
