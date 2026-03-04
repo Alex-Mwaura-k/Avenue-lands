@@ -1,20 +1,71 @@
+import React, { useRef, useState, useEffect } from "react";
+// Import your properties array correctly based on your file structure
+import { properties } from "../data/propertiesData.js"; 
+
 const BookingModal = () => {
+  const closeBtnRef = useRef(null);
+  const [minDate, setMinDate] = useState("");
+
+  // Calculate today's date to prevent selecting past dates
+  useEffect(() => {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, "0");
+    const dd = String(today.getDate()).padStart(2, "0");
+    setMinDate(`${yyyy}-${mm}-${dd}`);
+  }, []);
+
+  // Ensure only Wednesdays (3) or Saturdays (6) are selected
+  const handleDateChange = (e) => {
+    const selectedDate = new Date(e.target.value);
+    const day = selectedDate.getDay();
+
+    if (day !== 3 && day !== 6) {
+      e.target.setCustomValidity(
+        "Site visits are only scheduled on Wednesdays and Saturdays. Please select a valid day."
+      );
+      e.target.reportValidity();
+      e.target.value = ""; // Clears the input if invalid
+    } else {
+      e.target.setCustomValidity("");
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Trigger the coming soon alert
+    alert("This feature is coming soon! Please try contacting us via WhatsApp to schedule your visit.");
+
+    // Close the modal programmatically after the user clicks "OK" on the alert
+    if (closeBtnRef.current) {
+      closeBtnRef.current.click();
+    }
+  };
+
+  // Filter out sold-out properties
+  const availableProperties = properties.filter(
+    (property) => property.status === "Available"
+  );
+
   return (
     <div className="modal fade" tabIndex="-1" id="booking-Modal">
       <div className="modal-dialog modal-dialog-centered">
-        <div className="modal-content">
-          <div className="modal-header">
-            <h5 className="modal-title">Schedule Visit</h5>
+        <div className="modal-content border-0 shadow">
+          
+          <div className="modal-header bg-primary-custom border-0">
+            <h5 className="modal-title fw-bold text-white">Schedule Visit</h5>
             <button
               type="button"
-              className="btn-close"
+              className="btn-close btn-close-white"
               data-bs-dismiss="modal"
               aria-label="Close"
+              ref={closeBtnRef}
             ></button>
           </div>
 
-          <div className="modal-body">
-            <form id="bookingForm" onSubmit={(e) => e.preventDefault()}>
+          <form id="bookingForm" onSubmit={handleSubmit}>
+            <div className="modal-body p-4">
               <div className="row mb-3">
                 <div className="col">
                   <input
@@ -22,6 +73,7 @@ const BookingModal = () => {
                     className="form-control"
                     placeholder="First Name"
                     id="firstName"
+                    required
                   />
                 </div>
                 <div className="col">
@@ -30,6 +82,7 @@ const BookingModal = () => {
                     className="form-control"
                     placeholder="Last Name"
                     id="lastName"
+                    required
                   />
                 </div>
               </div>
@@ -41,6 +94,7 @@ const BookingModal = () => {
                   placeholder="Email Address"
                   id="email"
                   autoComplete="email"
+                  required
                 />
               </div>
 
@@ -48,8 +102,17 @@ const BookingModal = () => {
                 <input
                   type="tel"
                   className="form-control"
-                  placeholder="Phone Number"
+                  placeholder="Phone Number (e.g. 07..., 01... or +254...)"
                   id="telephone"
+                  pattern="^(\+254\d{9}|0[17]\d{8})$"
+                  title="Format must be +254xxxxxxxxx, 07xxxxxxxx, or 01xxxxxxxx"
+                  onInput={(e) => e.target.setCustomValidity("")}
+                  onInvalid={(e) =>
+                    e.target.setCustomValidity(
+                      "Please enter a valid 10-digit number starting with 07 or 01, or start with +254"
+                    )
+                  }
+                  required
                 />
               </div>
 
@@ -60,9 +123,12 @@ const BookingModal = () => {
                     type="date"
                     className="form-control"
                     placeholder="Pick a desired date"
+                    min={minDate}
+                    onChange={handleDateChange}
                     onFocus={(e) => e.target.showPicker()}
+                    required
                   />
-                  <label className="mx-2 mb-2" htmlFor="datePicker">
+                  <label className="mx-2 mb-2 text-muted" htmlFor="datePicker">
                     Schedule Date
                   </label>
                 </div>
@@ -70,43 +136,47 @@ const BookingModal = () => {
                 <div className="form-floating col">
                   <select
                     id="destinationSelector"
-                    className="form-select"
+                    className="form-control form-select"
                     defaultValue=""
+                    required
                   >
                     <option value="" disabled>
-                      Sites
+                      Select a Site
                     </option>
-                    <option value="1">Royal Garden Phase 5</option>
-                    <option value="1">Kijani Garden Malindi</option>
-                    <option value="2">Unity Garden Makutano</option>
-                    <option value="3">Amani Garden Malindi</option>
-                    <option value="4">Royal Garden IV</option>
-                    <option value="5">Royal Garden III</option>
+                    {/* Dynamically map the available properties */}
+                    {availableProperties.map((property) => (
+                      <option key={property.id} value={property.title}>
+                        {property.title}
+                      </option>
+                    ))}
                   </select>
-                  <label className="mx-2 mb-2" htmlFor="destinationSelector">
+                  <label
+                    className="mx-2 mb-2 text-muted"
+                    htmlFor="destinationSelector"
+                  >
                     Select Site
                   </label>
                 </div>
               </div>
-            </form>
-          </div>
+            </div>
 
-          <div className="modal-footer">
-            <button
-              type="button"
-              className="btn btn-outline-danger"
-              data-bs-dismiss="modal"
-            >
-              Cancel
-            </button>
-            <button
-              type="button"
-              className="btn btn-outline-success"
-              data-bs-dismiss="modal"
-            >
-              Schedule
-            </button>
-          </div>
+            <div className="modal-footer border-0 pb-4 pe-4">
+              <button
+                type="button"
+                className="btn btn-outline-secondary px-4 rounded-pill"
+                data-bs-dismiss="modal"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                className="btn bg-primary-custom text-white px-4 fw-bold rounded-pill"
+              >
+                Schedule
+              </button>
+            </div>
+          </form>
+          
         </div>
       </div>
     </div>
