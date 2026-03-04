@@ -102,7 +102,7 @@ const BookingModal = () => {
                 <input
                   type="tel"
                   className="form-control"
-                  placeholder="Phone Number (e.g. 07..., 01... or +254...)"
+                  placeholder="Phone No. (07... 01.../+254...)"
                   id="telephone"
                   pattern="^(\+254\d{9}|0[17]\d{8})$"
                   title="Format must be +254xxxxxxxxx, 07xxxxxxxx, or 01xxxxxxxx"
