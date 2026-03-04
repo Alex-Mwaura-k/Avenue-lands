@@ -1,10 +1,22 @@
 import React, { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { careersData } from "../data/careersData";
 
+// --- NEW: Helper function to match the URL slug back to the actual Job Title ---
+const generateSlug = (title) => {
+  return title
+    .toLowerCase()
+    .replace(/[^\w ]+/g, "")
+    .replace(/ +/g, "-");
+};
+
 const JobDetails = () => {
+  // --- CHANGED: We grab whatever string is in the URL (it might still be called 'id' in your App.js Router) ---
   const { id } = useParams();
-  const job = careersData.find((j) => j.id === parseInt(id));
+
+  // --- CHANGED: We find the job by generating a slug from the data and comparing it to the URL ---
+  const job = careersData.find((j) => generateSlug(j.title) === id);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -38,9 +50,39 @@ const JobDetails = () => {
         `Dear Hiring Manager,\n\nI am writing to apply for the position of ${job.title} as advertised on your website.\n\nPlease find my CV and Portfolio attached.\n\nSincerely,\n[Your Name]`,
       )}`;
 
+  // Dynamic SEO Description
+  const seoDescription =
+    job.description && job.description.length > 150
+      ? `${job.description.substring(0, 150)}...`
+      : job.description ||
+        `Apply for the ${job.title} position at Avenue Lands Ventures in ${job.location}.`;
+
   return (
-    // FIX 1: Removed 'overflowX: hidden' so Sticky works again
     <div className="job-details-page bg-light pb-5">
+      {/* SEO HELMET */}
+      <Helmet>
+        <title>{job.title} - Careers | Avenue Lands Ventures</title>
+        <meta name="description" content={seoDescription} />
+        <meta
+          name="keywords"
+          content={`${job.title}, ${job.department} jobs, ${job.location} real estate jobs, Avenue Lands Ventures careers, hiring in Kenya`}
+        />
+        <meta
+          property="og:title"
+          content={`${job.title} - Careers | Avenue Lands Ventures`}
+        />
+        <meta property="og:description" content={seoDescription} />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content={`https://www.avenuelandsventures.co.ke/careers/${id}`}
+        />
+        <link
+          rel="canonical"
+          href={`https://www.avenuelandsventures.co.ke/careers/${id}`}
+        />
+      </Helmet>
+
       {/* HEADER */}
       <div className="bg-white border-bottom py-4 mb-4">
         <div className="container-md">
@@ -125,9 +167,6 @@ const JobDetails = () => {
           </div>
         )}
 
-        {/* FIX 2: Changed 'g-5' to 'g-3 g-lg-5'. 
-            'g-3' is smaller and fits on mobile without overflow. 
-            'g-lg-5' keeps it spacious on laptops. */}
         <div className="row g-3 g-lg-5">
           {/* LEFT: Details */}
           <div className="col-lg-8">
@@ -170,7 +209,6 @@ const JobDetails = () => {
           <div className="col-lg-4">
             <div
               className="bg-dark text-white p-4 rounded shadow sticky-top"
-              // Adjusted 'top' to allow for navbar height
               style={{ top: "100px", zIndex: 10 }}
             >
               <h5 className="fw-bold mb-4 text-white">Job Overview</h5>

@@ -1,31 +1,36 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { careersData } from "../data/careersData";
+
+// --- NEW: Helper function to turn "Job Title" into "job-title" ---
+const generateSlug = (title) => {
+  return title
+    .toLowerCase()
+    .replace(/[^\w ]+/g, '') // Remove special characters
+    .replace(/ +/g, '-');    // Replace spaces with hyphens
+};
 
 const Careers = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [filterStatus, setFilterStatus] = useState("All"); // All, Available, Expired
+  const [filterStatus, setFilterStatus] = useState("All");
   const [filteredJobs, setFilteredJobs] = useState([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Helper to check if a job is expired
   const isJobExpired = (deadline) => {
     const today = new Date();
     const deadlineDate = new Date(deadline);
-    // Reset time parts for accurate date comparison
     today.setHours(0, 0, 0, 0);
     deadlineDate.setHours(0, 0, 0, 0);
     return today > deadlineDate;
   };
 
-  // Filter Logic
   useEffect(() => {
     let results = careersData;
 
-    // 1. Search Filter
     if (searchTerm) {
       const lowerTerm = searchTerm.toLowerCase();
       results = results.filter(
@@ -36,7 +41,6 @@ const Careers = () => {
       );
     }
 
-    // 2. Status Filter
     if (filterStatus !== "All") {
       results = results.filter((job) => {
         const expired = isJobExpired(job.deadline);
@@ -49,6 +53,12 @@ const Careers = () => {
 
   return (
     <div className="careers-page bg-light pb-5">
+      <Helmet>
+        <title>Careers | Avenue Lands Ventures</title>
+        <meta name="description" content="Join our team at Avenue Lands Ventures. Explore open real estate jobs, sales positions, and career opportunities in Kenya." />
+        <meta name="keywords" content="Real estate jobs Kenya, careers at Avenue Lands Ventures, property sales jobs, real estate careers Nairobi, hiring real estate agents" />
+      </Helmet>
+
       {/* HERO SECTION */}
       <div className="bg-primary-custom text-white py-4 mb-5 text-center">
         <div className="container">
@@ -58,11 +68,6 @@ const Careers = () => {
           <h1 className="display-4 fw-bold mt-2">
             Build Your <span className="text-stroke-white">Career</span> With Us
           </h1>
-          <p className="text-white-50 mx-auto" style={{ maxWidth: "600px" }}>
-            At Avenue Ventures, we don't just sell land—we build futures. If you
-            are passionate, driven, and ready to make an impact, we want to hear
-            from you.
-          </p>
         </div>
       </div>
 
@@ -99,56 +104,33 @@ const Careers = () => {
         <div className="row g-4">
           {filteredJobs.map((job) => {
             const expired = isJobExpired(job.deadline);
+            // --- NEW: Generate the slug for the URL ---
+            const jobSlug = generateSlug(job.title);
 
             return (
               <div key={job.id} className="col-md-6 col-lg-4">
-                {/* Entire Card is now a Link */}
+                {/* --- CHANGED: Now links to /careers/job-title instead of /careers/1 --- */}
                 <Link
-                  to={expired ? "#" : `/careers/${job.id}`}
+                  to={expired ? "#" : `/careers/${jobSlug}`}
                   className="text-decoration-none h-100 d-block"
                   style={{ cursor: expired ? "default" : "pointer" }}
                 >
-                  <div
-                    className={`card h-100 border-0 shadow-sm hover-shadow transition-all ${
-                      expired ? "opacity-75 bg-light" : ""
-                    }`}
-                  >
+                  <div className={`card h-100 border-0 shadow-sm hover-shadow transition-all ${expired ? "opacity-75 bg-light" : ""}`}>
                     <div className="card-body p-4 d-flex flex-column">
                       <div className="d-flex justify-content-between align-items-start mb-3">
-                        <span
-                          className="badge fw-bold"
-                          style={{
-                            backgroundColor: "rgba(228, 129, 90, 0.15)",
-                            color: "var(--secondary-custom)",
-                          }}
-                        >
+                        <span className="badge fw-bold" style={{ backgroundColor: "rgba(228, 129, 90, 0.15)", color: "var(--secondary-custom)" }}>
                           {job.department}
                         </span>
-                        {expired && (
-                          <span className="badge bg-secondary">Closed</span>
-                        )}
+                        {expired && <span className="badge bg-secondary">Closed</span>}
                       </div>
 
-                      <h5 className="card-title fw-bold text-dark">
-                        {job.title}
-                      </h5>
+                      <h5 className="card-title fw-bold text-dark">{job.title}</h5>
 
                       <div className="text-muted small mb-4 mt-2">
-                        <p className="mb-1">
-                          <i className="bi bi-geo-alt-fill text-secondary me-2"></i>
-                          {job.location}
-                        </p>
-                        <p className="mb-1">
-                          <i className="bi bi-clock-fill text-secondary me-2"></i>
-                          {job.type}
-                        </p>
-                        <p
-                          className={`mb-0 fw-bold ${
-                            expired ? "text-danger" : "text-success"
-                          }`}
-                        >
-                          <i className="bi bi-calendar-event me-2"></i>
-                          Deadline: {job.deadline}
+                        <p className="mb-1"><i className="bi bi-geo-alt-fill text-secondary me-2"></i>{job.location}</p>
+                        <p className="mb-1"><i className="bi bi-clock-fill text-secondary me-2"></i>{job.type}</p>
+                        <p className={`mb-0 fw-bold ${expired ? "text-danger" : "text-success"}`}>
+                          <i className="bi bi-calendar-event me-2"></i>Deadline: {job.deadline}
                         </p>
                       </div>
 
@@ -156,15 +138,8 @@ const Careers = () => {
                         {job.description.substring(0, 100)}...
                       </p>
 
-                      {/* Button changed to a div styled as a button since parent is a Link */}
-                      <div
-                        className={`btn w-100 fw-bold mt-auto ${
-                          expired ? "btn-secondary disabled" : "btn-success" // Green for active jobs as requested
-                        }`}
-                      >
-                        {expired
-                          ? "Applications Closed"
-                          : "View Details & Apply"}
+                      <div className={`btn w-100 fw-bold mt-auto ${expired ? "btn-secondary disabled" : "btn-success"}`}>
+                        {expired ? "Applications Closed" : "View Details & Apply"}
                       </div>
                     </div>
                   </div>
@@ -172,18 +147,6 @@ const Careers = () => {
               </div>
             );
           })}
-
-          {filteredJobs.length === 0 && (
-            <div className="col-12 text-center py-5">
-              <div className="text-muted mb-3">
-                <i className="bi bi-search display-1 opacity-25"></i>
-              </div>
-              <h4 className="text-dark">No jobs found.</h4>
-              <p className="text-secondary">
-                Try adjusting your search or filter settings.
-              </p>
-            </div>
-          )}
         </div>
       </div>
     </div>

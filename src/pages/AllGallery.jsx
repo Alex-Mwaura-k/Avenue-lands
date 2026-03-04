@@ -1,21 +1,19 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { galleryData } from "../data/galleryData";
 
 const Gallery = ({ limit }) => {
   const [filter, setFilter] = useState("all");
   const [lightboxIndex, setLightboxIndex] = useState(null);
 
-  // 1. Filter Data
   const filteredItems =
     filter === "all"
       ? galleryData
       : galleryData.filter((item) => item.type === filter);
 
-  // 2. Limit Data (If on Home Page)
   const displayItems = limit ? filteredItems.slice(0, limit) : filteredItems;
 
-  // --- LIGHTBOX HANDLERS ---
   const openLightbox = (index) => {
     setLightboxIndex(index);
   };
@@ -40,9 +38,30 @@ const Gallery = ({ limit }) => {
 
   return (
     <>
+      {!limit && (
+        <Helmet>
+          <title>Media Gallery</title>
+          <meta 
+            name="description" 
+            content="Explore our photo gallery showcasing our prime properties, successful site visits, and the dedicated Avenue Lands Ventures team in Kenya." 
+          />
+          <meta 
+            name="keywords" 
+            content="Avenue Lands Ventures gallery, property photos Kenya, real estate events, prime land pictures" 
+          />
+          <meta property="og:title" content="Photo Gallery | Avenue Lands Ventures" />
+          <meta 
+            property="og:description" 
+            content="Explore our photo gallery showcasing our prime properties, successful site visits, and the dedicated team in Kenya." 
+          />
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://www.avenuelandsventures.co.ke/gallery" />
+          <link rel="canonical" href="https://www.avenuelandsventures.co.ke/gallery" />
+        </Helmet>
+      )}
+
       <section id="gallery" className="gallery-section bg-primary-custom py-5">
         <div className="container-md">
-          {/* --- BREADCRUMB --- */}
           {!limit && (
             <nav aria-label="breadcrumb" className="mb-4">
               <ol className="breadcrumb">
@@ -54,7 +73,6 @@ const Gallery = ({ limit }) => {
                     Home
                   </Link>
                 </li>
-                {/* Changed to text-dark so it is visible on your white background bar */}
                 <li
                   className="breadcrumb-item active text-dark"
                   aria-current="page"
@@ -65,7 +83,6 @@ const Gallery = ({ limit }) => {
             </nav>
           )}
 
-          {/* Header */}
           <div className="row mb-4 align-items-center">
             <div className="col-lg-4">
               <span className="text-secondary-custom fw-bold text-uppercase small ls-2">
@@ -102,7 +119,7 @@ const Gallery = ({ limit }) => {
                   className={`filter-btn ${
                     filter === "poster" ? "active" : ""
                   }`}
-                  onClick={() => setFilter("Event")}
+                  onClick={() => setFilter("poster")}
                 >
                   Events
                 </button>
@@ -110,7 +127,6 @@ const Gallery = ({ limit }) => {
             </div>
           </div>
 
-          {/* Grid */}
           <div className="row g-3 gallery-container">
             {displayItems.map((item, index) => (
               <div
@@ -137,7 +153,6 @@ const Gallery = ({ limit }) => {
             ))}
           </div>
 
-          {/* View All Button */}
           {limit && (
             <div className="row mt-4">
               <div className="col-12 text-center">
@@ -153,7 +168,6 @@ const Gallery = ({ limit }) => {
         </div>
       </section>
 
-      {/* --- LIGHTBOX MODAL --- */}
       {lightboxIndex !== null && (
         <div className="lightbox-overlay" onClick={closeLightbox}>
           <button className="lightbox-close" onClick={closeLightbox}>

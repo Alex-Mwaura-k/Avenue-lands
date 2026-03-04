@@ -34,12 +34,16 @@ const AllProperties = () => {
         <title>Our Properties</title>
         <meta
           name="description"
-          content="Browse our complete portfolio of prime land for sale in Kenya."
+          content="Browse our exclusive portfolio of affordable, prime 50x100 plots and land for sale in Kenya. Secure your future with genuine title deeds at Avenue Lands Ventures."
         />
-        <link rel="canonical" href="https://Avenue.netlify.app/properties" />
+        <meta name="keywords" content="land for sale in Kenya, 50x100 plots, affordable land, Avenue Lands Ventures properties, real estate Kenya, buy land Nairobi" />
+        <meta property="og:title" content="Our Properties" />
+        <meta property="og:description" content="Browse our exclusive portfolio of affordable, prime 50x100 plots and land for sale in Kenya." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.avenuelandsventures.co.ke/properties" />
+        <link rel="canonical" href="https://www.avenuelandsventures.co.ke/properties" />
       </Helmet>
 
-      {/* --- HEADER CONTAINER (Boxed content) --- */}
       <div className="container-md mb-4">
         <nav aria-label="breadcrumb" className="mb-3">
           <ol className="breadcrumb">
@@ -86,13 +90,9 @@ const AllProperties = () => {
           </div>
         </div>
       </div>
-      {/* --- END OF CONTAINER (Boxed layout ends here) --- */}
 
-      {/* --- FULL WIDTH DIVIDER LINE --- */}
-      {/* Placed OUTSIDE the container so it spans the full screen width */}
       <hr className="mt-0 mb-4" />
 
-      {/* --- PROPERTIES LIST --- */}
       <Properties customData={filteredProperties} />
     </div>
   );
