@@ -9,7 +9,7 @@ export const galleryData = [
   {
     id: 2,
     type: "team",
-    img: "/img/Gallery/Team/office.webp", // Using larger images for lightbox
+    img: "/img/Gallery/Team/2.png", // Using larger images for lightbox
     title: "Office Team",
     desc: "Our Dedicated Office Staff Ready to Serve You.",
   },
@@ -37,14 +37,14 @@ export const galleryData = [
   {
     id: 6,
     type: "team",
-    img: "/img/Gallery/Team/on_site.webp",
+    img: "/img/Gallery/Team/3.png",
     title: "Site Visit Team",
     desc: "Our team on site ensuring quality and progress for our investors.",
   },
   {
     id: 7,
     type: "Event",
-    img: "/img/Gallery/Team/Site_Beacon.webp",
+    img: "/img/Gallery/Team/4.png",
     title: "Pazuri Gardens Project Launch",
     desc: "The launch of our newest project in Kithyoko.",
   },
