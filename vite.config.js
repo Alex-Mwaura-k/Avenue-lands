@@ -17,7 +17,7 @@ export default defineConfig({
 
       manifest: {
         name: "Avenue Lands Ventures",
-        short_name: "Avenue Land",
+        short_name: "Avenue Lands",
         description: "Prime, affordable land for sale in Kenya.",
         theme_color: "#011E72",
         background_color: "#ffffff",

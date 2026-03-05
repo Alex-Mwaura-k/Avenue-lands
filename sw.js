@@ -12,13 +12,11 @@ const assets = [
   "/js/script.js",
   "/js/functional.js",
   "/manifest.json",
-  "/icons/favicon.ico",
+  "/icons/favicon.png",
   "/icons/icon.png",
   "/icons/logo.png",
   // Carousel Images (Essential for the homepage look)
   "/img/carousels/slide_1.webp",
-  "/img/carousels/slide_2.webp",
-  "/img/carousels/slide_3.webp",
   // External Libraries (Bootstrap) - Cached so styling doesn't break offline
   "https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css",
   "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css",
