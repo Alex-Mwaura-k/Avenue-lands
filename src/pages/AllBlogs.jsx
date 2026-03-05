@@ -40,7 +40,7 @@ const AllBlogs = () => {
           name="keywords" 
           content="real estate blog Kenya, property investment tips, land buying guide, Avenue Lands Ventures news" 
         />
-        <meta property="og:title" content="Blog Center | Avenue Lands Ventures" />
+        <meta property="og:title" content="Blog Center" />
         <meta 
           property="og:description" 
           content="Stay updated with the latest real estate news, property investment guides, and land buying tips in Kenya." 

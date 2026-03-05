@@ -20,7 +20,7 @@ const ContactPage = () => {
           content="Contact Avenue Lands Ventures, Real Estate Kenya Contact, Buy Land Ruiru, Site Visit Booking, Land for sale contacts"
         />
         <link rel="canonical" href="https://www.avenuelandsventures.co.ke/contact" />
-        <meta property="og:title" content="Contact Us | Avenue Lands Ventures" />
+        <meta property="og:title" content="Contact Us" />
         <meta 
           property="og:description" 
           content="Get in touch with Avenue Lands Ventures to book a free site visit or inquire about our prime plots for sale in Kenya." 

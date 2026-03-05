@@ -23,7 +23,7 @@ const AboutPage = () => {
           name="keywords" 
           content="about Avenue Lands Ventures, real estate company Kenya, affordable land Nairobi, property investment Kenya, land selling company" 
         />
-        <meta property="og:title" content="About Us | Avenue Lands Ventures" />
+        <meta property="og:title" content="About Us" />
         <meta 
           property="og:description" 
           content="Learn about Avenue Lands Ventures, our mission, vision, and our commitment to providing affordable land with ready title deeds in Kenya." 

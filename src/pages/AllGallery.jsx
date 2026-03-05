@@ -49,7 +49,7 @@ const Gallery = ({ limit }) => {
             name="keywords" 
             content="Avenue Lands Ventures gallery, property photos Kenya, real estate events, prime land pictures" 
           />
-          <meta property="og:title" content="Photo Gallery | Avenue Lands Ventures" />
+          <meta property="og:title" content="Media Gallery" />
           <meta 
             property="og:description" 
             content="Explore our photo gallery showcasing our prime properties, successful site visits, and the dedicated team in Kenya." 

@@ -46,10 +46,10 @@ const ArticleDetails = () => {
       style={{ paddingTop: "20px" }}
     >
       <Helmet>
-        <title>{article.title} | Avenue Lands Ventures</title>
+        <title>{article.title}</title>
         <meta name="description" content={seoDescription} />
         <meta name="keywords" content={`${article.category}, ${article.title}, real estate news Kenya, Avenue Lands Ventures blog`} />
-        <meta property="og:title" content={`${article.title} | Avenue Lands Ventures`} />
+        <meta property="og:title" content={`${article.title}`} />
         <meta property="og:description" content={seoDescription} />
         <meta property="og:image" content={article.img} />
         <meta property="og:type" content="article" />

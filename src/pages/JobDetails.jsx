@@ -61,7 +61,7 @@ const JobDetails = () => {
     <div className="job-details-page bg-light pb-5">
       {/* SEO HELMET */}
       <Helmet>
-        <title>{job.title} - Careers | Avenue Lands Ventures</title>
+        <title>{job.title} - Careers</title>
         <meta name="description" content={seoDescription} />
         <meta
           name="keywords"
@@ -69,7 +69,7 @@ const JobDetails = () => {
         />
         <meta
           property="og:title"
-          content={`${job.title} - Careers | Avenue Lands Ventures`}
+          content={`${job.title} - Careers`}
         />
         <meta property="og:description" content={seoDescription} />
         <meta property="og:type" content="website" />

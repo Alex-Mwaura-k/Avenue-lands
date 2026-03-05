@@ -54,7 +54,7 @@ const Careers = () => {
   return (
     <div className="careers-page bg-light pb-5">
       <Helmet>
-        <title>Careers | Avenue Lands Ventures</title>
+        <title>Careers</title>
         <meta name="description" content="Join our team at Avenue Lands Ventures. Explore open real estate jobs, sales positions, and career opportunities in Kenya." />
         <meta name="keywords" content="Real estate jobs Kenya, careers at Avenue Lands Ventures, property sales jobs, real estate careers Nairobi, hiring real estate agents" />
       </Helmet>
