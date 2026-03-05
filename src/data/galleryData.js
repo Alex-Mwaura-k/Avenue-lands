@@ -9,7 +9,7 @@ export const galleryData = [
   {
     id: 2,
     type: "team",
-    img: "/img/Gallery/Team/office.webp", // Using larger images for lightbox
+    img: "/img/Gallery/Team/2.png", // Using larger images for lightbox
     title: "Office Team",
     desc: "Our Dedicated Office Staff Ready to Serve You.",
   },
