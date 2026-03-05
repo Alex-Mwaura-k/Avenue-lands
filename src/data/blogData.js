@@ -7,8 +7,8 @@ export const blogData = [
     category: "Virtual Tour",
     desc: "50x100 Prime Plots in Matuu with All social Amenities. Explore the beacons, access roads, and the serene environment of our project.",
     videoUrl:
-      "https://www.youtube.com/embed/RO8qlxlVVrM?si=nS3oL-SuTJT2_JpP?rel=0",
-    link: "https://youtu.be/RO8qlxlVVrM?si=nS3oL-SuTJT2_JpP",
+      "https://www.youtube.com/embed/ayl_O6CWSnA?si=ZFNuzkBCcLXiUfeB?rel=0",
+    link: "https://youtu.be/OzSXiHY8Cgo?si=kAjhvhiN_JVXmw9k",
     date: "Mar 02, 2026",
   },
   // --- ARTICLE 1 ---
@@ -96,7 +96,7 @@ export const blogData = [
     category: "Project",
     desc: "Highlights from the grand opening of Pazuri Gardens, showcasing the vibrant community and state-of-the-art amenities that set this development apart.",
     videoUrl:
-      "https://www.youtube.com/embed/OzSXiHY8Cgo?si=ALUcuFWcfOhiJ4qr?rel=0",
+      "https://www.youtube.com/embed/ayl_O6CWSnA?si=ZFNuzkBCcLXiUfeB?rel=0",
     link: "https://youtu.be/OzSXiHY8Cgo?si=kAjhvhiN_JVXmw9k",
     date: "Aug 15, 2025",
   },
