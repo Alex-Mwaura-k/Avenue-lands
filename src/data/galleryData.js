@@ -37,7 +37,7 @@ export const galleryData = [
   {
     id: 6,
     type: "team",
-    img: "/img/Gallery/Team/on_site.webp",
+    img: "/img/Gallery/Team/3.png",
     title: "Site Visit Team",
     desc: "Our team on site ensuring quality and progress for our investors.",
   },
