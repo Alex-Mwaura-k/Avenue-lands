@@ -44,7 +44,7 @@ export const galleryData = [
   {
     id: 7,
     type: "Event",
-    img: "/img/Gallery/Team/Site_Beacon.webp",
+    img: "/img/Gallery/Team/4.png",
     title: "Pazuri Gardens Project Launch",
     desc: "The launch of our newest project in Kithyoko.",
   },
