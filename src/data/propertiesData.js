@@ -14,6 +14,7 @@ export const properties = [
       "/img/properties/pazuri-gardens-phase-8/2.png",
       "/img/properties/pazuri-gardens-phase-8/3.png",
       "/img/properties/pazuri-gardens-phase-8/4.png",
+      "/img/properties/pazuri-gardens-phase-8/5.png"
     ],
 
     description:
