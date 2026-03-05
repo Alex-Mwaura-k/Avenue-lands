@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef, Suspense, lazy } from "react";
 import { Routes, Route, Link, useLocation, useParams } from "react-router-dom";
 import * as bootstrap from "bootstrap";
 
-// 1. Import Helmet for SEO
 import { Helmet } from "react-helmet-async";
 
 import Navbar from "./components/Navbar";
@@ -40,7 +39,6 @@ import NotificationManager from "./components/NotificationManager";
 
 const Home = () => (
   <>
-    {/* 2. Google reads this specific block for your Home Page SEO */}
     <Helmet>
       <title>Avenue Lands Ventures</title>
       <meta name="description" content="Discover prime, affordable land and plots for sale in Kenya with Avenue Lands Ventures. Start your real estate investment journey with the best Land Sellers in Kenya." />
