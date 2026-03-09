@@ -56,6 +56,7 @@ const Blog = ({ limit, customData }) => {
                   target="_blank"
                   rel="noreferrer"
                   className="btn border-dark text-dark rounded-0 px-4 text-nowrap"
+                  title="Subscribe to Avenue Lands Ventures on YouTube"
                 >
                   <i
                     className="bi bi-youtube me-2"
@@ -106,16 +107,18 @@ const Blog = ({ limit, customData }) => {
                             target="_blank"
                             rel="noreferrer"
                             className="text-secondary-custom hover-deep-green fw-bold text-decoration-none mt-auto"
-                            aria-label={`Watch video: ${item.title}`}
+                            title={`Watch video: ${item.title}`}
                           >
-                            Watch Video <i className="bi bi-play-circle-fill"></i>
+                            Watch Video 
+                            <span className="visually-hidden"> about {item.title}</span> 
+                            <i className="bi bi-play-circle-fill ms-1"></i>
                           </a>
                         </div>
                       </div>
                     ) : (
                       <article className="media-card article-card h-100 d-flex flex-column rounded-4 overflow-hidden shadow-sm">
-                        {/* --- CHANGED: URL NOW USES SLUG --- */}
-                        <Link to={`/article/${slug}`} aria-label={`Read article: ${item.title}`}>
+                        {/* --- CHANGED: Added title and visually-hidden text for SEO --- */}
+                        <Link to={`/article/${slug}`} title={`Read article: ${item.title}`}>
                           <div
                             className="ratio ratio-16x9 img-wrapper border-bottom border-3"
                             style={{ borderColor: "var(--secondary-color)" }}
@@ -129,6 +132,7 @@ const Blog = ({ limit, customData }) => {
                             <div className="hover-overlay">
                               <span className="border-radius read-btn">
                                 Read Article
+                                <span className="visually-hidden">: {item.title}</span>
                               </span>
                             </div>
                           </div>
@@ -138,10 +142,10 @@ const Blog = ({ limit, customData }) => {
                             {item.category}
                           </span>
                           <h5 className="fw-bold text-dark mt-2 text-truncate-2">
-                            {/* --- CHANGED: URL NOW USES SLUG --- */}
                             <Link
                               to={`/article/${slug}`}
                               className="text-dark text-decoration-none"
+                              title={`Read article: ${item.title}`}
                             >
                               {item.title}
                             </Link>
@@ -149,13 +153,15 @@ const Blog = ({ limit, customData }) => {
                           <p className="text-muted small mt-2 mb-3 flex-grow-1 text-truncate-3">
                             {item.desc}
                           </p>
-                          {/* --- CHANGED: URL NOW USES SLUG --- */}
+                          {/* --- CHANGED: Added title and visually-hidden text for SEO --- */}
                           <Link
                             to={`/article/${slug}`}
                             className="text-secondary-custom hover-deep-green fw-bold text-decoration-none mt-auto"
-                            aria-label={`Read more about: ${item.title}`}
+                            title={`Read more about ${item.title}`}
                           >
-                            Read More <i className="bi bi-arrow-right"></i>
+                            Read More 
+                            <span className="visually-hidden"> about {item.title}</span> 
+                            <i className="bi bi-arrow-right ms-1"></i>
                           </Link>
                         </div>
                       </article>
@@ -184,8 +190,8 @@ const Blog = ({ limit, customData }) => {
                       <Link
                         to={`/article/${slug}`}
                         key={item.id}
-                        className="list-group-item bg-transparent border-0 px-0 py-3 border-bottom"
-                        aria-label={`Read recommended article: ${item.title}`}
+                        className="list-group-item bg-transparent border-0 px-0 py-3 border-bottom text-decoration-none"
+                        title={`Read recommended article: ${item.title}`}
                       >
                         <div className="d-flex align-items-center">
                           <span className="text-primary-custom fw-bold fs-4 me-3">
@@ -223,6 +229,7 @@ const Blog = ({ limit, customData }) => {
               <Link
                 to="/blogs"
                 className="btn btn-custom-red px-3 py-1 border-radius"
+                title="View all blog articles"
               >
                 View All Articles
               </Link>

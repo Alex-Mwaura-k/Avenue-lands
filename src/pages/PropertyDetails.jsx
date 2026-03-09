@@ -99,7 +99,6 @@ const PropertyDetails = () => {
         <meta name="keywords" content={`${property.title}, ${property.location}, land for sale in ${property.location}, Avenue Lands Ventures, ${property.size} plot`} />
         <meta property="og:title" content={`${property.title}`} />
         <meta property="og:description" content={seoDescription} />
-        {/* Grabbing the specific property image so WhatsApp shows the plot! */}
         <meta property="og:image" content={property.img} />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={`https://www.avenuelandsventures.co.ke/property/${property.slug}`} />
