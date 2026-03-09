@@ -17,9 +17,7 @@ const PrivacyPolicy = () => {
     >
       <Helmet>
         <title>Privacy Policy</title>
-
-        {/* This tag tells Google & Bing to IGNORE this page completely */}
-        <meta name="robots" content="noindex" />
+        {/* Removed the noindex tag so search engines can find and validate this page! */}
       </Helmet>
 
       <div className="container-md">
@@ -114,9 +112,57 @@ const PrivacyPolicy = () => {
                 </p>
               </section>
 
+              {/* --- NEW SECTION: Cookies & Analytics --- */}
               <section className="mb-4">
                 <h4 className="fw-bold text-secondary">
-                  5. Data Storage and Security
+                  5. Cookies and Tracking Technologies
+                </h4>
+                <p>
+                  We use cookies and similar tracking technologies, such as
+                  Google Analytics, to track activity on our website and gather
+                  information. This helps us analyze website traffic and improve
+                  your user experience. You can instruct your browser to refuse
+                  all cookies or to indicate when a cookie is being sent.
+                </p>
+              </section>
+
+              {/* --- NEW SECTION: Kenyan DPA Rights --- */}
+              <section className="mb-4">
+                <h4 className="fw-bold text-secondary">
+                  6. Your Data Protection Rights
+                </h4>
+                <p>
+                  In accordance with the Kenya Data Protection Act, you have the
+                  right to:
+                </p>
+                <ul>
+                  <li>
+                    <strong>Access:</strong> Request a copy of the personal data
+                    we hold about you.
+                  </li>
+                  <li>
+                    <strong>Correction:</strong> Request that we correct any
+                    inaccurate or incomplete data.
+                  </li>
+                  <li>
+                    <strong>Erasure:</strong> Request the deletion of your
+                    personal data.
+                  </li>
+                  <li>
+                    <strong>Objection:</strong> Object to our processing of your
+                    personal data, especially for direct marketing.
+                  </li>
+                </ul>
+                <p>
+                  To exercise any of these rights, please contact us using the
+                  details below.
+                </p>
+              </section>
+
+              <section className="mb-4">
+                {/* Number adjusted from 5 to 7 */}
+                <h4 className="fw-bold text-secondary">
+                  7. Data Storage and Security
                 </h4>
                 <p>
                   We have implemented appropriate technical and organizational
@@ -128,7 +174,8 @@ const PrivacyPolicy = () => {
               </section>
 
               <section className="mb-4">
-                <h4 className="fw-bold text-secondary">6. Contact Us</h4>
+                {/* Number adjusted from 6 to 8 */}
+                <h4 className="fw-bold text-secondary">8. Contact Us</h4>
                 <p>
                   If you have questions or comments about this policy, you may
                   email us at{" "}
