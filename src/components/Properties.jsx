@@ -1,9 +1,7 @@
 import { Link } from "react-router-dom";
 import { properties } from "../data/propertiesData";
 
-// ADDED: customData prop to receive filtered results
 const Properties = ({ limit, customData }) => {
-  // LOGIC: Use customData if it exists, otherwise check for limit (Home Page)
   const displayProperties = customData
     ? customData
     : limit
@@ -12,14 +10,12 @@ const Properties = ({ limit, customData }) => {
 
   return (
     <section id="properties" className="container-md mt-2 mb-3">
-      {/* Only show title on Home Page */}
       {limit && !customData && (
         <h1 className="featured-property fw-bold text-dark mb-3">
           Featured <span className="text-stroke-dark">Properties</span>
         </h1>
       )}
 
-      {/* Show "No Results" Message if list is empty */}
       {displayProperties.length === 0 && (
         <div className="text-center py-5">
           <h4 className="text-muted">
@@ -39,11 +35,10 @@ const Properties = ({ limit, customData }) => {
                 <div className="position-relative overflow-hidden">
                   <img
                     src={prop.img}
-                    className="card-img-top property-img"
+                    className="card-img-top property-img object-fit-cover"
                     alt={prop.title}
                     loading="lazy"
-                    width="400"
-                    height="300"
+                    style={{ height: "300px", width: "100%" }}
                   />
                   <span
                     className={`badge position-absolute top-0 end-0 m-2 px-2 py-2 text-white ${
@@ -87,7 +82,6 @@ const Properties = ({ limit, customData }) => {
         ))}
       </div>
 
-      {/* Show View All Button only on Home Page */}
       {limit && !customData && (
         <div className="text-center mt-4">
           <Link to="/properties" className="btn btn-custom-red px-3 py-1">
