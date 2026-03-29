@@ -45,6 +45,7 @@ const Blog = ({ limit, customData }) => {
                     required
                   />
                   <button
+                    aria-label="Subscribe to newsletter"
                     type="submit"
                     className="btn text-white bg-primary-custom rounded-0 px-3"
                   >

@@ -82,6 +82,7 @@ const Navbar = () => {
         {/* TOGGLE BUTTON */}
         <button
           className="navbar-toggler ms-auto"
+          aria-label="Toggle navigation"
           type="button"
           data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasNavbar"
